@@ -4,9 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{title}}</title>
+    {% block head %}
     <link rel="stylesheet" href="/static/css/base.min.css">
+    {% endblock %}
 </head>
 <body>
-    <p>ПРИВЕТ</p>
+    <header class="header">
+        <a class="header__link" href="/">
+            <img class="header__logo" src="/static/img/favicon-32x32.png" alt="Логотип">
+        </a>
+        {% if need_log %}
+        {% if not is_authorized %}
+        <a href="/login">
+            <div class="header__button">
+                <img src="/static/img/login.svg" alt="Логин">
+                <p>Войти</p>
+            </div>
+        </a>
+        {% else %}
+        {% if is_logout %}
+        <a href="/logout">
+            <div class="header__button">
+                <img src="/static/img/logout.svg" alt="Выйти">
+                <p>Выйти</p>
+            </div>
+        </a>
+        {% else %}
+        <a href="/user/profile/{{user_id}}">
+            <div class="header__button">
+                <img src="/static/img/user.svg" alt="профиль">
+                <p>Профиль</p>
+            </div>
+        </a>
+        {% endif %}
+        {% endif %}
+        {% endif %}
+    </header>
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>подвал</p>
+    </footer>
+    {% block js %}
+    {% endblock %}
 </body>
 </html>

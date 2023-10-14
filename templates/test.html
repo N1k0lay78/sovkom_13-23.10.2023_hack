@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main %}
+<p>главная страница</p>
+<p>Привет, {{name}}!</p>
+
+{% for knowledge in knowledges %}
+<p>{{loop.index}}) знаю: {{knowledge}}</p>
+{% endfor %}
+
+{% if is_authorized %}
+<p>Авторизован</p>
+{% elif is_authorized %}
+<p>Авторизован2</p>
+{% else %}
+<p>Не авторизирован</p>
+{% endif %}
+
+{% endblock %}
