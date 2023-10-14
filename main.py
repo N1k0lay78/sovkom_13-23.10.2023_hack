@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request
 
+from data import db_session
 from data.forms import FormDelete
 import config
 
 application = Flask(__name__)
 application.config.from_object(config)
-
+db_session.global_init("db/study.sqlite")
 
 def my_render(filename, **kwargs):
     my_kwargs = {
