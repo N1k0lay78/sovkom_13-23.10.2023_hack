@@ -9,9 +9,8 @@ class Curator(SqlAlchemyBase, UserMixin, SerializerMixin):
     __tablename__ = 'curator'
     id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("user.id"), primary_key=True)
     user = orm.relationship('User', back_populates="curator")
-    name = sqlalchemy.Column(sqlalchemy.String)
-    ava = sqlalchemy.Column(sqlalchemy.String)
-    position = sqlalchemy.Column(sqlalchemy.String)
+
+    position = sqlalchemy.Column(sqlalchemy.String, nullable=False)
 
     def __repr__(self):
-        return f'<Curator> Проф ком {self.user.id} {self.user.email} {self.name}'
+        return f'<Curator> Проф ком {self.user.id} {self.user.email} {self.user.name}'

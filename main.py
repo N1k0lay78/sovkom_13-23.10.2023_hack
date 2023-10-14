@@ -8,6 +8,7 @@ application = Flask(__name__)
 application.config.from_object(config)
 db_session.global_init("db/study.sqlite")
 
+
 def my_render(filename, **kwargs):
     my_kwargs = {
         "need_log": True,

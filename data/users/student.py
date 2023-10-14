@@ -9,9 +9,9 @@ class Student(SqlAlchemyBase, UserMixin, SerializerMixin):
     __tablename__ = 'student'
     id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("user.id"), primary_key=True)
     user = orm.relationship('User', back_populates="student")
-    name = sqlalchemy.Column(sqlalchemy.String)
-    ava = sqlalchemy.Column(sqlalchemy.String)
-    group_id = sqlalchemy.Column(sqlalchemy.Integer)
+
+    is_end_education = sqlalchemy.Column(sqlalchemy.Boolean, default=False)
+    group_id = sqlalchemy.Column(sqlalchemy.Integer)  # TASK1 # TASK2
 
     def __repr__(self):
-        return f'<Student> Студент {self.user.id} {self.user.email} {self.name}'
+        return f'<Student> Студент {self.user.id} {self.user.email} {self.user.name}'

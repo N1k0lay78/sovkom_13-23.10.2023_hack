@@ -9,8 +9,11 @@ from data.db_session import SqlAlchemyBase
 class User(SqlAlchemyBase, UserMixin, SerializerMixin):
     __tablename__ = 'user'
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
-    email = sqlalchemy.Column(sqlalchemy.String, unique=True)
-    hashed_password = sqlalchemy.Column(sqlalchemy.String)
+    email = sqlalchemy.Column(sqlalchemy.String, unique=True, nullable=False)
+    hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+
+    name = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+    ava = sqlalchemy.Column(sqlalchemy.String)
 
     student = orm.relationship('Student', back_populates="user")
     curator = orm.relationship('Curator', back_populates="user")
