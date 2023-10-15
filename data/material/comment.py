@@ -9,8 +9,8 @@ class Comment(SqlAlchemyBase, UserMixin, SerializerMixin):
     __tablename__ = 'comment'
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
 
-    material_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("academic-material.id"))
-    material = orm.relationship('AcademicMaterial')
+    material_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("material.id"))
+    material = orm.relationship('Material')
 
     user_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("user.id"))
     user = orm.relationship('User')
@@ -18,4 +18,4 @@ class Comment(SqlAlchemyBase, UserMixin, SerializerMixin):
     comment = sqlalchemy.Column(sqlalchemy.String, nullable=False)
 
     def __repr__(self):
-        return f'<Comment> Конспект {self.id} {self.material.name} {self.user.name}'
+        return f'<Comment> Комментарий {self.id} {self.material.name} {self.user.name}'

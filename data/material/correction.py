@@ -9,8 +9,8 @@ class Correction(SqlAlchemyBase, UserMixin, SerializerMixin):
     __tablename__ = 'correction'
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
 
-    material_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("academic-material.id"))
-    material = orm.relationship('AcademicMaterial')
+    material_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("material.id"))
+    material = orm.relationship('Material')
 
     user_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("user.id"))
     user = orm.relationship('User')
