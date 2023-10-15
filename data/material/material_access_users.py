@@ -6,8 +6,8 @@ from data.db_session import SqlAlchemyBase
 from sqlalchemy.sql import func
 
 
-class MaterialCreator(SqlAlchemyBase, UserMixin, SerializerMixin):
-    __tablename__ = 'material-creator'
+class MaterialAccessUser(SqlAlchemyBase, UserMixin, SerializerMixin):
+    __tablename__ = 'material-access-user'
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
 
     user_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("user.id"))
@@ -16,7 +16,7 @@ class MaterialCreator(SqlAlchemyBase, UserMixin, SerializerMixin):
     material_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("material.id"))
     material = orm.relationship('Material')
 
-    time_join = sqlalchemy.Column(sqlalchemy.DateTime(timezone=True), server_default=func.now())
+    access_time = sqlalchemy.Column(sqlalchemy.DateTime(timezone=True), server_default=func.now())
 
     def __repr__(self):
-        return f'<MaterialCreator> Создатель материала {self.id} {self.material.name} {self.user.name}'
+        return f'<MaterialAccessUser> Доступ для пользователя к материалу {self.id} {self.material.name} {self.user.name}'
