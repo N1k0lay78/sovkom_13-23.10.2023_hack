@@ -4,6 +4,7 @@ from sqlalchemy import orm
 from sqlalchemy_serializer import SerializerMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from data.db_session import SqlAlchemyBase
+from sqlalchemy.sql import func
 
 
 class User(SqlAlchemyBase, UserMixin, SerializerMixin):
@@ -11,6 +12,7 @@ class User(SqlAlchemyBase, UserMixin, SerializerMixin):
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
     email = sqlalchemy.Column(sqlalchemy.String, unique=True, nullable=False)
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+    time_created = sqlalchemy.Column(sqlalchemy.DateTime(timezone=True), server_default=func.now())
 
     name = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     ava = sqlalchemy.Column(sqlalchemy.String)
