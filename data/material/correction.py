@@ -3,6 +3,7 @@ from flask_login import UserMixin
 from sqlalchemy import orm
 from sqlalchemy_serializer import SerializerMixin
 from data.db_session import SqlAlchemyBase
+from sqlalchemy.sql import func
 
 
 class Correction(SqlAlchemyBase, UserMixin, SerializerMixin):
@@ -16,6 +17,7 @@ class Correction(SqlAlchemyBase, UserMixin, SerializerMixin):
     user = orm.relationship('User')
 
     correction = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+    time_created = sqlalchemy.Column(sqlalchemy.DateTime(timezone=True), server_default=func.now())
 
     def __repr__(self):
         return f'<Correction> Правка {self.id} {self.material.name} {self.user.name}'
