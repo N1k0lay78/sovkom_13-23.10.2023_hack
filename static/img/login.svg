@@ -1,0 +1,10 @@
+<svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="botton 1">
+<rect id="Rectangle 1" x="7" width="15" height="20" rx="2" fill="#2C13C4"/>
+<g id="Vector">
+<path d="M9.07692 5L16 10L9.07692 15M15.0385 10H1H15.0385Z" fill="#2C13C4"/>
+<path d="M9.07692 5L16 10L9.07692 15M15.0385 10H1" stroke="white" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<path id="Vector 1" d="M1 9.435C0.687959 9.435 0.435 9.68796 0.435 10C0.435 10.312 0.687959 10.565 1 10.565V9.435ZM1 10.565H7V9.435H1V10.565Z" fill="#2C13C4"/>
+</g>
+</svg>

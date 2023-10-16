@@ -3,51 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{title}}</title>
+    <title>{{ title }}</title>
     {% block head %}
-    <link rel="stylesheet" href="/static/css/base.min.css">
+        <link rel="stylesheet" href="/static/css/style.min.css">
     {% endblock %}
 </head>
 <body>
-    <header class="header">
-        <a class="header__link" href="/">
-            <img class="header__logo" src="/static/img/favicon-32x32.png" alt="Логотип">
-        </a>
-        {% if need_log %}
-        {% if not is_authorized %}
-        <a href="/login">
-            <div class="header__button">
-                <img src="/static/img/login.svg" alt="Логин">
-                <p>Войти</p>
+<header class="header">
+    <div class="container">
+        <div class="header__wrapper">
+            <div class="header__logo">
+                <img src="static/img/2023-10-15__1_-removebg-preview 2.png" alt="Совкомбанк">
             </div>
-        </a>
-        {% else %}
-        {% if is_logout %}
-        <a href="/logout">
-            <div class="header__button">
-                <img src="/static/img/logout.svg" alt="Выйти">
-                <p>Выйти</p>
+            <div class="header__help">
+                <p>Помощь</p>
             </div>
-        </a>
-        {% else %}
-        <a href="/user/profile/{{user_id}}">
-            <div class="header__button">
-                <img src="/static/img/user.svg" alt="профиль">
-                <p>Профиль</p>
-            </div>
-        </a>
-        {% endif %}
-        {% endif %}
-        {% endif %}
-    </header>
-    <main>
-        {% block main %}
-        {% endblock %}
-    </main>
-    <footer>
-        <p>подвал</p>
-    </footer>
-    {% block js %}
+            {% if need_log %}
+                {% if not is_authorized %}
+                    <a href="/login">
+                        <div class="header__button">
+                            <p>Войти</p>
+                            <img src="/static/img/login.svg" alt="Логин">
+                        </div>
+                    </a>
+                {% else %}
+                    {% if is_logout %}
+                        <a href="/logout">
+                            <div class="header__button">
+                                <img src="/static/img/logout.svg" alt="Выйти">
+                                <p>Выйти</p>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="/user/profile/{{ user_id }}">
+                            <div class="header__button">
+                                <img src="/static/img/user.svg" alt="профиль">
+                                <p>Профиль</p>
+                            </div>
+                        </a>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+            {#                <div class="header__line">#}
+            {#                    <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="2" viewBox="0 0 1200 2" fill="none">#}
+            {#                    <path d="M0 1H1200" stroke="#E5E5E5"/>#}
+            {#                    </svg>#}
+            {#                </div>#}
+        </div>
+    </div>
+
+</header>
+<main>
+    {% block main %}
     {% endblock %}
+</main>
+<footer class="footer">
+    <div class="container">
+        <div class="footer__wrapper">
+            <div class="footer__wrapper__dlyrubezja">
+                <a href="tel:+900000000">890000000</a>
+                <div class="footer__wrapper__dlyrubezja__text">
+                    <p>Для звонков для рубежа(Платно)</p>
+                </div>
+            </div>
+            <div class="footer__wrapper__dlyrussia">
+                <a href="tel:+90000000">890000000</a>
+                <div class="footer__wrapper__dlyrussia__text">
+                    <p>Для звонков по России(Бесплатно)</p>
+                </div>
+            </div>
+            <div class="footer__wrapper__mobver">
+                <a href="">Мобильная версия</a>
+                <div class="footer__wrapper__mobver__text">
+                    <p>Приложение для Iphone и Android</p>
+                </div>
+            </div>
+            <div class="footer__wrapper__social">
+                <a href="">
+                    <img src="static/img/logo-instagram 1.png" alt="">
+                </a>
+                <a href="" style="margin-left: 60px;">
+                    <img src="static/img/logo-vk 1.png" alt="">
+                </a>
+                <a href="" style="margin-left: 60px;">
+                    <img src="static/img/logo-whatsapp 1.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+{% block js %}
+{% endblock %}
 </body>
 </html>
