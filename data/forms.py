@@ -36,5 +36,11 @@ class FormCompanyRegistration(FlaskForm):
 """
 
 
+class FormLogin(FlaskForm):
+    email = StringField("Почта", validators=[DataRequired()])
+    password = PasswordField("Пароль", validators=[Length(8, 16, "Пароль от 8 до 16 символов"), DataRequired()])
+    submit = SubmitField("Войти")
+
+
 class FormDelete(FlaskForm):
     submit = SubmitField("Удалить")
