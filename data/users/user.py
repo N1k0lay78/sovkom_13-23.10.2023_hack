@@ -17,9 +17,12 @@ class User(SqlAlchemyBase, UserMixin, SerializerMixin):
     name = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     ava = sqlalchemy.Column(sqlalchemy.String)
 
-    student = orm.relationship('Student', back_populates="user")
-    curator = orm.relationship('Curator', back_populates="user")
-    academic = orm.relationship('Academic', back_populates="user")
+    type = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+
+    __mapper_args__ = {
+        "polymorphic_identity": "employee",
+        "polymorphic_on": "type",
+    }
 
     def __repr__(self):
         return f'<User> Пользователь {self.id} {self.email}'
