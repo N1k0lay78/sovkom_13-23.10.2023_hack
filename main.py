@@ -23,9 +23,10 @@ def load_user(user_id):
 def my_render(filename, **kwargs):
     my_kwargs = {
         "need_log": True,
-        "is_authorized": False,
+        "is_authorized": current_user.is_authenticated,
         "is_logout": False,
-        "user_id": -1,
+        "user_id": current_user.id if current_user.is_authenticated else -1,
+        "current_user": current_user,
     }
     for key, val in kwargs.items():
         my_kwargs[key] = val
@@ -39,13 +40,11 @@ def login_page():
     if request.method == "POST":
         session = db_session.create_session()
         user = session.query(User).filter(User.email == form.email.data).first()
-        print(user, 123)
         if user and user.check_password(form.password.data):
             login_user(user, remember=True)
-            print(user)
             return redirect("/")
         else:
-            error = "Неверный логин или пароль"
+            error = "Неверная почта или пароль"
     return my_render("login.html", title="Логин", form=form, error=error)
 
 
@@ -58,11 +57,14 @@ def logout():
 
 @application.route("/test")
 def test_page():
-    return my_render("base.html", title="HELLO", name="Данил", knowledges=["JS", "SCSS", "HTML5"])
+    return my_render("test.html", title="HELLO", name="Данил", knowledges=["JS", "SCSS", "HTML5"])
+
 
 @application.route("/base")
 def base():
     return my_render("base.html", title="HELLO", name="Данил", knowledges=["JS", "SCSS", "HTML5"])
+
+
 @application.route("/form", methods=["GET", "POST"])
 def form_page():
     name = "Данил"
