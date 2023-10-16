@@ -60,7 +60,9 @@ def logout():
 def test_page():
     return my_render("base.html", title="HELLO", name="Данил", knowledges=["JS", "SCSS", "HTML5"])
 
-
+@application.route("/base")
+def base():
+    return my_render("base.html", title="HELLO", name="Данил", knowledges=["JS", "SCSS", "HTML5"])
 @application.route("/form", methods=["GET", "POST"])
 def form_page():
     name = "Данил"
