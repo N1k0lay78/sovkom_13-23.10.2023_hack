@@ -1,6 +1,7 @@
 import datetime
 
 from data import db_session
+from data.education.event import Event
 from data.education.lesson import Lesson
 from data.users.academic import Academic
 from data.users.curator import Curator
@@ -97,6 +98,27 @@ for name, desc, academics_ids, time, stud_ids in lessons:
     session.add(new_lesson)
     session.commit()
 
-print(session.query(Lesson).get(1))
+events = [
+    # name, description, academics, time [start_time, duration], students
+    ["хакатон", "мероприятие для программистов", [3], [datetime.datetime.strptime("27.10.2023", "%d.%m.%Y"), 60], [1]],
+]
+
+for name, desc, academics_ids, time, stud_ids in events:
+    new_event = Event()
+    new_event.name = name
+    new_event.about = desc
+    new_event.start_time = time[0]
+    new_event.duration = time[1]
+
+    for ind in academics_ids:
+        new_event.academics.append(session.query(Academic).get(ind))
+
+    for ind in stud_ids:
+        new_event.students.append(session.query(Student).get(ind))
+
+    session.add(new_event)
+    session.commit()
+
+print(session.query(Event).get(1))
 
 session.close()

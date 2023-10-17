@@ -1,6 +1,7 @@
 import sqlalchemy
 from sqlalchemy import orm
 
+from data.education.event import academic_event
 from data.education.lesson import academic_lesson
 from data.users.user import User
 
@@ -13,6 +14,7 @@ class Academic(User):
     self_promotion = sqlalchemy.Column(sqlalchemy.String)
 
     lessons = orm.relationship("Lesson", secondary=academic_lesson)
+    events = orm.relationship("Event", secondary=academic_event)
 
     def __repr__(self):
         return f'<Academic> Препод {self.id} {self.email} {self.name}'
