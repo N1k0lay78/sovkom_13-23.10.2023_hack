@@ -16,5 +16,9 @@ class Student(User):
 
     is_end_education = sqlalchemy.Column(sqlalchemy.Boolean, default=False, nullable=False, server_default='f')
 
+    __mapper_args__ = {
+        "polymorphic_identity": "student",
+    }
+
     def __repr__(self):
         return f'<Student> Студент {self.id} {self.email} {self.name}'

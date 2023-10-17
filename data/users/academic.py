@@ -16,5 +16,9 @@ class Academic(User):
     lessons = orm.relationship("Lesson", secondary=academic_lesson)
     events = orm.relationship("Event", secondary=academic_event)
 
+    __mapper_args__ = {
+        "polymorphic_identity": "academic",
+    }
+
     def __repr__(self):
         return f'<Academic> Препод {self.id} {self.email} {self.name}'
