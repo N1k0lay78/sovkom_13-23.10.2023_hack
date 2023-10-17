@@ -12,6 +12,7 @@ class Student(User):
 
     groups = orm.relationship("Group", secondary=student_group)
     events = orm.relationship("Event", secondary=student_event)
+    assessments = orm.relationship("Assessment")
 
     is_end_education = sqlalchemy.Column(sqlalchemy.Boolean, default=False, nullable=False, server_default='f')
 

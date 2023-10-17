@@ -32,6 +32,7 @@ class Lesson(SqlAlchemyBase, UserMixin, SerializerMixin):
 
     academics = orm.relationship("Academic", secondary=academic_lesson)
     groups = orm.relationship("Group", secondary=group_lesson)
+    assessments = orm.relationship("Assessment")
 
     def __repr__(self):
-        return f'<Lesson> Занятие {self.id} {self.name} {self.academics}:{self.groups}'
+        return f'<Lesson> Занятие {self.id} {self.name} {self.academics}:{self.groups}:{self.assessments}'

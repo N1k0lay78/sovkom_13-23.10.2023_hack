@@ -5,4 +5,4 @@
 
 
 from data.users import user, student, academic, curator, group
-from data.education import lesson, event
+from data.education import lesson, event, assessments

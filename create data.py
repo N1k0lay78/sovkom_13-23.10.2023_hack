@@ -1,6 +1,7 @@
 import datetime
 
 from data import db_session
+from data.education.assessments import Assessment
 from data.education.event import Event
 from data.education.lesson import Lesson
 from data.users.academic import Academic
@@ -79,9 +80,10 @@ for name, desc, curator_id, start, end, stud_ids in groups:
 lessons = [
     # name, description, academics, time [day 1-21, time HH:MM, count], groups
     ["программирование", "группа программистов", [3], [1, "14:00", 10], [1]],
+    ["моделирование", "группа инженеров", [3], [1, "15:40", 10], [1]],
 ]
 
-for name, desc, academics_ids, time, stud_ids in lessons:
+for name, desc, academics_ids, time, group_ids in lessons:
     new_lesson = Lesson()
     new_lesson.name = name
     new_lesson.about = desc
@@ -92,11 +94,22 @@ for name, desc, academics_ids, time, stud_ids in lessons:
     for ind in academics_ids:
         new_lesson.academics.append(session.query(Academic).get(ind))
 
-    for ind in stud_ids:
+    for ind in group_ids:
         new_lesson.groups.append(session.query(Group).get(ind))
 
     session.add(new_lesson)
+
+    for group in new_lesson.groups:
+        for stud in group.students:
+            for i in range(time[2]):
+                new_assessment = Assessment()
+                new_assessment.student_id = stud.id
+                new_assessment.lesson_id = new_lesson.id
+                new_assessment.num = i + 1
+                session.add(new_assessment)
+
     session.commit()
+    # print(session.query(Assessment).filter(Assessment.student_id == 1).filter(Assessment.lesson_id == 1).all())
 
 events = [
     # name, description, academics, time [start_time, duration], students
@@ -119,6 +132,5 @@ for name, desc, academics_ids, time, stud_ids in events:
     session.add(new_event)
     session.commit()
 
-print(session.query(Event).get(1))
 
 session.close()
