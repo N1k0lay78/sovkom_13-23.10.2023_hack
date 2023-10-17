@@ -4,4 +4,4 @@
 # from data.questionnaires import join, help
 
 
-from data.users import user, student, academic, curator
+from data.users import user, student, academic, curator, group

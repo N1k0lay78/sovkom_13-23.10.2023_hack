@@ -1,12 +1,16 @@
 import sqlalchemy
-from flask_login import UserMixin
 from sqlalchemy import orm
-from sqlalchemy_serializer import SerializerMixin
-from data.db_session import SqlAlchemyBase
 from sqlalchemy.sql import func
+from data.db_session import SqlAlchemyBase
+
+student_group = sqlalchemy.Table(
+    'student-group', SqlAlchemyBase.metadata,
+    sqlalchemy.Column('student_id', sqlalchemy.Integer, sqlalchemy.ForeignKey('student.id')),
+    sqlalchemy.Column('group_id', sqlalchemy.Integer, sqlalchemy.ForeignKey('group.id'))
+)
 
 
-class Group(SqlAlchemyBase, UserMixin, SerializerMixin):
+class Group(SqlAlchemyBase):
     __tablename__ = 'group'
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
 
@@ -14,5 +18,13 @@ class Group(SqlAlchemyBase, UserMixin, SerializerMixin):
     about = sqlalchemy.Column(sqlalchemy.String)
     time_created = sqlalchemy.Column(sqlalchemy.DateTime(timezone=True), server_default=func.now())
 
+    students = orm.relationship("Student", secondary=student_group)
+
     curator_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("curator.id"))
-    curator = orm.relationship('curator')
+    curator = orm.relationship('Curator')
+
+    start_education_time = sqlalchemy.Column(sqlalchemy.DateTime(timezone=True))
+    end_education_time = sqlalchemy.Column(sqlalchemy.DateTime(timezone=True))
+
+    def __repr__(self):
+        return f'<Group> Группа {self.id} {self.name} {self.students}'
