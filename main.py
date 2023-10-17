@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from flask_login import LoginManager, logout_user, login_required, login_user, current_user
+from flask_wtf.csrf import CSRFProtect
 from data import db_session
 from data.forms import FormDelete, FormLogin
 import config
@@ -13,6 +14,8 @@ application.config.from_object(config)
 db_session.global_init("db/study.sqlite")
 login_manager = LoginManager()
 login_manager.init_app(application)
+csrf = CSRFProtect(application)
+csrf.init_app(application)
 
 
 @login_manager.user_loader
