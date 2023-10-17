@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block main %}
+{% if user.type == "student" %}
+<p>Вы студент</p>
+<p>{{student}}</p>
+{% elif user.type == "academic" %}
+<p>Вы преподаватель</p>
+<p>{{academic}}</p>
+{% elif user.type == "curator" %}
+<p>Вы куратор</p>
+<p>{{curator}}</p>
+{% else %}
+<p>Вам надо авторизоваться</p>
+<a href="/login">Войти</a>
+{% endif %}
+{% endblock %}
