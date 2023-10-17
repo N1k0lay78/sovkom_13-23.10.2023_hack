@@ -2,6 +2,7 @@ import sqlalchemy
 from sqlalchemy import orm
 from sqlalchemy.sql import func
 from data.db_session import SqlAlchemyBase
+from data.education.lesson import group_lesson
 
 student_group = sqlalchemy.Table(
     'student-group', SqlAlchemyBase.metadata,
@@ -18,6 +19,7 @@ class Group(SqlAlchemyBase):
     about = sqlalchemy.Column(sqlalchemy.String)
     time_created = sqlalchemy.Column(sqlalchemy.DateTime(timezone=True), server_default=func.now())
 
+    lessons = orm.relationship("Lesson", secondary=group_lesson)
     students = orm.relationship("Student", secondary=student_group)
 
     curator_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("curator.id"))

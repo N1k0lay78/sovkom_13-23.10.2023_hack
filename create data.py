@@ -1,6 +1,7 @@
 import datetime
 
 from data import db_session
+from data.education.lesson import Lesson
 from data.users.academic import Academic
 from data.users.curator import Curator
 from data.users.group import Group
@@ -73,5 +74,29 @@ for name, desc, curator_id, start, end, stud_ids in groups:
 
     session.add(new_group)
     session.commit()
+
+lessons = [
+    # name, description, academics, time [day 1-21, time HH:MM, count], groups
+    ["программирование", "группа программистов", [3], [1, "14:00", 10], [1]],
+]
+
+for name, desc, academics_ids, time, stud_ids in lessons:
+    new_lesson = Lesson()
+    new_lesson.name = name
+    new_lesson.about = desc
+    new_lesson.day_week = time[0]
+    new_lesson.time = time[1]
+    new_lesson.count = time[2]
+
+    for ind in academics_ids:
+        new_lesson.academics.append(session.query(Academic).get(ind))
+
+    for ind in stud_ids:
+        new_lesson.groups.append(session.query(Group).get(ind))
+
+    session.add(new_lesson)
+    session.commit()
+
+print(session.query(Lesson).get(1))
 
 session.close()
