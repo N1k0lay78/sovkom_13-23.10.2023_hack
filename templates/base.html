@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ title }}</title>
@@ -9,6 +11,47 @@
     {% endblock %}
 </head>
 <body>
+<nav class="nav">
+    <div class="container__nav">
+        <div class="nav__wrapper">
+            <div class="nav__wrapper__logo"><img src="static/img/2023-10-15__1_-removebg-preview 2.png" alt=""
+                                                 class="nav__wrapper__logo__img"></div>
+
+            <ul class="nav__wrapper__menu__ul">
+                <li class="nav__wrapper__menu__ul__li"><img src="static/img/home.svg" alt=""><a href="#"
+                                                                                                class="nav__wrapper__menu__ul__li__a">Информация</a>
+                </li>
+                <li class="nav__wrapper__menu__ul__li"><img src="static/img/book.svg" alt=""><a href="#"
+                                                                                                class="nav__wrapper__menu__ul__li__a">Инструкция
+                    пользователя</a></li>
+                <li class="nav__wrapper__menu__ul__li"><img src="static/img/football-outline 1.svg" alt=""><a
+                        href="#" class="nav__wrapper__menu__ul__li__a">Олимпиада Совкомбанк</a></li>
+                <li class="nav__wrapper__menu__ul__li"><img src="static/img/globe-outline 1.svg" alt=""><a href="#"
+                                                                                                           class="nav__wrapper__menu__ul__li__a">Единый
+                    деконат</a></li>
+                <li class="nav__wrapper__menu__ul__li"><img src="static/img/school-outline 1.svg" alt=""><a href="#"
+                                                                                                            class="nav__wrapper__menu__ul__li__a">Аттестации</a>
+                </li>
+                <li class="nav__wrapper__menu__ul__li"><img src="static/img/calendar-number-outline 1.svg" alt=""><a
+                        href="#" class="nav__wrapper__menu__ul__li__a">Расписание</a></li>
+                <li class="nav__wrapper__menu__ul__li"><img src="static/img/desktop-outline 1.svg" alt=""><a
+                        href="#" class="nav__wrapper__menu__ul__li__a">Дистанционное обучение</a></li>
+                <li class="nav__wrapper__menu__ul__li"><img src="static/img/newspaper-outline 1.svg" alt=""><a
+                        href="#" class="nav__wrapper__menu__ul__li__a">Справочные системы</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container__nav__button">
+        <button class="nav__button"><img src="static/img/list-outline 1.svg" alt=""></button>
+    </div>
+    <script>
+        $('.nav__button').on('click', function (e) {
+             e.preventDefault();
+            $('.nav').toggleClass('nav__active');
+            $('.container').toggleClass('container__active');
+        })
+    </script>
+</nav>
 <header class="header">
     <div class="container">
         <div class="header__wrapper">
