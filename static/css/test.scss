@@ -1,0 +1,18 @@
+@import "base";
+@import "style";
+
+.test {
+  min-height: 100vh;
+  margin: 20px 0;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+
+  & p, & a {
+    padding-bottom: 7px;
+  }
+
+  & a {
+    text-decoration: underline;
+  }
+}
