@@ -44,4 +44,5 @@ if __name__ == '__main__':
     print(f"http://{host}:5000/logout")
     print(f"http://{host}:5000/test")
     print(f"http://{host}:5000/api/get_lessons/1")
+    print(f"http://{host}:5000/api/get_assessments/1/1")
     application.run(host=host, port=5000)
