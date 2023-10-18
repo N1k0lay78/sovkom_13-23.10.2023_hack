@@ -4,6 +4,7 @@ from flask_wtf.csrf import CSRFProtect
 from data import db_session
 import config
 from data.users.user import User
+from views.api import api_links
 from views.index import index_pages
 from views.test import test_pages
 
@@ -34,11 +35,13 @@ csrf.init_app(application)
 # pages
 application.register_blueprint(index_pages)
 application.register_blueprint(test_pages, url_prefix='/test')
+application.register_blueprint(api_links, url_prefix='/api')
 
 if __name__ == '__main__':
-    host="0.0.0.0"
-    host="192.168.43.33"
+    host="127.0.0.1"
+    # host="192.168.43.33"
     print(f"http://{host}:5000/login")
     print(f"http://{host}:5000/logout")
     print(f"http://{host}:5000/test")
+    print(f"http://{host}:5000/api/get_lessons/1")
     application.run(host=host, port=5000)
