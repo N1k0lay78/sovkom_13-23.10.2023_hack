@@ -60,6 +60,12 @@ def test_page():
     return my_render("test.html", title="HELLO", name="Данил", knowledges=["JS", "SCSS", "HTML5"])
 
 
+@application.route("/test2")
+def test2_page():
+    return my_render("test_base.html", title="HELLO", name="Данил", knowledges=["JS", "SCSS", "HTML5"])
+
+
+
 @application.route("/base")
 def base():
     return my_render("base.html", title="HELLO", name="Данил", knowledges=["JS", "SCSS", "HTML5"])

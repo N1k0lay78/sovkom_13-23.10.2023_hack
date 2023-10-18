@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Montserrat sans-serif;
+  font-size: 18px;
+}
+
+.aligner {
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+}
+
+.navigation {
+  width: 250px;
+  min-height: 100%;
+  background: grey;
+  font-size: 21px;
+  margin-left: -250px;
+  transition: margin-left 0.3s ease;
+}
+.navigation.active {
+  margin-left: 0;
+}
+.navigation__wrapper {
+  padding: 60px 10px;
+}
+.navigation__element {
+  padding: 5px 20px;
+}
+.navigation__element a {
+  text-decoration: none;
+  color: black !important;
+}
+
+.spoiler__list {
+  display: none;
+  margin-top: 5px;
+}
+.spoiler__list.active {
+  display: block;
+}
+.spoiler__element {
+  list-style: none;
+  padding: 5px 20px;
+}
+.spoiler__element a {
+  text-decoration: none;
+  color: black !important;
+}
+
+.content {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.container {
+  padding: 0 10px;
+}
+
+.header {
+  border-bottom: 1px solid black;
+}
+.header__wrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.header__left {
+  display: flex;
+  align-items: center;
+}
+.header__right {
+  display: flex;
+  align-items: center;
+}
+.header__right a {
+  font-size: 21px;
+  padding-bottom: 10px;
+}
+.header__burger {
+  font-size: 40px;
+  padding-bottom: 10px;
+  margin-right: 10px;
+}
+
+main {
+  height: calc(100vh - 68px);
+}
+
+.footer {
+  background: black;
+  color: white;
+}
+.footer__wrapper {
+  width: 100%;
+  padding: 20px 0;
+}
+.footer__text {
+  width: 100%;
+  text-align: center;
+}
+
+section {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.schedule__title {
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 15px;
+}
+
+.timetable {
+  width: 100%;
+  border: 1px solid black;
+}
+.timetable__element {
+  width: 100%;
+}
+.timetable__element + .timetable__element {
+  border-top: 1px solid black;
+}
+.timetable__day {
+  padding: 5px 20px;
+  background: lightgray;
+}
+.timetable__schedule {
+  display: none;
+  padding: 10px 10px 15px 10px;
+}
+.timetable__schedule.active {
+  display: block;
+}
+.timetable__lesson {
+  list-style: none;
+}
+.timetable__lesson + .timetable__lesson {
+  padding-top: 5px;
+}
+
+/*# sourceMappingURL=test.css.map */
