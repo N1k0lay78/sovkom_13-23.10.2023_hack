@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/test.min.css">
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="test">
+            <p>главная страница</p>
+
+            {% if is_authentificated %}
+                <a href="/test/profile/">Расписание</a>
+            {% endif %}
+
+            {% if type in ["student", "academic"] %}
+                <a href="/test/schedule/">Расписание</a>
+            {% else %}
+                <a href="/login">Войдите как студент или как преподаватель, что бы открыть расписание</a>
+            {% endif %}
+
+            <a href="/test/form">форма</a>
+            <a href="/test/base">базовый шаблон</a>
+        </div>
+    </div>
+{% endblock %}
