@@ -65,7 +65,8 @@ body {
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 100% */
+  line-height: 20px;
+  /* 100% */
   width: 90px;
   height: 20px;
   margin-top: 35px;
@@ -78,7 +79,8 @@ body {
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 100% */
+  line-height: 20px;
+  /* 100% */
   width: 94px;
   height: 20px;
   margin-top: 35px;
@@ -111,7 +113,8 @@ a {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28.5px; /* 178.125% */
+  line-height: 28.5px;
+  /* 178.125% */
   margin-left: 70px;
 }
 .footer__wrapper__dlyrussia {
@@ -120,7 +123,8 @@ a {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28.5px; /* 178.125% */
+  line-height: 28.5px;
+  /* 178.125% */
   margin-left: 100px;
 }
 .footer__wrapper__mobver {
@@ -129,7 +133,8 @@ a {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28.5px; /* 178.125% */
+  line-height: 28.5px;
+  /* 178.125% */
   margin-left: 100px;
 }
 

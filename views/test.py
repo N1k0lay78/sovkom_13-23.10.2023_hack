@@ -21,6 +21,13 @@ def test_base_page():
     return my_render("/test/base.html", title="HELLO")
 
 
+@test_pages.route("/tabel/")
+def test_tabel_page():
+    return my_render("/test/tabel.html", title="Таблица успеваемости")
+
+
+
+
 @test_pages.route("/form/", methods=["GET", "POST"])
 def form_page():
     name = "Данил"

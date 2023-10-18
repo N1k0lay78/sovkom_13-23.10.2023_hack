@@ -31,3 +31,8 @@ def login_page():
 def logout():
     logout_user()
     return redirect("/")
+
+
+@index_pages.route("/")
+def main_page():
+    return redirect("/test")
