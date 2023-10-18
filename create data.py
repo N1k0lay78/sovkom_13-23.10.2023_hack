@@ -79,17 +79,19 @@ for name, desc, curator_id, start, end, stud_ids in groups:
 
 lessons = [
     # name, description, academics, time [day 1-21, time HH:MM, count], groups
-    ["программирование", "группа программистов", [3], [1, "14:00", 10], [1]],
-    ["моделирование", "группа инженеров", [3], [1, "15:40", 10], [1]],
+    ["инжиниринг", "группа инженеров", [3], [1, "17:10", 10], [1], "У 115"],
+    ["программирование", "группа программистов", [3], [1, "14:00", 10], [1], "У 115"],
+    ["моделирование", "группа инженеров", [3], [1, "15:40", 10], [1], "У 115"],
 ]
 
-for name, desc, academics_ids, time, group_ids in lessons:
+for name, desc, academics_ids, time, group_ids, auditory in lessons:
     new_lesson = Lesson()
     new_lesson.name = name
     new_lesson.about = desc
     new_lesson.day_week = time[0]
     new_lesson.time = time[1]
     new_lesson.count = time[2]
+    new_lesson.auditory = auditory
 
     for ind in academics_ids:
         new_lesson.academics.append(session.query(Academic).get(ind))

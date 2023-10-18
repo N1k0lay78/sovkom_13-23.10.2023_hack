@@ -27,6 +27,7 @@ class Lesson(SqlAlchemyBase, UserMixin, SerializerMixin):
 
     day_week = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)  # day from 1 to 21 (2 week up and down and all weeks)
     time = sqlalchemy.Column(sqlalchemy.String, nullable=False)  # HH:MM
+    auditory = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     count = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)
     # constant duration
 
