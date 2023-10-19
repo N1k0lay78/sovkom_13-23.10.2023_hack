@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block main %}
+<form class="log__form" action="" method="post" enctype=multipart/form-data>
+    <p class="log__title">UI kit form</p>
+
+    {{ form.hidden_tag() }}
+
+    {{ form.text_input.label(class="") }}<br>
+    {{ form.text_input(class="") }}<br>
+    {% for error in form.text_input.errors %}
+    <div class="" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+
+    {{ form.text_area.label(class="") }}<br>
+    {{ form.text_area(class="") }}<br>
+    {% for error in form.text_area.errors %}
+    <div class="" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+
+    {{ form.select_field.label(class="") }}<br>
+    {{ form.select_field(class="") }}<br>
+    {% for error in form.select_field.errors %}
+    <div class="" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+
+    {{ form.data_field.label(class="") }}<br>
+    {{ form.data_field(class="") }}<br>
+    {% for error in form.data_field.errors %}
+    <div class="" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+
+    {{ form.radio_field.label(class="") }}<br>
+    {{ form.radio_field(class="") }}<br>
+    {% for error in form.radio_field.errors %}
+    <div class="" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+
+    {{ form.file_field.label(class="") }}<br>
+    {{ form.file_field(class="") }}<br>
+    {% for error in form.file_field.errors %}
+    <div class="" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+
+    {{ form.image_field.label(class="") }}<br>
+    {{ form.image_field(class="") }}<br>
+    {% for error in form.image_field.errors %}
+    <div class="" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+
+    {{ form.password.label(class="") }}<br>
+    {{ form.password(class="") }}<br>
+    {% for error in form.password.errors %}
+    <div class="" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+
+    {% if error %}
+    <p class="">{{error}}</p>
+    {% endif %}
+    
+    <div class="">
+        {{ form.cancel(type="button", class="") }}
+        {{ form.submit(type="submit", class="") }}
+    </div>
+</form>
+{% endblock %}
