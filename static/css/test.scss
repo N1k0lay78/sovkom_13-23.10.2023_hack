@@ -116,6 +116,8 @@ main {
   &__wrapper {
     width: 100%;
     padding: 20px 0;
+    display: none;
+
   }
 
   &__text {
@@ -138,11 +140,23 @@ section {
   }
 }
 
-.timetable {
+.timetable{
   width: 100%;
   border: 1px solid black;
 
-  &__element {
+  &__wrapper{
+    display:none;
+
+
+  }
+
+  .timetable__wrapper.active{
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  &__element_1 {
     width: 100%;
 
     & + & {
@@ -155,16 +169,31 @@ section {
     background: lightgray;
   }
 
-  &__schedule {
-    display: none;
-    padding: 10px 10px 15px 10px;
-    &.active {
-      display: block;
-    }
-  }
+
 
   &__lesson {
     list-style: none;
+    & + & {
+      padding-top: 5px;
+    }
+  }
+  &__academic {
+    list-style: none;
+
+    & + & {
+      padding-top: 5px;
+    }
+  }
+  &__academic {
+    list-style: none;
+
+    & + & {
+      padding-top: 5px;
+    }
+  }
+  &__cabinet {
+    list-style: none;
+
     & + & {
       padding-top: 5px;
     }

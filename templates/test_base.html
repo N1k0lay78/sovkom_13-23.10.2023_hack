@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Title</title>
     <link rel="stylesheet" href="/static/css/test.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="aligner">
@@ -51,18 +53,41 @@
             </div>
         </header>
         <main>
-            <section class="schedule">
+            <section class="schedule"> <!-- Начало расписания -->
                 <div class="container">
                     <p class="schedule__title">Расписание группы 20213</p>
                     <ul class="timetable">
-                        <li class="timetable__element">
+                        <li class="timetable__element_1">
                             <p class="timetable__day">Понедельник</p>
-                            <ul class="timetable__schedule">
-                                <li class="timetable__lesson">08:30 Математика</li>
-                                <li class="timetable__lesson">10:10 Физика</li>
-                                <li class="timetable__lesson">11:50 Теор. Мех</li>
-                            </ul>
+                            <div class="timetable__wrapper">
+                                <ul class="timetable__class">
+                                    <li class="timetable__time">08:30</li>
+                                    <li class="timetable__time">10:10</li>
+                                    <li class="timetable__time">11:50</li>
+                                </ul>
+                                <ul class="timetable__class">
+                                    <li class="timetable__lesson">Математика</li>
+                                    <li class="timetable__lesson">Физика</li>
+                                    <li class="timetable__lesson">Теор. Мех</li>
+                                </ul>
+                                <ul class="timetable__class">
+                                    <li class="timetable__academic">Нина</li>
+                                    <li class="timetable__academic">Брага</li>
+                                    <li class="timetable__academic">Тимофей</li>
+                                </ul>
+                                <ul class="timetable__class">
+                                    <li class="timetable__cabinet">10</li>
+                                    <li class="timetable__cabinet">123</li>
+                                    <li class="timetable__cabinet">как ваы ы</li>
+                                </ul>
+                            </div>
                         </li>
+                        <script>
+                            $('.timetable__element_1').on('click', function (e) {
+
+                            $('.timetable__wrapper').toggleClass('timetable__wrapper.active');
+                        })
+                        </script>
                         <li class="timetable__element">
                             <p class="timetable__day">Вторник</p>
                             <ul class="timetable__schedule">
@@ -73,7 +98,7 @@
                         </li>
                     </ul>
                 </div>
-            </section>
+            </section> <!-- Конец расписания -->
         </main>
         <footer class="footer">
             <div class="container">

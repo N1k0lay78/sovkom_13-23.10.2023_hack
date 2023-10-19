@@ -100,6 +100,7 @@ main {
 .footer__wrapper {
   width: 100%;
   padding: 20px 0;
+  display: none;
 }
 .footer__text {
   width: 100%;
@@ -122,27 +123,45 @@ section {
   width: 100%;
   border: 1px solid black;
 }
-.timetable__element {
+.timetable__wrapper {
+  display: none;
+}
+.timetable .timetable__wrapper.active {
+  display: flex;
+  justify-content: space-between;
+}
+.timetable__element_1 {
   width: 100%;
 }
-.timetable__element + .timetable__element {
+.timetable__element_1 + .timetable__element_1 {
   border-top: 1px solid black;
 }
 .timetable__day {
   padding: 5px 20px;
   background: lightgray;
 }
-.timetable__schedule {
-  display: none;
-  padding: 10px 10px 15px 10px;
-}
-.timetable__schedule.active {
-  display: block;
-}
 .timetable__lesson {
   list-style: none;
 }
 .timetable__lesson + .timetable__lesson {
+  padding-top: 5px;
+}
+.timetable__academic {
+  list-style: none;
+}
+.timetable__academic + .timetable__academic {
+  padding-top: 5px;
+}
+.timetable__academic {
+  list-style: none;
+}
+.timetable__academic + .timetable__academic {
+  padding-top: 5px;
+}
+.timetable__cabinet {
+  list-style: none;
+}
+.timetable__cabinet + .timetable__cabinet {
   padding-top: 5px;
 }
 

@@ -27,3 +27,9 @@ let days = document.getElementsByClassName("timetable__day")
 for (let i=0; i<days.length; i++) {
     days[i].addEventListener('click', on_click_day)
 }
+
+  $('.timetable__element_1').on('click', function (e) {
+
+            $('.timetable__wrapper').toggleClass('timetable__wrapper__active');
+        })
+
