@@ -157,6 +157,14 @@ body {
 .nav__wrapper__menu__ul__li__inside__ul {
   height: 0;
   display: none;
+  animation-name: close;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  height: 0;
 }
 .nav__wrapper__menu__ul__li__inside__ul__active {
   animation-name: open;
@@ -170,6 +178,38 @@ body {
   height: 0;
 }
 
+@keyframes close {
+  100% {
+    display: none;
+    height: 0;
+    transform: translateY(-150px);
+    opacity: 0;
+  }
+  95% {
+    display: none;
+    opacity: 0;
+    height: 0;
+    transform: translateY(-150px);
+  }
+  50% {
+    display: block;
+    opacity: 0;
+    height: 75px;
+    transform: translateY(-75px);
+  }
+  5% {
+    display: block;
+    transform: translateY(0);
+    height: 145px;
+    opacity: 0;
+  }
+  0% {
+    display: block;
+    transform: translateY(0);
+    height: 150px;
+    opacity: 1;
+  }
+}
 @keyframes open {
   0% {
     display: block;
@@ -191,7 +231,16 @@ body {
   }
 }
 .nav__wrapper__menu__ul__li__inside__ul_1 {
+  height: 0;
   display: none;
+  animation-name: close;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  height: 0;
 }
 .nav__wrapper__menu__ul__li__inside__ul_1__active_1 {
   animation-name: open;
@@ -206,7 +255,16 @@ body {
 }
 
 .nav__wrapper__menu__ul__li__inside__ul_2 {
+  height: 0;
   display: none;
+  animation-name: close;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  height: 0;
 }
 .nav__wrapper__menu__ul__li__inside__ul_2__active_2 {
   animation-name: open;
@@ -221,7 +279,16 @@ body {
 }
 
 .nav__wrapper__menu__ul__li__inside__ul_3 {
+  height: 0;
   display: none;
+  animation-name: close;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  height: 0;
 }
 .nav__wrapper__menu__ul__li__inside__ul_3__active_3 {
   animation-name: open;
@@ -236,7 +303,16 @@ body {
 }
 
 .nav__wrapper__menu__ul__li__inside__ul_4 {
+  height: 0;
   display: none;
+  animation-name: close;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  height: 0;
 }
 .nav__wrapper__menu__ul__li__inside__ul_4__active_4 {
   animation-name: open;
@@ -251,7 +327,16 @@ body {
 }
 
 .nav__wrapper__menu__ul__li__inside__ul_5 {
+  height: 0;
   display: none;
+  animation-name: close;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  height: 0;
 }
 .nav__wrapper__menu__ul__li__inside__ul_5__active_5 {
   animation-name: open;
@@ -266,7 +351,16 @@ body {
 }
 
 .nav__wrapper__menu__ul__li__inside__ul_6 {
+  height: 0;
   display: none;
+  animation-name: close;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  height: 0;
 }
 .nav__wrapper__menu__ul__li__inside__ul_6__active_6 {
   animation-name: open;
@@ -281,7 +375,16 @@ body {
 }
 
 .nav__wrapper__menu__ul__li__inside__ul_7 {
+  height: 0;
   display: none;
+  animation-name: close;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  height: 0;
 }
 .nav__wrapper__menu__ul__li__inside__ul_7__active_7 {
   animation-name: open;
