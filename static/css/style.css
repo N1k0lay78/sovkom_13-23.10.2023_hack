@@ -82,23 +82,6 @@ body {
   width: 237px;
 }
 
-summary {
-  display: inline-block;
-  padding-left: 10px;
-  padding-bottom: 5px;
-  cursor: pointer;
-  outline: 0;
-  transition: color 0.12s;
-  -webkit-transition: color 0.12s;
-  margin-right: 10px;
-}
-summary::-moz-list-bullet {
-  list-style-type: none;
-}
-summary:hover {
-  color: #d06c6c;
-}
-
 .nav__wrapper {
   height: 100vh;
   background: #D9D9D9;
@@ -110,7 +93,32 @@ summary:hover {
 .nav__wrapper__menu__ul {
   margin-top: 82px;
 }
-.nav__wrapper__menu__ul__li {
+.nav__wrapper__menu__ul__li, .nav__wrapper__menu__ul__li_1, .nav__wrapper__menu__ul__li_2, .nav__wrapper__menu__ul__li_3, .nav__wrapper__menu__ul__li_4, .nav__wrapper__menu__ul__li_5, .nav__wrapper__menu__ul__li_6, .nav__wrapper__menu__ul__li_7 {
+  z-index: 1;
+  transition: 0.5s;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-left: 25px;
+  color: #000;
+  font-family: Montserrat;
+  font-size: 10.607px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 27.286px; /* 257.241% */
+}
+.nav__wrapper__menu__ul__li__wrapper, .nav__wrapper__menu__ul__li__wrapper_1, .nav__wrapper__menu__ul__li__wrapper_2, .nav__wrapper__menu__ul__li__wrapper_3, .nav__wrapper__menu__ul__li__wrapper_4, .nav__wrapper__menu__ul__li__wrapper_5, .nav__wrapper__menu__ul__li__wrapper_6, .nav__wrapper__menu__ul__li__wrapper_7, .nav__wrapper__menu__ul__li_1__wrapper, .nav__wrapper__menu__ul__li_1__wrapper_1, .nav__wrapper__menu__ul__li_1__wrapper_2, .nav__wrapper__menu__ul__li_1__wrapper_3, .nav__wrapper__menu__ul__li_1__wrapper_4, .nav__wrapper__menu__ul__li_1__wrapper_5, .nav__wrapper__menu__ul__li_1__wrapper_6, .nav__wrapper__menu__ul__li_1__wrapper_7, .nav__wrapper__menu__ul__li_2__wrapper, .nav__wrapper__menu__ul__li_2__wrapper_1, .nav__wrapper__menu__ul__li_2__wrapper_2, .nav__wrapper__menu__ul__li_2__wrapper_3, .nav__wrapper__menu__ul__li_2__wrapper_4, .nav__wrapper__menu__ul__li_2__wrapper_5, .nav__wrapper__menu__ul__li_2__wrapper_6, .nav__wrapper__menu__ul__li_2__wrapper_7, .nav__wrapper__menu__ul__li_3__wrapper, .nav__wrapper__menu__ul__li_3__wrapper_1, .nav__wrapper__menu__ul__li_3__wrapper_2, .nav__wrapper__menu__ul__li_3__wrapper_3, .nav__wrapper__menu__ul__li_3__wrapper_4, .nav__wrapper__menu__ul__li_3__wrapper_5, .nav__wrapper__menu__ul__li_3__wrapper_6, .nav__wrapper__menu__ul__li_3__wrapper_7, .nav__wrapper__menu__ul__li_4__wrapper, .nav__wrapper__menu__ul__li_4__wrapper_1, .nav__wrapper__menu__ul__li_4__wrapper_2, .nav__wrapper__menu__ul__li_4__wrapper_3, .nav__wrapper__menu__ul__li_4__wrapper_4, .nav__wrapper__menu__ul__li_4__wrapper_5, .nav__wrapper__menu__ul__li_4__wrapper_6, .nav__wrapper__menu__ul__li_4__wrapper_7, .nav__wrapper__menu__ul__li_5__wrapper, .nav__wrapper__menu__ul__li_5__wrapper_1, .nav__wrapper__menu__ul__li_5__wrapper_2, .nav__wrapper__menu__ul__li_5__wrapper_3, .nav__wrapper__menu__ul__li_5__wrapper_4, .nav__wrapper__menu__ul__li_5__wrapper_5, .nav__wrapper__menu__ul__li_5__wrapper_6, .nav__wrapper__menu__ul__li_5__wrapper_7, .nav__wrapper__menu__ul__li_6__wrapper, .nav__wrapper__menu__ul__li_6__wrapper_1, .nav__wrapper__menu__ul__li_6__wrapper_2, .nav__wrapper__menu__ul__li_6__wrapper_3, .nav__wrapper__menu__ul__li_6__wrapper_4, .nav__wrapper__menu__ul__li_6__wrapper_5, .nav__wrapper__menu__ul__li_6__wrapper_6, .nav__wrapper__menu__ul__li_6__wrapper_7, .nav__wrapper__menu__ul__li_7__wrapper, .nav__wrapper__menu__ul__li_7__wrapper_1, .nav__wrapper__menu__ul__li_7__wrapper_2, .nav__wrapper__menu__ul__li_7__wrapper_3, .nav__wrapper__menu__ul__li_7__wrapper_4, .nav__wrapper__menu__ul__li_7__wrapper_5, .nav__wrapper__menu__ul__li_7__wrapper_6, .nav__wrapper__menu__ul__li_7__wrapper_7 {
+  display: flex;
+}
+.nav__wrapper__menu__ul__li:hover, .nav__wrapper__menu__ul__li_1:hover, .nav__wrapper__menu__ul__li_2:hover, .nav__wrapper__menu__ul__li_3:hover, .nav__wrapper__menu__ul__li_4:hover, .nav__wrapper__menu__ul__li_5:hover, .nav__wrapper__menu__ul__li_6:hover, .nav__wrapper__menu__ul__li_7:hover {
+  border-bottom: 0.5px solid black;
+  border-top: 0.5px solid black;
+  background-color: #bdbdbd;
+}
+.nav__wrapper__menu__ul__li__a, .nav__wrapper__menu__ul__li_1__a, .nav__wrapper__menu__ul__li_2__a, .nav__wrapper__menu__ul__li_3__a, .nav__wrapper__menu__ul__li_4__a, .nav__wrapper__menu__ul__li_5__a, .nav__wrapper__menu__ul__li_6__a, .nav__wrapper__menu__ul__li_7__a {
+  margin-left: 5px;
+}
+
+.nav__wrapper__menu__ul__li__inside__ul__li {
   align-items: center;
   display: flex;
   margin-top: 10px;
@@ -123,13 +131,8 @@ summary:hover {
   font-weight: 600;
   line-height: 27.286px; /* 257.241% */
 }
-.nav__wrapper__menu__ul__li:hover {
-  border-bottom: 0.5px solid black;
-  border-top: 0.5px solid black;
-  background-color: #bdbdbd;
-}
-.nav__wrapper__menu__ul__li__a {
-  margin-left: 5px;
+.nav__wrapper__menu__ul__li__inside__ul__li:hover {
+  background: #D9D9D9;
 }
 
 .nav {
@@ -149,6 +152,147 @@ summary:hover {
 
 .nav__active {
   transform: translateX(0);
+}
+
+.nav__wrapper__menu__ul__li__inside__ul {
+  height: 0;
+  display: none;
+}
+.nav__wrapper__menu__ul__li__inside__ul__active {
+  animation-name: open;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  display: block;
+  height: 0;
+}
+
+@keyframes open {
+  0% {
+    display: block;
+    height: 0;
+    transform: translateY(-150px);
+    opacity: 0;
+  }
+  95% {
+    display: block;
+    transform: translateY(0);
+    height: 145px;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    transform: translateY(0);
+    height: 150px;
+    opacity: 1;
+  }
+}
+.nav__wrapper__menu__ul__li__inside__ul_1 {
+  display: none;
+}
+.nav__wrapper__menu__ul__li__inside__ul_1__active_1 {
+  animation-name: open;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  display: block;
+  height: 0;
+}
+
+.nav__wrapper__menu__ul__li__inside__ul_2 {
+  display: none;
+}
+.nav__wrapper__menu__ul__li__inside__ul_2__active_2 {
+  animation-name: open;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  display: block;
+  height: 0;
+}
+
+.nav__wrapper__menu__ul__li__inside__ul_3 {
+  display: none;
+}
+.nav__wrapper__menu__ul__li__inside__ul_3__active_3 {
+  animation-name: open;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  display: block;
+  height: 0;
+}
+
+.nav__wrapper__menu__ul__li__inside__ul_4 {
+  display: none;
+}
+.nav__wrapper__menu__ul__li__inside__ul_4__active_4 {
+  animation-name: open;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  display: block;
+  height: 0;
+}
+
+.nav__wrapper__menu__ul__li__inside__ul_5 {
+  display: none;
+}
+.nav__wrapper__menu__ul__li__inside__ul_5__active_5 {
+  animation-name: open;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  display: block;
+  height: 0;
+}
+
+.nav__wrapper__menu__ul__li__inside__ul_6 {
+  display: none;
+}
+.nav__wrapper__menu__ul__li__inside__ul_6__active_6 {
+  animation-name: open;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  display: block;
+  height: 0;
+}
+
+.nav__wrapper__menu__ul__li__inside__ul_7 {
+  display: none;
+}
+.nav__wrapper__menu__ul__li__inside__ul_7__active_7 {
+  animation-name: open;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  display: block;
+  height: 0;
 }
 
 .container {

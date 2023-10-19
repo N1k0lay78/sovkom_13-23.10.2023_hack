@@ -78,36 +78,6 @@ body {
 
 }
 
- summary {
-
-   // Удаление стандартного маркера
-   &::-webkit-details-marker {
-
-   }
-
-
-   &::-moz-list-bullet {
-     list-style-type: none;
-   }
-
-   // Ограничение кликабельной области заголовка
-   display: inline-block;
-
-
-   // Пространство для маркера
-   padding-left:10px;
-   padding-bottom: 5px;
-   // Косметические улучшения
-   cursor: pointer;
-   outline: 0;
-   transition: color .12s;
-   -webkit-transition: color .12s;
-
-   margin-right: 10px;
-   &:hover {
-     color: #d06c6c;
-   }
- }
 .nav__wrapper {
   height: 100vh;
   background: #D9D9D9;
@@ -120,9 +90,9 @@ body {
   &__menu__ul {
     margin-top: 82px;
 
-    &__li {
-      align-items: center;
-      display: flex;
+    &__li, &__li_1, &__li_2, &__li_3, &__li_4, &__li_5, &__li_6, &__li_7 {
+      z-index: 1;
+      transition: 0.5s;
       margin-top: 10px;
       padding-top: 10px;
       padding-left: 25px;
@@ -132,6 +102,12 @@ body {
       font-style: normal;
       font-weight: 600;
       line-height: 27.286px; /* 257.241% */
+
+      &__wrapper, &__wrapper_1, &__wrapper_2, &__wrapper_3, &__wrapper_4, &__wrapper_5, &__wrapper_6, &__wrapper_7 {
+        display: flex;
+
+      }
+
       &:hover {
         border-bottom: 0.5px solid black;
         border-top: 0.5px solid black;
@@ -144,6 +120,26 @@ body {
       }
     }
   }
+}
+
+.nav__wrapper__menu__ul__li__inside__ul__li {
+  align-items: center;
+  display: flex;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-left: 25px;
+  color: #000;
+  font-family: Montserrat;
+  font-size: 10.607px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 27.286px; /* 257.241% */
+
+
+  &:hover {
+    background: #D9D9D9;
+  }
+
 }
 
 .nav {
@@ -166,6 +162,162 @@ body {
   transform: translateX(0);
 }
 
+.nav__wrapper__menu__ul__li__inside__ul {
+
+  height: 0;
+  display: none;
+
+  &__li{
+   
+  }
+
+  &__active {
+    animation-name: open;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+    display: block;
+    height: 0;
+  }
+}
+
+@keyframes open {
+  0% {
+    display: block;
+    height: 0;
+    transform: translateY(-150px);
+    opacity: 0;
+  }
+  95% {
+    display: block;
+    transform: translateY(0);
+    height: 145px;
+    opacity: 0;
+  }
+
+  100% {
+    display: block;
+    transform: translateY(0);
+    height: 150px;
+    opacity: 1;
+  }
+}
+
+.nav__wrapper__menu__ul__li__inside__ul_1 {
+  display: none;
+
+
+  &__active_1 {
+    animation-name: open;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+    display: block;
+    height: 0;
+  }
+}
+
+.nav__wrapper__menu__ul__li__inside__ul_2 {
+  display: none;
+
+  &__active_2 {
+    animation-name: open;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+    display: block;
+    height: 0;
+  }
+}
+
+.nav__wrapper__menu__ul__li__inside__ul_3 {
+  display: none;
+
+  &__active_3 {
+    animation-name: open;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+    display: block;
+    height: 0;
+  }
+}
+
+.nav__wrapper__menu__ul__li__inside__ul_4 {
+  display: none;
+
+  &__active_4 {
+    animation-name: open;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+    display: block;
+    height: 0;
+  }
+}
+
+.nav__wrapper__menu__ul__li__inside__ul_5 {
+  display: none;
+
+  &__active_5 {
+    animation-name: open;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+    display: block;
+    height: 0;
+  }
+}
+
+.nav__wrapper__menu__ul__li__inside__ul_6 {
+  display: none;
+
+  &__active_6 {
+    animation-name: open;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+    display: block;
+    height: 0;
+  }
+}
+
+.nav__wrapper__menu__ul__li__inside__ul_7 {
+  display: none;
+
+  &__active_7 {
+    animation-name: open;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+    display: block;
+    height: 0;
+  }
+}
 
 .container {
   width: 1440px;
