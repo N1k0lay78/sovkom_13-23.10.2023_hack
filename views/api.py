@@ -18,5 +18,5 @@ def get_lesson(group_id):
 @api_links.route("/get_assessments/<int:group_id>/<int:lesson_id>")
 def get_assessment(group_id, lesson_id):
     ans = get_assessments(group_id, lesson_id)
-    print(ans)
+    # print(ans)
     return jsonpickle.encode(ans)
