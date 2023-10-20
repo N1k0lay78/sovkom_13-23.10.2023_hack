@@ -1,5 +1,40 @@
 {% extends "base.html" %}
 
+{% block head %}
+    <link rel="stylesheet" href="/static/css/table.css">
+{% endblock %}
+
 {% block main %}
-<p>сюда таблицу</p>
+<table class="table">
+  <tbody>
+    <tr>
+      <th colspan="1" rowspan="2" class="table_header_STUDENT">Студент</th>
+      <th colspan="{{(table_len - 2) * 2}}" class="table_header_DATA">Дата</th>
+      <th colspan="1" rowspan="2" class="table_header_ITOG">Итоговый балл</th>
+    </tr>
+    <tr>
+      {%for data in header_table%}
+      <th colspan="2" class="table_date">{{data}}</th>
+      {% endfor %}
+    </tr>
+    {%for data in stud_data%}
+    <tr>
+      <th class="table_data_student_name">{{data['name']}}</th>
+      {%for date in data['data']%}
+      {%if date[0] == -1%}
+      <th class="table_presence_rating">⠀</th>
+      {% else %}
+      <th class="table_presence_rating">{{date[0]}}</th>
+      {% endif %}
+          {%if date[1] == 0%}
+          <th class="table_presence_false"></th>
+          {% else %}
+          <th class="table_presence_true"></th>
+          {% endif %}
+      {% endfor %}
+      <th class="table_data_student_itog">{{data['result']}}</th>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
