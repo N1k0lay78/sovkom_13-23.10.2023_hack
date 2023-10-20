@@ -123,12 +123,21 @@ section {
   width: 100%;
   border: 1px solid black;
 }
-.timetable__wrapper {
+.timetable__class {
+  justify-content: center;
+}
+.timetable__wrapper_1 {
   display: none;
 }
-.timetable .timetable__wrapper.active {
+.timetable .timetable__wrapper_1.active {
   display: flex;
   justify-content: space-between;
+  color: #666;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
 }
 .timetable__element_1 {
   width: 100%;
@@ -142,24 +151,34 @@ section {
 }
 .timetable__lesson {
   list-style: none;
+  align-items: center;
+  text-align: center;
 }
 .timetable__lesson + .timetable__lesson {
   padding-top: 5px;
 }
-.timetable__academic {
+.timetable__time {
   list-style: none;
+  align-items: center;
+  margin-left: 30px;
+  text-align: center;
 }
-.timetable__academic + .timetable__academic {
+.timetable__time + .timetable__time {
   padding-top: 5px;
 }
 .timetable__academic {
   list-style: none;
+  align-items: center;
+  text-align: center;
 }
 .timetable__academic + .timetable__academic {
   padding-top: 5px;
 }
 .timetable__cabinet {
   list-style: none;
+  align-items: center;
+  margin-right: 30px;
+  text-align: center;
 }
 .timetable__cabinet + .timetable__cabinet {
   padding-top: 5px;
