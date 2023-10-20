@@ -124,9 +124,19 @@ section {
   text-align: center;
   font-size: 24px;
   padding-bottom: 15px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28.5px;
+}
+
+.schedule__wrapper {
+  overflow-x: auto;
 }
 
 .timetable {
+  min-width: 1046px;
   width: 90vw;
   border: 1px solid black;
   list-style: none;
@@ -141,7 +151,7 @@ section {
   display: flex;
   justify-content: space-between;
   height: 60px;
-  background-color: #bdbdbd;
+  background: #E5E5E5;
 }
 .timetable__class {
   justify-content: center;
@@ -161,11 +171,12 @@ section {
   font-style: normal;
   font-weight: 500;
   line-height: 20px; /* 142.857% */
-  background-color: #bdbdbd;
+  color: #666;
 }
 .timetable__element_1, .timetable__element_2, .timetable__element_3, .timetable__element_4, .timetable__element_5, .timetable__element_6 {
   width: 100%;
   border-top: 0.5px solid black;
+  overflow: hidden;
   align-items: center;
   text-decoration: none;
 }
@@ -180,47 +191,34 @@ section {
   align-items: center;
   text-align: center;
   height: 60px;
-  border: 0.5px black;
-  width: 22.5vw;
+  color: #9CB9F2;
   padding-top: 20px;
-}
-.timetable__lesson + .timetable__lesson {
-  padding-top: 5px;
+  border-bottom: 0.5px solid black;
 }
 .timetable__time {
   list-style: none;
   align-items: center;
-  margin-left: 30px;
   text-align: center;
   height: 60px;
-  width: 22.5vw;
   padding-top: 20px;
-}
-.timetable__time + .timetable__time {
-  padding-top: 5px;
+  border-bottom: 0.5px solid black;
 }
 .timetable__academic {
   list-style: none;
   align-items: center;
   text-align: center;
   height: 60px;
-  width: 22.5vw;
-  padding-top: 20px;
-}
-.timetable__academic + .timetable__academic {
-  padding-top: 5px;
+  padding: 10px 25px;
+  border-bottom: 0.5px solid black;
+  color: #9CB9F2;
 }
 .timetable__cabinet {
   list-style: none;
   align-items: center;
-  margin-right: 30px;
   text-align: center;
   height: 60px;
-  width: 22.5vw;
   padding-top: 20px;
-}
-.timetable__cabinet + .timetable__cabinet {
-  padding-top: 5px;
+  border-bottom: 0.5px solid black;
 }
 
 .timetable__wrapper_1.active {
@@ -234,7 +232,7 @@ section {
   animation-timing-function: linear;
   animation-fill-mode: forwards;
   animation-delay: 0s;
-  background-color: #bdbdbd;
+  overflow: hidden;
 }
 
 .timetable__wrapper_2.active {
@@ -248,7 +246,7 @@ section {
   animation-timing-function: linear;
   animation-fill-mode: forwards;
   animation-delay: 0s;
-  background-color: #bdbdbd;
+  overflow: hidden;
 }
 
 .timetable__wrapper_3.active {
@@ -262,7 +260,7 @@ section {
   animation-timing-function: linear;
   animation-fill-mode: forwards;
   animation-delay: 0s;
-  background-color: #bdbdbd;
+  overflow: hidden;
 }
 
 .timetable__wrapper_4.active {
@@ -276,7 +274,7 @@ section {
   animation-timing-function: linear;
   animation-fill-mode: forwards;
   animation-delay: 0s;
-  background-color: #bdbdbd;
+  overflow: hidden;
 }
 
 .timetable__wrapper_5.active {
@@ -290,7 +288,7 @@ section {
   animation-timing-function: linear;
   animation-fill-mode: forwards;
   animation-delay: 0s;
-  background-color: #bdbdbd;
+  overflow: hidden;
 }
 
 .timetable__wrapper_6.active {
@@ -304,53 +302,39 @@ section {
   animation-timing-function: linear;
   animation-fill-mode: forwards;
   animation-delay: 0s;
-  background-color: #bdbdbd;
+  overflow: hidden;
 }
 
 @keyframes open {
   0% {
     display: flex;
     height: 0;
-    opacity: 0;
-    background-color: #bdbdbd;
   }
   90% {
     display: flex;
     height: 290px;
-    opacity: 0;
-    background-color: #bdbdbd;
   }
   100% {
     display: flex;
     height: 300px;
-    opacity: 1;
-    background-color: #bdbdbd;
   }
 }
 @keyframes close {
   0% {
     display: flex;
     height: 300px;
-    opacity: 0;
-    background-color: #bdbdbd;
   }
   10% {
     display: flex;
     height: 280px;
-    opacity: 0;
-    background-color: #bdbdbd;
   }
   80% {
-    display: none;
+    display: flex;
     height: 30px;
-    opacity: 0;
-    background-color: #bdbdbd;
   }
   100% {
     display: none;
     height: 0;
-    opacity: 0;
-    background-color: #bdbdbd;
   }
 }
 
