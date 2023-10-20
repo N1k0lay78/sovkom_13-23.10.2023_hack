@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from jsonpickle import json
 
-from controller.user import get_lessons
+from controller.student import get_lessons
 
 api_links = Blueprint('api', __name__)
 
