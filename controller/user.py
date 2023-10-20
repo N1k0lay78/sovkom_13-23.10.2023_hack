@@ -1,5 +1,6 @@
 from data import db_session
 from data.users.group import Group
+from data.users.student import Student
 
 
 def get_lessons(group_id):
@@ -26,3 +27,23 @@ def get_lessons(group_id):
     for i in range(7):
         data[i].sort(key=lambda x: x["time"])
     return {"status": "ok", "message": "", "data": data}
+
+
+def get_student_info(student_id):
+    session = db_session.create_session()
+    student = session.query(Student).get(student_id)
+    if not student:
+        session.close()
+        return {"status": "error", "message": "студент не существует"}
+    # TODO: добавить получение успеваемости по предметам
+    resp = {"status": "ok",
+            "message": "",
+            "data": {
+                "name": student.name,
+                "group": student.groups[0],
+                "ava": student.ava,
+                "is_education": not student.is_end_education,
+                "email": student.email
+            }}
+    session.close()
+    return resp
