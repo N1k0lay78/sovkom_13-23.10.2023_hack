@@ -1,0 +1,131 @@
+.text__input {
+  border: 2px solid #868686;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 420px;
+  height: 55px;
+  flex-shrink: 0;
+}
+
+.text__area {
+  border: 2px solid #868686;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 420px;
+  height: 55px;
+  flex-shrink: 0;
+}
+
+.selection {
+  border: 2px solid #868686;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 420px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.date {
+  border: 2px solid #868686;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 200px;
+  height: 50px;
+  flex-shrink: 0;
+  color: #9CB9F2;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
+  padding-right: 10px;
+}
+
+.input__file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.input__file + label {
+  border: 2px solid #868686;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 420px;
+  height: 50px;
+  flex-shrink: 0;
+  color: #5F5F5F;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 100% */
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+}
+
+.password {
+  border: 2px solid #D9D9D9;
+  width: 220px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.password__label {
+  position: absolute;
+  margin-top: -30px;
+  margin-left: 190px;
+}
+
+
+.form_radio_btn {
+  display: inline-block;
+
+}
+
+.form_radio_btn input[type=radio] {
+  display: none;
+}
+
+.form_radio_btn label {
+  margin-right: -5px;
+  display: inline-block;
+  cursor: pointer;
+  padding: 5px 15px;
+  border: 2px solid #868686;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  user-select: none;
+  flex-shrink: 0;
+  color: #9CB9F2;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
+}
+
+/* Checked */
+.form_radio_btn input[type=radio]:checked + label {
+  background: #efefef;
+}
+
+/* Hover */
+.form_radio_btn label:hover {
+  color: #666;
+}
+
+/* Disabled */
+.form_radio_btn input[type=radio]:disabled + label {
+  background: #efefef;
+  color: #666;
+}
+
+.button__cancel,.button__sumbit {
+  border: none;
+  background-color: #F1C2C2;
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 100% */
+  padding: 5px 20px;
+}
