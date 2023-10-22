@@ -1,27 +1,29 @@
 {% extends "base.html" %}
 
 {% block head %}
-    <link rel="stylesheet" href="/static/css/test.min.css">
+<link rel="stylesheet" href="/static/css/style.min.css">
 {% endblock %}
 
 {% block main %}
-    <div class="container">
-        <div class="test">
-            <p>главная страница</p>
+<div class="container">
+    <div class="test">
+        <p>главная страница</p>
 
-            {% if is_authentificated %}
-                <a href="/test/profile/">Расписание</a>
-            {% endif %}
+        {% if is_authentificated %}
+        <a href="/test/profile/">Расписание</a><br>
+        {% endif %}
 
-            {% if type in ["student", "academic"] %}
-                <a href="/test/schedule/">Расписание</a>
-            {% else %}
-                <a href="/login">Войдите как студент или как преподаватель, что бы открыть расписание</a>
-            {% endif %}
+        {% if type in ["student", "academic"] %}
+        <a href="/test/schedule/">Расписание</a><br>
+        {% else %}
+        <a href="/login">Войдите как студент или как преподаватель, что бы открыть расписание</a><br>
+        {% endif %}
 
-            <a href="/test/form">форма</a>
-            <a href="/test/tabel">таблица посещаемости</a>
-            <a href="/test/base">базовый шаблон</a>
-        </div>
+        <div style="padding: 10px 0;">
+            <a href="/test/form">форма</a><br>
+            <a href="/test/timetable">расписание</a><br>
+            <a href="/test/tabel">таблица посещаемости</a><br>
+            <a href="/test/base">базовый шаблон</a><br></div>
     </div>
+</div>
 {% endblock %}
