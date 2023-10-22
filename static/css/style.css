@@ -29,16 +29,21 @@ body {
 }
 
 .header,
-main,
+.main,
 .footer {
   width: 100%;
   transition: 0.3s ease;
 }
 .header__active,
-main__active,
+.main__active,
 .footer__active {
   transform: translateX(237px);
   width: max(100vw - 237px, 375px);
+}
+
+.main a {
+  color: blue;
+  text-decoration: underline;
 }
 
 .header__wrapper {
@@ -506,4 +511,4 @@ a {
   justify-content: space-around;
 }
 
-/*# sourceMappingURL=style1.css.map */
+/*# sourceMappingURL=style.css.map */

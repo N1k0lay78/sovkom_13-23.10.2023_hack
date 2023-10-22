@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/test.min.css">
+{% endblock %}
+
+{% block main %}
+<section class="schedule">
+    <p class="schedule__title">Расписание группы 20213</p>
+    <div class="schedule__wrapper">
+        <table class="timetable">
+            <thead class="timetable__header">
+            <tr>
+                <th>Время</th>
+                <th>Предмет</th>
+                <th>Преподаватель</th>
+                <th>Аудитория</th>
+            </tr>
+            </thead>
+            {% for day, lessons in table %}
+            <thead class="timetable__day">
+            <tr>
+                <td colspan="4">{{day}}</td>
+            </tr>
+            </thead>
+            <tbody class="timetable__lesson">
+            {% for time, type, name, academic, auditory in lessons %}
+            <tr>
+                <td>
+                    <div class="timetable__time">
+                        <p>{{time}}</p>
+                        {% if type == 0 %}
+                        <p>Нижняя неделя</p>
+                        {% elif type == 1 %}
+                        <p>Верхняя неделя</p>
+                        {% elif type == 2 %}
+                        <p>Каждую неделю</p>
+                        {% endif %}
+                    </div>
+                </td>
+                <td>
+                    <div class="timetable__lesson-name">
+                        <p>{{name}}</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="timetable__academic">
+                        <p>{{academic}}</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="timetable__auditory">
+                        <p>{{auditory}}</p>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+<script src="/static/js/timetable.js"></script>
+{% endblock %}
