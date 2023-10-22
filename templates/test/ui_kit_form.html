@@ -12,7 +12,7 @@
                 {{ form.text_input.label(class="") }}<br>
                 {{ form.text_input(class="text__input") }}<br>
                 {% for error in form.text_input.errors %}
-                    <div class="" role="alert">
+                    <div class="error" role="alert">
                         {{ error }}
                     </div>
                 {% endfor %}
@@ -20,7 +20,7 @@
                 {{ form.text_area.label(class="") }}<br>
                 {{ form.text_area(class="text__area") }}<br>
                 {% for error in form.text_area.errors %}
-                    <div class="" role="alert">
+                    <div class="error" role="alert">
                         {{ error }}
                     </div>
                 {% endfor %}
@@ -28,7 +28,7 @@
                 {{ form.select_field.label(class="") }}<br>
                 {{ form.select_field(class="selection") }}<br>
                 {% for error in form.select_field.errors %}
-                    <div class="" role="alert">
+                    <div class="error" role="alert">
                         {{ error }}
                     </div>
                     <br>
@@ -43,7 +43,7 @@
                 <br>
                 {% for error in form.data_field.errors %}
 
-                    <div class="" role="alert">
+                    <div class="error" role="alert">
                         {{ error }}
                     </div>
                 {% endfor %}
@@ -96,33 +96,34 @@
                 </label>
                 <br>
                 {% for error in form.image_field.errors %}
-                    <div class="" role="alert">
+                    <div class="error" role="alert">
                         {{ error }}
                     </div>
                 {% endfor %}
-
-                {{ form.password.label(class="") }}<br>
-                {{ form.password(class="password") }}<br>
-                <label for="password" class="password__label"><span><img src="/static/img/Vector.svg"
-                                                                         alt=""></span></label>
+                <div class="password__container">
+                    {{ form.password.label(class="") }}<br>
+                    {{ form.password(class="password") }}<br>
+                    <label for="password" class="password__label"><span><img src="/static/img/Vector.svg"
+                                                                             alt=""></span></label>
+                </div>
                 {% for error in form.password.errors %}
-                    <div class="" role="alert">
+                    <div class="error" role="alert">
                         {{ error }}
                     </div>
                 {% endfor %}
 
                 {% if error %}
-                    <p class="">{{ error }}</p>
+                    <p class="error">{{ error }}</p>
                 {% endif %}
 
                 <div class="button__button">
                     <div class="button__sumbit-1">
-                    {{ form.submit(type="submit", class="button__sumbit") }}
+                        {{ form.submit(type="submit", class="button__sumbit") }}
                     </div>
                     <div class="button__line"></div>
                     <div class="button__cancel-1">
-                    {{ form.cancel(type="button", class="button__cancel") }}
-                </div>
+                        {{ form.cancel(type="button", class="button__cancel") }}
+                    </div>
                 </div>
             </form>
 

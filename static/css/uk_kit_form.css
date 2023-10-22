@@ -8,6 +8,7 @@
   font-size: 14px;
   font-weight: bold;
   color: #5F5F5F;
+  margin: 20px 0;
 }
 .text__input::placeholder {
   color: #5F5F5F;
@@ -22,6 +23,7 @@
   font-size: 14px;
   font-weight: bold;
   color: #5F5F5F;
+  margin: 20px 0;
 }
 .text__area::placeholder {
   color: #5F5F5F;
@@ -36,6 +38,7 @@
   font-size: 14px;
   color: #5F5F5F;
   font-weight: bold;
+  margin: 20px 0;
 }
 
 .date {
@@ -50,6 +53,7 @@
   font-weight: 600;
   line-height: 20px; /* 142.857% */
   padding: 10px 15px;
+  margin: 20px 0;
 }
 
 .date__label {
@@ -89,6 +93,12 @@
   display: flex;
   align-items: center;
   font-weight: bold;
+  margin: 20px 0;
+}
+
+.password__container {
+  position: relative;
+  margin: 20px 0;
 }
 
 .password {
@@ -100,6 +110,7 @@
   padding: 10px 15px;
   font-weight: bold;
   color: #5F5F5F;
+  margin: 0;
 }
 .password::placeholder {
   font-size: 14px;
@@ -110,12 +121,13 @@
 
 .password__label {
   position: absolute;
-  margin-top: -30px;
+  margin-top: -32px;
   margin-left: calc(100% - 30px);
 }
 
 .form_radio_btn {
   display: inline-block;
+  margin: 20px 0;
 }
 
 .form_radio_btn input[type=radio] {
@@ -213,6 +225,22 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.button__button {
+  margin: 20px 0;
+}
+
+.error {
+  width: 50%;
+  border: 0.5px solid #868686;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: red;
+  padding: 15px 15px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=uk_kit_form.css.map */
