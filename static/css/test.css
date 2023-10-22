@@ -128,98 +128,72 @@ section {
 }
 
 .schedule__wrapper {
+  margin: 0 auto;
   overflow-x: auto;
 }
 
 .timetable {
-  min-width: 1046px;
-  width: 1200px;
-  border: 1px solid black;
-  list-style: none;
-  border-radius: 5px;
+  border-collapse: collapse;
+  border: 2px solid #828282;
+  border-radius: 10px;
   font-family: Montserrat;
-  font-size: 14px;
+  font-size: 12px;
   font-style: normal;
-  font-weight: 500;
-  line-height: 20px; /* 142.857% */
+  font-weight: 600;
 }
-.timetable__atribute {
-  display: flex;
-  justify-content: space-between;
-  height: 60px;
+.timetable__header {
   background: #E5E5E5;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
-.timetable__class {
-  justify-content: center;
-  height: 300px;
-}
-.timetable__wrapper_1, .timetable__wrapper_2, .timetable__wrapper_3, .timetable__wrapper_4, .timetable__wrapper_5, .timetable__wrapper_6 {
-  display: none;
-  animation-name: close;
-  animation-duration: 0.5s;
-  animation-iteration-count: 1;
-  animation-direction: normal;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  animation-delay: 0s;
-  font-family: Montserrat;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px; /* 142.857% */
-  color: #666;
-}
-.timetable__element_1, .timetable__element_2, .timetable__element_3, .timetable__element_4, .timetable__element_5, .timetable__element_6 {
-  width: 100%;
-  border-top: 0.5px solid black;
-  overflow: hidden;
-  align-items: center;
-  text-decoration: none;
+.timetable__header tr th {
+  font-size: 16px;
+  line-height: 28.5px;
+  border: 2px solid #828282;
+  padding: 10px 20px;
+  text-align: center;
 }
 .timetable__day {
-  padding-top: 20px;
-  padding-left: 20px;
-  height: 60px;
-  border-bottom: 0.5px solid black;
+  user-select: none;
+}
+.timetable__day tr td {
+  font-size: 16px;
+  line-height: 28.5px;
+  border: 2px solid #828282;
+  padding: 10px 20px;
+  text-align: left;
 }
 .timetable__lesson {
-  list-style: none;
-  align-items: center;
-  text-align: center;
-  height: 60px;
-  color: #9CB9F2;
-  width: 65%;
-  padding-top: 20px;
-  border-bottom: 0.5px solid black;
-  width: 600px;
+  display: none;
+  transition: height 0.2s ease;
+  overflow: hidden;
 }
-.timetable__time {
-  list-style: none;
-  align-items: center;
-  width: 200px;
-  text-align: center;
-  height: 60px;
-  padding-top: 20px;
-  border-bottom: 0.5px solid black;
+.timetable__lesson.active {
+  display: table-row-group;
 }
-.timetable__academic {
-  list-style: none;
-  align-items: center;
-  text-align: center;
-  height: 60px;
-  width: 200px;
-  padding: 10px 25px;
-  border-bottom: 0.5px solid black;
-  color: #9CB9F2;
+.timetable__lesson tr td {
+  height: 0;
+  border: 2px solid #828282;
+  padding: 5px 30px;
+  text-align: left;
 }
-.timetable__cabinet {
-  list-style: none;
-  align-items: center;
-  width: 200px;
+.timetable__time, .timetable__auditory {
+  color: #666666;
+}
+.timetable__auditory, .timetable__time p:first-child {
+  letter-spacing: 1px;
+}
+.timetable__time p {
+  line-height: 20px;
+  width: 100%;
   text-align: center;
-  height: 60px;
-  padding-top: 20px;
-  border-bottom: 0.5px solid black;
+}
+.timetable__time p + p {
+  line-height: 17px;
+  padding-bottom: 3px;
+}
+.timetable__lesson-name, .timetable__academic {
+  color: #143991;
 }
 
 .timetable__wrapper_1.active {
@@ -234,109 +208,6 @@ section {
   animation-fill-mode: forwards;
   animation-delay: 0s;
   overflow: hidden;
-}
-
-.timetable__wrapper_2.active {
-  display: flex;
-  justify-content: space-between;
-  color: #666;
-  animation-name: open;
-  animation-duration: 0.5s;
-  animation-iteration-count: 1;
-  animation-direction: normal;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  animation-delay: 0s;
-  overflow: hidden;
-}
-
-.timetable__wrapper_3.active {
-  display: flex;
-  justify-content: space-between;
-  color: #666;
-  animation-name: open;
-  animation-duration: 0.5s;
-  animation-iteration-count: 1;
-  animation-direction: normal;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  animation-delay: 0s;
-  overflow: hidden;
-}
-
-.timetable__wrapper_4.active {
-  display: flex;
-  justify-content: space-between;
-  color: #666;
-  animation-name: open;
-  animation-duration: 0.5s;
-  animation-iteration-count: 1;
-  animation-direction: normal;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  animation-delay: 0s;
-  overflow: hidden;
-}
-
-.timetable__wrapper_5.active {
-  display: flex;
-  justify-content: space-between;
-  color: #666;
-  animation-name: open;
-  animation-duration: 0.5s;
-  animation-iteration-count: 1;
-  animation-direction: normal;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  animation-delay: 0s;
-  overflow: hidden;
-}
-
-.timetable__wrapper_6.active {
-  display: flex;
-  justify-content: space-between;
-  color: #666;
-  animation-name: open;
-  animation-duration: 0.5s;
-  animation-iteration-count: 1;
-  animation-direction: normal;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  animation-delay: 0s;
-  overflow: hidden;
-}
-
-@keyframes open {
-  0% {
-    display: flex;
-    height: 0;
-  }
-  90% {
-    display: flex;
-    height: 290px;
-  }
-  100% {
-    display: flex;
-    height: 300px;
-  }
-}
-@keyframes close {
-  0% {
-    display: flex;
-    height: 300px;
-  }
-  10% {
-    display: flex;
-    height: 280px;
-  }
-  80% {
-    display: flex;
-    height: 30px;
-  }
-  100% {
-    display: none;
-    height: 0;
-  }
 }
 
 /*# sourceMappingURL=test.css.map */
