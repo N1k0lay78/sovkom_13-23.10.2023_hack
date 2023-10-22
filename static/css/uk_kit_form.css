@@ -48,7 +48,8 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 142.857% */
+  line-height: 20px;
+  /* 142.857% */
   padding: 10px 15px;
 }
 
@@ -63,7 +64,8 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 100% */
+  line-height: 20px;
+  /* 100% */
   padding-right: 20px;
 }
 
@@ -84,7 +86,8 @@
   font-family: Montserrat;
   font-size: 14px;
   font-style: normal;
-  line-height: 20px; /* 100% */
+  line-height: 20px;
+  /* 100% */
   padding: 10px 15px;
   display: flex;
   align-items: center;
@@ -103,15 +106,14 @@
 }
 .password::placeholder {
   font-size: 14px;
-  padding: 10px 15px;
   font-weight: bold;
   color: #5F5F5F;
 }
 
 .password__label {
   position: absolute;
-  margin-top: -30px;
-  margin-left: 390px;
+  margin-top: -32px;
+  margin-left: calc(420px - 30px);
 }
 
 .form_radio_btn {
@@ -136,7 +138,8 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 142.857% */
+  line-height: 20px;
+  /* 142.857% */
 }
 
 /* Checked */
@@ -163,7 +166,8 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 100% */
+  line-height: 20px;
+  /* 100% */
   padding: 5px 40px;
 }
 
@@ -175,7 +179,8 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 100% */
+  line-height: 20px;
+  /* 100% */
   padding: 5px 20px;
 }
 
