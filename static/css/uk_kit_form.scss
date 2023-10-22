@@ -1,9 +1,9 @@
 
-$width-password: 420px;
+$width-password: 100%;
 .text__input {
   border: 2px solid #868686;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  width: 420px;
+  width: 100%;
   flex-shrink: 0;
   padding: 10px 15px;
   font-family: Montserrat;
@@ -19,7 +19,7 @@ $width-password: 420px;
 .text__area {
   border: 2px solid #868686;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  width: 420px;
+  width: 100%;
   padding: 10px 15px;
   font-family: Montserrat;
   font-size: 14px;
@@ -34,7 +34,7 @@ $width-password: 420px;
 .selection {
   border: 2px solid #868686;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  width: 420px;
+  width: 100%;
   font-family: Montserrat;
   padding: 10px 15px;
   font-size: 14px;
@@ -45,7 +45,7 @@ $width-password: 420px;
 .date {
   border: 2px solid #868686;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  width: 200px;
+  width: 45%;
   flex-shrink: 0;
   color: #9CB9F2;
   font-family: Montserrat;
@@ -83,7 +83,7 @@ $width-password: 420px;
 .input__file + label {
   border: 2px solid #868686;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  width: 420px;
+  width: 100%;
   flex-shrink: 0;
   color: #5F5F5F;
   font-family: Montserrat;
@@ -194,13 +194,14 @@ $width-password: 420px;
 }
 
 .form__wrapper {
-  width: 600px;
+  width: 100%;
   display: flex;
   justify-content: center;
   margin: 30px auto;
   border: 2px solid #868686;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 30px 30px;
+  max-width: 600px;
 }
 //
 //.button__button{
