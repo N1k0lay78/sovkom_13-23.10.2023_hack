@@ -14,15 +14,13 @@
 <nav class="nav">
     <div class="container__nav">
         <div class="nav__wrapper">
-            <div class="nav__wrapper__logo"><img src="static/img/2023-10-15__1_-removebg-preview 2.png" alt=""
-                                                 class="nav__wrapper__logo__img"></div>
 
             <ul class="nav__wrapper__menu__ul">
 
 
                 <li class="nav__wrapper__menu__ul__li">
                     <div class="nav__wrapper__menu__ul__li__wrapper">
-                        <img src="static/img/home.svg" alt=""><a href="#"
+                        <img src="/static/img/home.svg" alt=""><a href="#"
                                                                  class="nav__wrapper__menu__ul__li__a">Информация</a>
                     </div>
                     <div class="nav__wrapper__menu__ul__li__inside">
@@ -42,7 +40,7 @@
 
 
                 <li class="nav__wrapper__menu__ul__li_1">
-                    <div class="nav__wrapper__menu__ul__li__wrapper_1"><img src="static/img/book.svg" alt=""><a href="#"
+                    <div class="nav__wrapper__menu__ul__li__wrapper_1"><img src="/static/img/book.svg" alt=""><a href="#"
                                                                                                               class="nav__wrapper__menu__ul__li__a">Инструкция
                         пользователя</a></div>
                     <div class="nav__wrapper__menu__ul__li__inside">
@@ -60,7 +58,7 @@
                     </div>
                 </li>
                 <li class="nav__wrapper__menu__ul__li_2">
-                    <div class="nav__wrapper__menu__ul__li__wrapper_2"><img src="static/img/football-outline 1.svg"
+                    <div class="nav__wrapper__menu__ul__li__wrapper_2"><img src="/static/img/football-outline 1.svg"
                                                                           alt=""><a
                             href="#" class="nav__wrapper__menu__ul__li__a">Олимпиада Совкомбанк</a></div>
                     <div class="nav__wrapper__menu__ul__li__inside">
@@ -78,7 +76,7 @@
                     </div>
                 </li>
                 <li class="nav__wrapper__menu__ul__li_3">
-                    <div class="nav__wrapper__menu__ul__li__wrapper_3"><img src="static/img/globe-outline 1.svg" alt=""><a
+                    <div class="nav__wrapper__menu__ul__li__wrapper_3"><img src="/static/img/globe-outline 1.svg" alt=""><a
                             href="#"
                             class="nav__wrapper__menu__ul__li__a">Единый
                         деконат</a></div>
@@ -97,7 +95,7 @@
                     </div>
                 </li>
                 <li class="nav__wrapper__menu__ul__li_4">
-                    <div class="nav__wrapper__menu__ul__li__wrapper_4"><img src="static/img/school-outline 1.svg"
+                    <div class="nav__wrapper__menu__ul__li__wrapper_4"><img src="/static/img/school-outline 1.svg"
                                                                           alt=""><a href="#"
                                                                                     class="nav__wrapper__menu__ul__li__a">Аттестации</a>
                     </div>
@@ -116,7 +114,7 @@
                     </div>
                 </li>
                 <li class="nav__wrapper__menu__ul__li_5">
-                    <div class="nav__wrapper__menu__ul__li__wrapper_5"><img src="static/img/calendar-number-outline 1.svg"
+                    <div class="nav__wrapper__menu__ul__li__wrapper_5"><img src="/static/img/calendar-number-outline 1.svg"
                                                                           alt=""><a
                             href="#" class="nav__wrapper__menu__ul__li__a">Расписание</a></div>
                     <div class="nav__wrapper__menu__ul__li__inside">
@@ -134,7 +132,7 @@
                     </div>
                 </li>
                 <li class="nav__wrapper__menu__ul__li_6">
-                    <div class="nav__wrapper__menu__ul__li__wrapper_6"><img src="static/img/desktop-outline 1.svg" alt=""><a
+                    <div class="nav__wrapper__menu__ul__li__wrapper_6"><img src="/static/img/desktop-outline 1.svg" alt=""><a
                             href="#" class="nav__wrapper__menu__ul__li__a">Дистанционное обучение</a></div>
                     <div class="nav__wrapper__menu__ul__li__inside">
                         <ul class="nav__wrapper__menu__ul__li__inside__ul_6">
@@ -151,7 +149,7 @@
                     </div>
                 </li>
                 <li class="nav__wrapper__menu__ul__li_7">
-                    <div class="nav__wrapper__menu__ul__li__wrapper_7"><img src="static/img/newspaper-outline 1.svg"
+                    <div class="nav__wrapper__menu__ul__li__wrapper_7"><img src="/static/img/newspaper-outline 1.svg"
                                                                           alt=""><a
                             href="#" class="nav__wrapper__menu__ul__li__a">Справочные системы</a></div>
                     <div class="nav__wrapper__menu__ul__li__inside">
@@ -171,46 +169,12 @@
             </ul>
         </div>
     </div>
-    <div class="container__nav__button">
-        <button class="nav__button"><img src="static/img/list-outline 1.svg" alt=""></button>
-    </div>
-    <script>
-        $('.nav__button').on('click', function (e) {
-            e.preventDefault();
-            $('.nav').toggleClass('nav__active');
-            $('.container').toggleClass('container__active');
-        })
-        $('.nav__wrapper__menu__ul__li').on('click', function (j) {
-            $('.nav__wrapper__menu__ul__li__inside__ul').toggleClass('nav__wrapper__menu__ul__li__inside__ul__active');
-
-        })
-        $('.nav__wrapper__menu__ul__li_1').on('click', function (k) {
-            $('.nav__wrapper__menu__ul__li__inside__ul_1').toggleClass('nav__wrapper__menu__ul__li__inside__ul_1__active_1');
-        })
-        $('.nav__wrapper__menu__ul__li_2').on('click', function (j) {
-            $('.nav__wrapper__menu__ul__li__inside__ul_2').toggleClass('nav__wrapper__menu__ul__li__inside__ul_2__active_2');
-        })
-        $('.nav__wrapper__menu__ul__li_3').on('click', function (j) {
-            $('.nav__wrapper__menu__ul__li__inside__ul_3').toggleClass('nav__wrapper__menu__ul__li__inside__ul_3__active_3');
-        })
-        $('.nav__wrapper__menu__ul__li_4').on('click', function (j) {
-            $('.nav__wrapper__menu__ul__li__inside__ul_4').toggleClass('nav__wrapper__menu__ul__li__inside__ul_4__active_4');
-        })
-        $('.nav__wrapper__menu__ul__li_5').on('click', function (j) {
-            $('.nav__wrapper__menu__ul__li__inside__ul_5').toggleClass('nav__wrapper__menu__ul__li__inside__ul_5__active_5');
-        })
-        $('.nav__wrapper__menu__ul__li_6').on('click', function (j) {
-            $('.nav__wrapper__menu__ul__li__inside__ul_6').toggleClass('nav__wrapper__menu__ul__li__inside__ul_6__active_6');
-        })
-        $('.nav__wrapper__menu__ul__li_7').on('click', function (j) {
-            $('.nav__wrapper__menu__ul__li__inside__ul_7').toggleClass('nav__wrapper__menu__ul__li__inside__ul_7__active_7');
-        })
-    </script>
 </nav>
 <header class="header">
     <div class="container">
         <div class="header__wrapper">
             <div class="header__logo">
+                <button class="nav__button"><img src="/static/img/list-outline 1.svg" alt=""></button>
                 <img src="/static/img/2023-10-15__1_-removebg-preview 2.png" alt="Совкомбанк">
             </div>
             <div class="header__wrapper__helpandlogin">
@@ -253,7 +217,7 @@
     </div>
 
 </header>
-<main>
+<main class="main">
     {% block main %}
     {% endblock %}
 </main>
@@ -282,16 +246,18 @@
                 <a href="">
                     <img src="/static/img/logo-instagram 1.png" alt="">
                 </a>
-                <a href="" style="margin-left: 60px;">
+                <a href="">
                     <img src="/static/img/logo-vk 1.png" alt="">
                 </a>
-                <a href="" style="margin-left: 60px;">
+                <a href="">
                     <img src="/static/img/logo-whatsapp 1.png" alt="">
                 </a>
             </div>
         </div>
     </div>
 </footer>
+
+<script src="/static/js/menu.js"></script>
 {% block js %}
 {% endblock %}
 </body>

@@ -26,6 +26,9 @@ def test_tabel_page():
     return my_render("/test/tabel.html", title="Таблица успеваемости")
 
 
+@test_pages.route("/timetabel/")
+def test_timetabel_page():
+    return my_render("base.html", title="Расписание")
 
 
 @test_pages.route("/form/", methods=["GET", "POST"])
