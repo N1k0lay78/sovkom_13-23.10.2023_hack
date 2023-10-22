@@ -45,6 +45,7 @@ def get_assessments(group_id, lesson_id):
         session.close()
         return {"status": "error", "message": "в группе нет студентов"}
     lesson = session.query(Lesson).get(lesson_id)
+    print(lesson)
     if not lesson:
         session.close()
         return {"status": "error", "message": "урок не существует"}
@@ -66,5 +67,5 @@ def get_assessments(group_id, lesson_id):
         line = {"name": student.name, "data": data, "result": round(summ / max_mark / lesson.count * 100)}
         tabel["tabel"].append(line)
     session.close()
-    print(tabel)
+    # print(tabel)
     return {"status": "ok", "message": "", "data": jsonpickle.encode(tabel)}
