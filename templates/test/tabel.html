@@ -7,6 +7,7 @@
 
 {% block main %}
 <form action="/test/tabel/" method="post">
+    {{ form.csrf_token }}
 <table class="table">
   <tbody>
     <tr>
@@ -24,13 +25,28 @@
       <th class="table_data_student_name">{{data['name']}}</th>
       {%for date in data['data']%}
       {%if date[0] == -1 and date[1] == -1%}
+        {%if user == 'Преподаватель'%}
+      <th class="table_presence_rating" colspan="2">
+           <input type="number" placeholder=" " class="table_presence_rating_professor" name="{{data['name']}} {{loop.index}}">
+           <input type="hidden" placeholder=" " class="table_presence_rating" name="{{data['name']}} {{loop.index}}" value="{{date[0]}}">
+          </th>
+        {%elif user == 'Студент'%}
       <th class="table_presence_rating" colspan="2">⠀</th>
+        {%endif%}
         {%elif date[0] == -1%}
+        {%if user == 'Преподаватель'%}
+      <th class="table_presence_rating" >
+          <input type="number" placeholder=" " class="table_presence_rating" name="{{data['name']}} {{loop.index}}">
+           <input type="hidden" placeholder=" " class="table_presence_rating" name="{{data['name']}} {{loop.index}}" value="{{date[0]}}">
+
+          </th>
+        {%elif user == 'Студент'%}
         <th class="table_presence_rating">⠀</th>
+        {%endif%}
       {% else %}
         {%if user == 'Преподаватель'%}
       <th class="table_presence_rating">
-           <input type="number" placeholder="{{date[0]}}" class="table_presence_rating" name="{{date[0]}} {{date[1]}} {{data['name']}}">
+           <input type="number" placeholder="{{date[0]}}" class="table_presence_rating" name="{{data['name']}} {{loop.index}}" value="{{date[0]}}">
           </th>
         {%elif user == 'Студент'%}
       <th class="table_presence_rating">{{date[0]}}</th>
