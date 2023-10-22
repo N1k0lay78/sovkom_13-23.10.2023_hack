@@ -254,7 +254,7 @@ background: #E5E5E5;
 border: 1px solid #828282;
 border-radius: 0px;
 
-font-family: 'Inter';
+font-family: Montserrat;
 font-style: normal;
 font-weight: 700;
 font-size: 14px;
@@ -274,7 +274,7 @@ top: 0px;
 background: #FFFFFF;
 border: 1px solid #828282;
 
-font-family: 'Inter';
+font-family: Montserrat;
 font-style: normal;
 font-weight: 400;
 font-size: 14px;
@@ -300,11 +300,19 @@ border: 1px solid #828282;
     border-spacing: 0;
     padding: 5px;
     margin: 0 auto;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height, or 129% */
+    align-items: center;
 }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1060px) {
 .table_presence_true {
-width: 30px;
+width: 60px;
 height: 40px;
 left: 30px;
 top: 0px;
@@ -313,7 +321,7 @@ background: #53CD1A;
 }
 
 .table_presence_false {
-width: 30px;
+width: 60px;
 height: 40px;
 left: 30px;
 top: 0px;
@@ -322,7 +330,7 @@ background: #CD1A1A;
 }
 
 .table_presence_rating {
-width: 30px;
+width: 2.5%;
 height: 40px;
 left: 0px;
 top: 0px;
@@ -332,18 +340,18 @@ border: 1px solid #828282;
 }
 
 .table_date {
-width: 60px;
-height: 40px;
+width: 4%;
+height: 80px;
 left: 0px;
 top: 0px;
 
 background: #E5E5E5;
 border: 1px solid #828282;
 
-font-family: 'Inter';
+font-family: Montserrat;
 font-style: normal;
 font-weight: 700;
-font-size: 64px;
+font-size: 34px;
 line-height: 68px;
 /* identical to box height, or 129% */
 align-items: center;
@@ -358,18 +366,18 @@ background: #E5E5E5;
 border: 1px solid #828282;
 border-radius: 0px;
 
-font-family: 'Inter';
+font-family: Montserrat;
 font-style: normal;
 font-weight: 700;
-font-size: 64px;
+font-size: 34px;
 line-height: 68px;
 /* identical to box height, or 129% */
 align-items: center;
 }
 
 .table_header_STUDENT {
-width: 260px;
-height: 80px;
+width: 13%;
+height: 100%;
 left: 0px;
 top: 0px;
 
@@ -377,18 +385,18 @@ background: #E5E5E5;
 border: 1px solid #828282;
 border-radius: 0px;
 
-font-family: 'Inter';
+font-family: Montserrat;
 font-style: normal;
 font-weight: 700;
-font-size: 64px;
+font-size: 34px;
 line-height: 68px;
 /* identical to box height, or 129% */
 align-items: center;
 }
 
 .table_header_ITOG {
-width: 200px;
-height: 40px;
+width: 3%;
+height: 100%;
 left: 0px;
 top: 0px;
 
@@ -396,10 +404,10 @@ background: #E5E5E5;
 border: 1px solid #828282;
 border-radius: 0px;
 
-font-family: 'Inter';
+font-family: Montserrat;
 font-style: normal;
 font-weight: 700;
-font-size: 64px;
+font-size: 34px;
 line-height: 68px;
 /* identical to box height, or 129% */
 align-items: center;
@@ -409,17 +417,17 @@ color: #000000;
 
 .table_data_student_name{
 width: 100%;
-height: 100%;
+height: 120px;
 left: 0px;
 top: 0px;
 
 background: #FFFFFF;
 border: 1px solid #828282;
 
-font-family: 'Inter';
+font-family: Montserrat;
 font-style: normal;
 font-weight: 400;
-font-size: 34px;
+font-size: 44px;
 line-height: 68px;
 /* identical to box height, or 129% */
 display: flex;
@@ -437,23 +445,23 @@ top: 0px;
 background: #FFFFFF;
 border: 1px solid #828282;
 
-font-family: 'Inter';
+font-family: Montserrat;
 font-style: normal;
 font-weight: 700;
-font-size: 64px;
+font-size: 34px;
 line-height: 68px;
 /* identical to box height, or 129% */
 align-items: center;
 }
 
 .table{
-    width: 2000px;
+    width: 3000px;
 
     border-spacing: 0;
-    padding: 5px;
+    padding: 40px;
     margin: 0 auto;
 
-    font-family: 'Inter';
+    font-family: Montserrat;
     font-style: normal;
     font-weight: 700;
     font-size: 54px;
