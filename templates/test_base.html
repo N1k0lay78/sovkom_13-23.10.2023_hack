@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/css/test1.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="aligner">
+    <aside class="navigation">
+        <nav class="navigation__wrapper">
+            <ul class="navigation__list">
+                <li class="navigation__element">
+                    <a href="#">Главная</a>
+                </li>
+                <li class="navigation__element">
+                    <a href="#" class="spoiler">Сообщения</a>
+                    <ul class="spoiler__list active">
+                        <li class="spoiler__element">
+                            <a href="/profile/send">Отправить</a>
+                        </li>
+                        <li class="spoiler__element">
+                            <a href="/profile/send">Входящие</a>
+                        </li>
+                        <li class="spoiler__element">
+                            <a href="/profile/send">Исходящие</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <div class="content">
+        <header class="header">
+            <div class="container">
+                <div class="header__wrapper">
+                    <div class="header__left">
+                        <div class="header__burger">
+                            =
+                        </div>
+                        <a href="/">
+                            <img src="/static/img/2023-10-15__1_-removebg-preview%202.png" alt="совкомбанк">
+                        </a>
+                    </div>
+                    <div class="header__right">
+                        <!--                        <a href="/help">Помощь</a>-->
+                        <a href="/login">Войти</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="schedule">
+                <p class="schedule__title">Расписание группы 20213</p>
+                <div class="schedule__wrapper">
+                    <table class="timetable">
+                        <thead class="timetable__header">
+                        <tr>
+                            <th>Время</th>
+                            <th>Предмет</th>
+                            <th>Преподаватель</th>
+                            <th>Аудитория</th>
+                        </tr>
+                        </thead>
+                        {% for day, lessons in table %}
+                        <thead class="timetable__day">
+                        <tr>
+                            <td colspan="4">{{day}}</td>
+                        </tr>
+                        </thead>
+                        <tbody class="timetable__lesson">
+                        {% for time, type, name, academic, auditory in lessons %}
+                        <tr>
+                            <td>
+                                <div class="timetable__time">
+                                    <p>{{time}}</p>
+                                    {% if type == 0 %}
+                                    <p>Нижняя неделя</p>
+                                    {% elif type == 1 %}
+                                    <p>Верхняя неделя</p>
+                                    {% elif type == 2 %}
+                                    <p>Каждую неделю</p>
+                                    {% endif %}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="timetable__lesson-name">
+                                    <p>{{name}}</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="timetable__academic">
+                                    <p>{{academic}}</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="timetable__auditory">
+                                    <p>{{auditory}}</p>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+            </section>
+            <section class="schedule"> <!-- Начало расписания -->
+                <div class="container">
+                    <p class="schedule__title">Расписание группы 20213</p>
+                    <div class="schedule__wrapper">
+
+                        <ul class="timetable">
+                            <li class="timetable__atribute">
+                                <ul class="timetable__class">
+                                    <li class="timetable__time">Время</li>
+                                </ul>
+                                <ul class="timetable__class">
+                                    <li class="timetable__lesson" style="color: black">Предмет</li>
+                                </ul>
+                                <ul class="timetable__class">
+                                    <li class="timetable__academic" style="color: black">Преподаватель</li>
+                                </ul>
+                                <ul class="timetable__class">
+                                    <li class="timetable__cabinet">Аудитория</li>
+                                </ul>
+                            </li>
+                            <li class="timetable__element_1">
+                                <p class="timetable__day">Понедельник</p>
+                                <div class="timetable__wrapper_1 ">
+                                    <ul class="timetable__class">
+                                        <li class="timetable__time">08:30</li>
+                                        <li class="timetable__time">10:10</li>
+                                        <li class="timetable__time">11:50</li>
+                                        <li class="timetable__time">10:10</li>
+                                        <li class="timetable__time">11:50</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__lesson">Математика</li>
+                                        <li class="timetable__lesson">Физика</li>
+                                        <li class="timetable__lesson">Теор. Мех</li>
+                                        <li class="timetable__lesson">Физика</li>
+                                        <li class="timetable__lesson">Теор. Мех</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__academic">Годин Владимир Викторович</li>
+                                        <li class="timetable__academic">утернин Михаил Иванович</li>
+                                        <li class="timetable__academic">Мышко Юлия Андреевна</li>
+                                        <li class="timetable__academic">Греков Андрей Анатольевич</li>
+                                        <li class="timetable__academic">Аторин Роман Витальевич</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__cabinet">10</li>
+                                        <li class="timetable__cabinet">123</li>
+                                        <li class="timetable__cabinet">как ваы ы</li>
+                                        <li class="timetable__cabinet">123</li>
+                                        <li class="timetable__cabinet">как ваы ы</li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="timetable__element_2">
+                                <p class="timetable__day">Вторник</p>
+                                <div class="timetable__wrapper_2">
+                                    <ul class="timetable__class">
+                                        <li class="timetable__time">08:30</li>
+                                        <li class="timetable__time">10:10</li>
+                                        <li class="timetable__time">11:50</li>
+                                        <li class="timetable__time">10:10</li>
+                                        <li class="timetable__time">11:50</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__lesson">Математика</li>
+                                        <li class="timetable__lesson">Физика</li>
+                                        <li class="timetable__lesson">Теор. Мех</li>
+                                        <li class="timetable__lesson">Физика</li>
+                                        <li class="timetable__lesson">Теор. Мех</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__academic">Нина</li>
+                                        <li class="timetable__academic">Брага</li>
+                                        <li class="timetable__academic">Тимофей</li>
+                                        <li class="timetable__academic">Брага</li>
+                                        <li class="timetable__academic">Тимофей</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__cabinet">10</li>
+                                        <li class="timetable__cabinet">123</li>
+                                        <li class="timetable__cabinet">как ваы ы</li>
+                                        <li class="timetable__cabinet">123</li>
+                                        <li class="timetable__cabinet">как ваы ы</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="timetable__element_3">
+                                <p class="timetable__day">Среда</p>
+                                <div class="timetable__wrapper_3">
+                                    <ul class="timetable__class">
+                                        <li class="timetable__time">08:30</li>
+                                        <li class="timetable__time">10:10</li>
+                                        <li class="timetable__time">11:50</li>
+                                        <li class="timetable__time">10:10</li>
+                                        <li class="timetable__time">11:50</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__lesson">Математика</li>
+                                        <li class="timetable__lesson">Физика</li>
+                                        <li class="timetable__lesson">Теор. Мех</li>
+                                        <li class="timetable__lesson">Физика</li>
+                                        <li class="timetable__lesson">Теор. Мех</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__academic">Нина</li>
+                                        <li class="timetable__academic">Брага</li>
+                                        <li class="timetable__academic">Тимофей</li>
+                                        <li class="timetable__academic">Брага</li>
+                                        <li class="timetable__academic">Тимофей</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__cabinet">10</li>
+                                        <li class="timetable__cabinet">123</li>
+                                        <li class="timetable__cabinet">как ваы ы</li>
+                                        <li class="timetable__cabinet">123</li>
+                                        <li class="timetable__cabinet">как ваы ы</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="timetable__element_4">
+                                <p class="timetable__day">Четверг</p>
+                                <div class="timetable__wrapper_4">
+                                    <ul class="timetable__class">
+                                        <li class="timetable__time">08:30</li>
+                                        <li class="timetable__time">10:10</li>
+                                        <li class="timetable__time">11:50</li>
+                                        <li class="timetable__time">10:10</li>
+                                        <li class="timetable__time">11:50</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__lesson">Математика</li>
+                                        <li class="timetable__lesson">Физика</li>
+                                        <li class="timetable__lesson">Теор. Мех</li>
+                                        <li class="timetable__lesson">Физика</li>
+                                        <li class="timetable__lesson">Теор. Мех</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__academic">Нина</li>
+                                        <li class="timetable__academic">Брага</li>
+                                        <li class="timetable__academic">Тимофей</li>
+                                        <li class="timetable__academic">Брага</li>
+                                        <li class="timetable__academic">Тимофей</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__cabinet">10</li>
+                                        <li class="timetable__cabinet">123</li>
+                                        <li class="timetable__cabinet">как ваы ы</li>
+                                        <li class="timetable__cabinet">123</li>
+                                        <li class="timetable__cabinet">как ваы ы</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="timetable__element_5">
+                                <p class="timetable__day">Пятница</p>
+                                <div class="timetable__wrapper_5">
+                                    <ul class="timetable__class">
+                                        <li class="timetable__time">08:30</li>
+                                        <li class="timetable__time">10:10</li>
+                                        <li class="timetable__time">11:50</li>
+                                        <li class="timetable__time">10:10</li>
+                                        <li class="timetable__time">11:50</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__lesson">Математика</li>
+                                        <li class="timetable__lesson">Физика</li>
+                                        <li class="timetable__lesson">Теор. Мех</li>
+                                        <li class="timetable__lesson">Физика</li>
+                                        <li class="timetable__lesson">Теор. Мех</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__academic">Нина</li>
+                                        <li class="timetable__academic">Брага</li>
+                                        <li class="timetable__academic">Тимофей</li>
+                                        <li class="timetable__academic">Брага</li>
+                                        <li class="timetable__academic">Тимофей</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__cabinet">10</li>
+                                        <li class="timetable__cabinet">123</li>
+                                        <li class="timetable__cabinet">как ваы ы</li>
+                                        <li class="timetable__cabinet">123</li>
+                                        <li class="timetable__cabinet">как ваы ы</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="timetable__element_6">
+                                <p class="timetable__day">Суббота</p>
+                                <div class="timetable__wrapper_6">
+                                    <ul class="timetable__class">
+                                        <li class="timetable__time">08:30</li>
+                                        <li class="timetable__time">10:10</li>
+                                        <li class="timetable__time">11:50</li>
+                                        <li class="timetable__time">10:10</li>
+                                        <li class="timetable__time">11:50</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__lesson">Математика</li>
+                                        <li class="timetable__lesson">Физика</li>
+                                        <li class="timetable__lesson">Теор. Мех</li>
+                                        <li class="timetable__lesson">Физика</li>
+                                        <li class="timetable__lesson">Теор. Мех</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__academic">Нина</li>
+                                        <li class="timetable__academic">Брага</li>
+                                        <li class="timetable__academic">Тимофей</li>
+                                        <li class="timetable__academic">Брага</li>
+                                        <li class="timetable__academic">Тимофей</li>
+                                    </ul>
+                                    <ul class="timetable__class" style="border: 0.25px solid black"></ul>
+                                    <ul class="timetable__class">
+                                        <li class="timetable__cabinet">10</li>
+                                        <li class="timetable__cabinet">123</li>
+                                        <li class="timetable__cabinet">как ваы ы</li>
+                                        <li class="timetable__cabinet">123</li>
+                                        <li class="timetable__cabinet">как ваы ы</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <script>
+                    $('.timetable__element_1').on('click', function (e) {
+
+                        $('.timetable__wrapper_1').toggleClass('timetable__wrapper_1.active');
+                    })
+                    $('.timetable__element_2').on('click', function (e) {
+
+                        $('.timetable__wrapper_2').toggleClass('timetable__wrapper_2.active');
+                    })
+                    $('.timetable__element_3').on('click', function (e) {
+
+                        $('.timetable__wrapper_3').toggleClass('timetable__wrapper_3.active');
+                    })
+                    $('.timetable__element_4').on('click', function (e) {
+
+                        $('.timetable__wrapper_4').toggleClass('timetable__wrapper_4.active');
+                    })
+                    $('.timetable__element_5').on('click', function (e) {
+
+                        $('.timetable__wrapper_5').toggleClass('timetable__wrapper_5.active');
+                    })
+                    $('.timetable__element_6').on('click', function (e) {
+
+                        $('.timetable__wrapper_6').toggleClass('timetable__wrapper_6.active');
+                    })
+                </script>
+            </section> <!-- Конец расписания -->
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__wrapper">
+                    <p class="footer__text">powered by <i>StudBusters</i></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<script src="/static/js/test_menu.js"></script>
+<script src="/static/js/timetable.js"></script>
+</body>
+</html>
