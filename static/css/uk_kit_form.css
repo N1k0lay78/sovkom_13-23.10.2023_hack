@@ -48,9 +48,23 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px;
-  /* 142.857% */
+  line-height: 20px; /* 142.857% */
   padding: 10px 15px;
+}
+
+.date__label {
+  display: flex;
+  align-items: center;
+}
+
+.date__p {
+  color: #5F5F5F;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 100% */
+  padding-right: 20px;
 }
 
 .input__file {
@@ -70,8 +84,7 @@
   font-family: Montserrat;
   font-size: 14px;
   font-style: normal;
-  line-height: 20px;
-  /* 100% */
+  line-height: 20px; /* 100% */
   padding: 10px 15px;
   display: flex;
   align-items: center;
@@ -98,7 +111,7 @@
 .password__label {
   position: absolute;
   margin-top: -30px;
-  margin-left: 190px;
+  margin-left: 390px;
 }
 
 .form_radio_btn {
@@ -123,8 +136,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px;
-  /* 142.857% */
+  line-height: 20px; /* 142.857% */
 }
 
 /* Checked */
@@ -143,17 +155,63 @@
   color: #666;
 }
 
-.button__cancel, .button__sumbit {
+.button__sumbit {
   border: none;
   background-color: #F1C2C2;
   color: #FFF;
   font-family: Montserrat;
-  font-size: 20px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px;
-  /* 100% */
+  line-height: 20px; /* 100% */
+  padding: 5px 40px;
+}
+
+.button__cancel {
+  border: none;
+  background: #665BE5;
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 100% */
   padding: 5px 20px;
+}
+
+.form_container {
+  width: 100%;
+  display: block;
+  justify-content: center;
+}
+
+.form__wrapper {
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+  border: 2px solid #868686;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 30px 30px;
+}
+
+.button__sumbit-1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button__line {
+  width: 70%;
+  height: 0.1px;
+  border: 0.5px solid #868686;
+  margin: 10px auto;
+}
+
+.button__cancel-1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=uk_kit_form.css.map */
