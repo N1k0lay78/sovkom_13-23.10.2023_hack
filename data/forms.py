@@ -44,8 +44,8 @@ class FormLogin(FlaskForm):
 
 
 class FormTest(FlaskForm):
-    text_input = StringField("text input")
-    text_area = StringField("text area", widget=TextArea())
+    text_input = StringField("text input", render_kw={"placeholder": "Введите почту"})
+    text_area = StringField("text area", widget=TextArea(), render_kw={"placeholder": "Введите текст", "rows": "3"})
     select_field = SelectField("selection", choices=((1, "один"), (2, "два"), (3, "три"), (4, "четыре")))
     data_field = DateTimeLocalField("date", format='%m/%d/%y')
 
@@ -54,7 +54,7 @@ class FormTest(FlaskForm):
     file_field = FileField("file input")
     image_field = FileField("image input")
 
-    password = PasswordField("password")
+    password = PasswordField("password", render_kw={"placeholder": "Введите пароль"})
 
     cancel = SubmitField("Отмена")
     submit = SubmitField("Войти")

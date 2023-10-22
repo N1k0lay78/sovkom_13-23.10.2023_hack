@@ -2,39 +2,55 @@
   border: 2px solid #868686;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 420px;
-  height: 55px;
   flex-shrink: 0;
+  padding: 10px 15px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: bold;
+  color: #5F5F5F;
+}
+.text__input::placeholder {
+  color: #5F5F5F;
 }
 
 .text__area {
   border: 2px solid #868686;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 420px;
-  height: 55px;
-  flex-shrink: 0;
+  padding: 10px 15px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: bold;
+  color: #5F5F5F;
+}
+.text__area::placeholder {
+  color: #5F5F5F;
 }
 
 .selection {
   border: 2px solid #868686;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 420px;
-  height: 50px;
-  flex-shrink: 0;
+  font-family: Montserrat;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #5F5F5F;
+  font-weight: bold;
 }
 
 .date {
   border: 2px solid #868686;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 200px;
-  height: 50px;
   flex-shrink: 0;
   color: #9CB9F2;
   font-family: Montserrat;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 142.857% */
-  padding-right: 10px;
+  line-height: 20px;
+  /* 142.857% */
+  padding: 10px 15px;
 }
 
 .input__file {
@@ -49,24 +65,34 @@
   border: 2px solid #868686;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 420px;
-  height: 50px;
   flex-shrink: 0;
   color: #5F5F5F;
   font-family: Montserrat;
-  font-size: 20px;
+  font-size: 14px;
   font-style: normal;
-  font-weight: 600;
-  line-height: 20px; /* 100% */
-  padding: 10px 30px;
+  line-height: 20px;
+  /* 100% */
+  padding: 10px 15px;
   display: flex;
   align-items: center;
+  font-weight: bold;
 }
 
 .password {
-  border: 2px solid #D9D9D9;
-  width: 220px;
-  height: 40px;
+  border: 2px solid #868686;
+  width: 420px;
   flex-shrink: 0;
+  font-family: Montserrat;
+  font-size: 14px;
+  padding: 10px 15px;
+  font-weight: bold;
+  color: #5F5F5F;
+}
+.password::placeholder {
+  font-size: 14px;
+  padding: 10px 15px;
+  font-weight: bold;
+  color: #5F5F5F;
 }
 
 .password__label {
@@ -87,7 +113,7 @@
   margin-right: -5px;
   display: inline-block;
   cursor: pointer;
-  padding: 5px 15px;
+  padding: 10px 9.5px;
   border: 2px solid #868686;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   user-select: none;
@@ -97,7 +123,8 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 142.857% */
+  line-height: 20px;
+  /* 142.857% */
 }
 
 /* Checked */
@@ -124,7 +151,8 @@
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 100% */
+  line-height: 20px;
+  /* 100% */
   padding: 5px 20px;
 }
 
