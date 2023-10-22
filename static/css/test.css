@@ -2,12 +2,216 @@
 @import url("https://fonts.googleapis.com/css2?family=Onest:wght@300&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Onest:wght@300&family=Roboto&display=swap");
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+body {
+  font-family: Montserrat sans-serif;
+  font-size: 18px;
+}
+
+.aligner {
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+}
+
+.navigation {
+  width: 250px;
+  min-height: 100%;
+  background: grey;
+  font-size: 21px;
+  margin-left: -250px;
+  transition: margin-left 0.3s ease;
+}
+.navigation.active {
+  margin-left: 0;
+}
+.navigation__wrapper {
+  padding: 60px 10px;
+}
+.navigation__element {
+  padding: 5px 20px;
+}
+.navigation__element a {
+  text-decoration: none;
+  color: black !important;
+}
+
+.spoiler__list {
+  display: none;
+  margin-top: 5px;
+}
+.spoiler__list.active {
+  display: block;
+}
+.spoiler__element {
+  list-style: none;
+  padding: 5px 20px;
+}
+.spoiler__element a {
+  text-decoration: none;
+  color: black !important;
+}
+
+.content {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.container {
+  padding: 0 10px;
+}
+
+.header {
+  border-bottom: 1px solid black;
+}
+.header__wrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.header__left {
+  display: flex;
+  align-items: center;
+}
+.header__right {
+  display: flex;
+  align-items: center;
+}
+.header__right a {
+  font-size: 21px;
+  padding-bottom: 10px;
+}
+.header__burger {
+  font-size: 40px;
+  padding-bottom: 10px;
+  margin-right: 10px;
+}
+
+main {
+  height: calc(100vh - 68px);
+}
+
+.footer {
+  background: black;
+  color: white;
+}
+.footer__wrapper {
+  width: 100%;
+  padding: 20px 0;
+  display: none;
+}
+.footer__text {
+  width: 100%;
+  text-align: center;
+}
+
+section {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.schedule {
+  margin-left: 5vw;
+}
+.schedule__title {
+  width: 90vw;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 15px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28.5px;
+}
+
+.schedule__wrapper {
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.timetable {
+  border-collapse: collapse;
+  border: 2px solid #828282;
+  border-radius: 10px;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+}
+.timetable__header {
+  background: #E5E5E5;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.timetable__header tr th {
+  font-size: 16px;
+  line-height: 28.5px;
+  border: 2px solid #828282;
+  padding: 10px 20px;
+  text-align: center;
+}
+.timetable__day {
+  user-select: none;
+}
+.timetable__day tr td {
+  font-size: 16px;
+  line-height: 28.5px;
+  border: 2px solid #828282;
+  padding: 10px 20px;
+  text-align: left;
+}
+.timetable__lesson {
+  display: none;
+  transition: height 0.2s ease;
+  overflow: hidden;
+}
+.timetable__lesson.active {
+  display: table-row-group;
+}
+.timetable__lesson tr td {
+  height: 0;
+  border: 2px solid #828282;
+  padding: 5px 30px;
+  text-align: left;
+}
+.timetable__time, .timetable__auditory {
+  color: #666666;
+}
+.timetable__auditory, .timetable__time p:first-child {
+  letter-spacing: 1px;
+}
+.timetable__time p {
+  line-height: 20px;
+  width: 100%;
+  text-align: center;
+}
+.timetable__time p + p {
+  line-height: 17px;
+  padding-bottom: 3px;
+}
+.timetable__lesson-name, .timetable__academic {
+  color: #143991;
+}
+
+.timetable__wrapper_1.active {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  animation-name: open;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  overflow: hidden;
 .first-block {
   padding: 0 30%;
 }

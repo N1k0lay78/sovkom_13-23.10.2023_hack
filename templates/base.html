@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ title }}</title>
     {% block head %}
-        <link rel="stylesheet" href="/static/css/style.min.css">
+    <link rel="stylesheet" href="/static/css/style.min.css">
     {% endblock %}
 </head>
 <body>
@@ -16,6 +16,14 @@
         <div class="nav__wrapper">
 
             <ul class="nav__wrapper__menu__ul">
+                <li class="nav__wrapper__menu__ul__li">
+                    <details>
+                        <summary>
+                            <div>
+                                <img src="static/img/home.svg" alt="" style="margin-left: 5px"><a href="#"
+                                                                                                  class="nav__wrapper__menu__ul__li__a">Информация</a>
+                            </div>
+                        </summary>
 
 
                 <li class="nav__wrapper__menu__ul__li">
@@ -182,36 +190,44 @@
                     <p>Помощь</p>
                 </div>
                 {% if need_log %}
-                    {% if not is_authorized %}
-                        <a href="/login">
-                            <div class="header__button">
-                                <p>Войти</p>
-                                <img src="/static/img/login.svg" alt="Логин">
-                            </div>
-                        </a>
-                    {% else %}
-                        {% if is_logout %}
-                            <a href="/logout">
-                                <div class="header__button">
-                                    <img src="/static/img/logout.svg" alt="Выйти">
-                                    <p>Выйти</p>
-                                </div>
-                            </a>
-                        {% else %}
-                            <a href="/user/profile/{{ user_id }}">
-                                <div class="header__button">
-                                    <img src="/static/img/user.svg" alt="профиль">
-                                    <p>Профиль</p>
-                                </div>
-                            </a>
-                        {% endif %}
-                    {% endif %}
+                {% if not is_authorized %}
+                <a href="/login">
+                    <div class="header__button">
+                        <p>Войти</p>
+                        <img src="/static/img/login.svg" alt="Логин">
+                    </div>
+                </a>
+                {% else %}
+                {% if is_logout %}
+                <a href="/logout">
+                    <div class="header__button">
+                        <img src="/static/img/logout.svg" alt="Выйти">
+                        <p>Выйти</p>
+                    </div>
+                </a>
+                {% else %}
+                <a href="/user/profile/{{ user_id }}">
+                    <div class="header__button">
+                        <img src="/static/img/user.svg" alt="профиль">
+                        <p>Профиль</p>
+                    </div>
+                </a>
                 {% endif %}
-                {#                <div class="header__line">#}
-                {#                    <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="2" viewBox="0 0 1200 2" fill="none">#}
-                {#                    <path d="M0 1H1200" stroke="#E5E5E5"/>#}
-                {#                    </svg>#}
-                {#                </div>#}
+                {% endif %}
+                {% endif %}
+                {#
+                <div class="header__line">#}
+                    {#
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="2" viewBox="0 0 1200 2" fill="none">#}
+                        {#
+                        <path d="M0 1H1200" stroke="#E5E5E5"/>
+                        #}
+                        {#
+                    </svg>
+                    #}
+                    {#
+                </div>
+                #}
             </div>
         </div>
     </div>

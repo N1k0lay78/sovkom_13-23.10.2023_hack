@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import "base";
 @import "style";
 
@@ -16,3 +17,258 @@
     text-decoration: underline;
   }
 }
+
+
+$nav_width: 250px;
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Montserrat sans-serif;
+  font-size: 18px;
+}
+
+.aligner {
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+}
+
+.navigation {
+  width: $nav_width;
+  min-height: 100%;
+  background: grey;
+  font-size: 21px;
+  margin-left: -$nav_width;
+  transition: margin-left 0.3s ease;
+
+  &.active {
+    margin-left: 0;
+  }
+
+  &__wrapper {
+    padding: 60px 10px;
+  }
+
+  &__list {
+
+  }
+
+  &__element {
+    padding: 5px 20px;
+
+    & a {
+      text-decoration: none;
+      color: black !important;
+    }
+  }
+}
+
+.spoiler {
+  &__list {
+    display: none;
+    margin-top: 5px;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  &__element {
+    list-style: none;
+    padding: 5px 20px;
+
+    & a {
+      text-decoration: none;
+      color: black !important;
+    }
+  }
+}
+
+.content {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.container {
+  padding: 0 10px;
+}
+
+.header {
+  border-bottom: 1px solid black;
+
+  &__wrapper {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+
+    & a {
+      font-size: 21px;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__burger {
+    font-size: 40px;
+    padding-bottom: 10px;
+    margin-right: 10px;
+  }
+}
+
+main {
+  height: calc(100vh - 68px);
+}
+
+.footer {
+  background: black;
+  color: white;
+
+  &__wrapper {
+    width: 100%;
+    padding: 20px 0;
+    display: none;
+
+  }
+
+  &__text {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+section {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.schedule {
+  &__title {
+    width: 90vw;
+    text-align: center;
+    font-size: 24px;
+    padding-bottom: 15px;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28.5px;
+  }
+
+  margin-left: 5vw;
+}
+
+.schedule__wrapper {
+  //max-width: 1200px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+$table-border: #828282;
+
+.timetable {
+  border-collapse: collapse;
+  border: 2px solid $table-border;
+  border-radius: 10px;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+
+  &__header {
+    background: #E5E5E5;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    & tr {
+      & th {
+        font-size: 16px;
+        line-height: 28.5px;
+        border: 2px solid $table-border;
+        padding: 10px 20px;
+        text-align: center;
+      }
+    }
+  }
+
+  &__day {
+    user-select: none;
+    & tr {
+      & td {
+        font-size: 16px;
+        line-height: 28.5px;
+
+        border: 2px solid $table-border;
+        padding: 10px 20px;
+        text-align: left;
+
+      }
+    }
+  }
+
+  &__lesson {
+    display: none;
+    transition: height 0.2s ease;
+    overflow: hidden;
+    &.active {
+      display: table-row-group;
+    }
+    & tr td {
+      height: 0;
+      border: 2px solid $table-border;
+      padding: 5px 30px;
+      text-align: left;
+    }
+  }
+
+  &__time, &__auditory {
+    color: #666666;
+  }
+
+  &__auditory,
+  &__time p:first-child {
+    letter-spacing: 1px;
+  }
+
+  &__time p {
+    line-height: 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__time p + p {
+    line-height: 17px;
+    padding-bottom: 3px;
+  }
+  &__lesson-name, &__academic {
+    color: #143991;
+  }
+}
+
+.timetable__wrapper_1.active {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  animation-name: open;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+
+  overflow: hidden;
