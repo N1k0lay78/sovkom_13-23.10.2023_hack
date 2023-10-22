@@ -41,6 +41,10 @@ body {
   width: max(100vw - 237px, 375px);
 }
 
+.main {
+  min-height: calc(100vh - 93px);
+}
+
 .main a {
   color: blue;
   text-decoration: underline;
@@ -67,8 +71,7 @@ body {
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px;
-  /* 100% */
+  line-height: 20px; /* 100% */
   width: 90px;
   height: 20px;
   margin-right: 50px;
@@ -85,8 +88,7 @@ body {
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px;
-  /* 100% */
+  line-height: 20px; /* 100% */
   width: 94px;
   height: 20px;
   border-radius: 2px;
@@ -127,8 +129,7 @@ body {
   font-size: 10.607px;
   font-style: normal;
   font-weight: 600;
-  line-height: 27.286px;
-  /* 257.241% */
+  line-height: 27.286px; /* 257.241% */
   border-bottom: 0.5px solid transparent;
   border-top: 0.5px solid transparent;
 }
@@ -157,8 +158,7 @@ body {
   font-size: 10.607px;
   font-style: normal;
   font-weight: 600;
-  line-height: 27.286px;
-  /* 257.241% */
+  line-height: 27.286px; /* 257.241% */
 }
 .nav__wrapper__menu__ul__li__inside__ul__li:hover {
   background: #D9D9D9;
@@ -457,8 +457,7 @@ a {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28.5px;
-  /* 178.125% */
+  line-height: 28.5px; /* 178.125% */
 }
 .footer__wrapper__dlyrussia {
   color: #000;
@@ -466,8 +465,7 @@ a {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28.5px;
-  /* 178.125% */
+  line-height: 28.5px; /* 178.125% */
 }
 .footer__wrapper__mobver {
   color: #000;
@@ -475,8 +473,7 @@ a {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28.5px;
-  /* 178.125% */
+  line-height: 28.5px; /* 178.125% */
 }
 
 .footer__wrapper__dlyrubezja__text {
@@ -511,4 +508,4 @@ a {
   justify-content: space-around;
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style1.css.map */

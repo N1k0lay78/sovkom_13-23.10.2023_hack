@@ -199,8 +199,10 @@ $width-password: 100%;
 
 .form_container {
   width: 100%;
-  display: block;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 93px);
 }
 
 .form__wrapper {
@@ -211,7 +213,7 @@ $width-password: 100%;
   border: 2px solid #868686;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 30px 30px;
-  max-width: 600px;
+  max-width: 400px;
 }
 
 
@@ -249,3 +251,4 @@ $width-password: 100%;
   font-style: normal;
   font-weight: 600;
 }
+
