@@ -1,8 +1,9 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileAllowed
-from wtforms import PasswordField, StringField, SubmitField, FloatField, FileField, SelectField
+from wtforms import PasswordField, StringField, SubmitField, FileField, SelectField, RadioField, DateTimeField
+from wtforms.fields.html5 import DateTimeLocalField
 from wtforms.validators import DataRequired, Length
-
+from wtforms.widgets import TextArea
 
 """
 class FormLogin(FlaskForm):
@@ -39,6 +40,23 @@ class FormCompanyRegistration(FlaskForm):
 class FormLogin(FlaskForm):
     email = StringField("Почта", validators=[DataRequired()])
     password = PasswordField("Пароль", validators=[Length(8, 16, "Пароль от 8 до 16 символов"), DataRequired()])
+    submit = SubmitField("Войти")
+
+
+class FormTest(FlaskForm):
+    text_input = StringField("text input", render_kw={"placeholder": "Введите почту"})
+    text_area = StringField("text area", widget=TextArea(), render_kw={"placeholder": "Введите текст", "rows": "3"})
+    select_field = SelectField("selection", choices=((1, "один"), (2, "два"), (3, "три"), (4, "четыре")))
+    data_field = DateTimeLocalField("date", format='%m/%d/%y')
+
+    radio_field = RadioField("radio input", choices=[(1, "Верхняя неделя"), (2, "Нижняя неделя"), (3, "Каждую неделю")])
+
+    file_field = FileField("file input")
+    image_field = FileField("image input")
+
+    password = PasswordField("password", render_kw={"placeholder": "Введите пароль"})
+
+    cancel = SubmitField("Отмена")
     submit = SubmitField("Войти")
 
 

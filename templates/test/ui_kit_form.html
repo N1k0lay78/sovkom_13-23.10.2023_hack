@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <div class="form_container">
+        <div class="form__wrapper">
+            <form class="log__form" action="" method="post" enctype=multipart/form-data>
+
+                <p class="log__title">UI kit form</p>
+
+                {{ form.hidden_tag() }}
+
+                {{ form.text_input(class="text__input") }}<br>
+                {% for error in form.text_input.errors %}
+                    <div class="error" role="alert">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+
+                {{ form.text_area(class="text__area") }}<br>
+                {% for error in form.text_area.errors %}
+                    <div class="error" role="alert">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+
+                {{ form.select_field(class="selection") }}<br>
+                {% for error in form.select_field.errors %}
+                    <div class="error" role="alert">
+                        {{ error }}
+                    </div>
+                    <br>
+
+
+                {% endfor %}
+                <br>
+                <div class="date__label">
+                    <p class="date__p">Дата</p>
+                    {{ form.data_field(class="date") }}
+                </div>
+                <br>
+                {% for error in form.data_field.errors %}
+
+                    <div class="error" role="alert">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+
+                <!--        {{ form.radio_field.label(class="") }}<br>-->
+                <!--        {{ form.radio_field(class="") }}<br>-->
+                <!--        {% for error in form.radio_field.errors %}-->
+                    <!--        <div class="" role="alert">-->
+                    <!--            {{ error }}-->
+                    <!--        </div>-->
+                    <!--        {% endfor %}-->
+                <br>
+                <br>
+                <br>
+                <div class="form_radio_btn">
+                    <input id="radio-1" type="radio" name="radio" value="1" checked>
+                    <label for="radio-1">Нижняя неделя</label>
+                </div>
+
+                <div class="form_radio_btn">
+                    <input id="radio-2" type="radio" name="radio" value="2">
+                    <label for="radio-2">Верхняя неделя</label>
+                </div>
+
+                <div class="form_radio_btn">
+                    <input id="radio-3" type="radio" name="radio" value="3">
+                    <label for="radio-3">Каждую неделю</label>
+                </div>
+                <br>
+                <br>
+                <br>
+                <!--        {{ form.file_field.label(class="") }}<br>-->
+                <!--        {{ form.file_field(class="") }}<br>-->
+                <!--        {% for error in form.file_field.errors %}-->
+                    <!--        <div class="" role="alert">-->
+                    <!--            {{ error }}-->
+                    <!--        </div>-->
+                    <!--        {% endfor %}-->
+
+                <!--        {{ form.image_field.label(class="") }}<br>-->
+                <!--        {{ form.image_field(class="image__input") }}-->
+                <input type="file" name="file" class="input__file" id="file"
+                       data-multiple-caption="{count} файлов выбрано"
+                       multiple>
+                <label for="file">
+                    <span>Выбрать изображение</span>
+                    <img src="/static/img/images-outline%201.png" alt="" style="margin-left: 10px">
+                    <img src="/static/img/Untitled.png" alt="">
+                    <img src="/static/img/folder-outline%201.png" alt="">
+                </label>
+                <br>
+                {% for error in form.image_field.errors %}
+                    <div class="error" role="alert">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+                <div class="password__container">
+
+                    {{ form.password(class="password") }}<br>
+                    <label for="password" class="password__label"><span><img src="/static/img/Vector.svg"
+                                                                             alt=""></span></label>
+                </div>
+                {% for error in form.password.errors %}
+                    <div class="error" role="alert">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+
+                {% if error %}
+                    <p class="error">{{ error }}</p>
+                {% endif %}
+
+                <div class="button__button">
+                    <div class="button__sumbit-1">
+                        {{ form.submit(type="submit", class="button__sumbit") }}
+                    </div>
+                    <div class="button__line"></div>
+                    <div class="button__cancel-1">
+                        {{ form.cancel(type="button", class="button__cancel") }}
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from views.tools import my_render
 
-from data.forms import FormDelete
+from data.forms import FormDelete, FormTest
 
 test_pages = Blueprint('test', __name__)
 
@@ -24,6 +24,12 @@ def test_base_page():
 @test_pages.route("/tabel/")
 def test_tabel_page():
     return my_render("/test/tabel.html", title="Таблица успеваемости")
+
+
+@test_pages.route("/forms/", methods=["GET", "POST"])
+def test_form_render():
+    form = FormTest()
+    return my_render("/test/ui_kit_form.html", form=form, error="Всё не так, давай по новой")
 
 
 @test_pages.route("/timetable/")

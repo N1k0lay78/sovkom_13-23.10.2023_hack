@@ -1,0 +1,242 @@
+.text__input {
+  border: 2px solid #868686;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  flex-shrink: 0;
+  padding: 10px 15px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: bold;
+  color: #5F5F5F;
+  margin: 20px 0;
+}
+.text__input::placeholder {
+  color: #5F5F5F;
+}
+
+.text__area {
+  border: 2px solid #868686;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  padding: 10px 15px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: bold;
+  color: #5F5F5F;
+  margin: 20px 0;
+}
+.text__area::placeholder {
+  color: #5F5F5F;
+}
+
+.selection {
+  border: 2px solid #868686;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  font-family: Montserrat;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #5F5F5F;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.date {
+  border: 2px solid #868686;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 45%;
+  flex-shrink: 0;
+  color: #9CB9F2;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
+  padding: 10px 15px;
+  margin: 20px 0;
+}
+
+.date__label {
+  display: flex;
+  align-items: center;
+}
+
+.date__p {
+  color: #5F5F5F;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 100% */
+  padding-right: 20px;
+}
+
+.input__file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.input__file + label {
+  border: 2px solid #868686;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  flex-shrink: 0;
+  color: #5F5F5F;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 20px; /* 100% */
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.password__container {
+  position: relative;
+  margin: 20px 0;
+}
+
+.password {
+  border: 2px solid #868686;
+  width: 100%;
+  flex-shrink: 0;
+  font-family: Montserrat;
+  font-size: 14px;
+  padding: 10px 15px;
+  font-weight: bold;
+  color: #5F5F5F;
+  margin: 0;
+}
+.password::placeholder {
+  font-size: 14px;
+  font-weight: bold;
+  color: #5F5F5F;
+}
+
+.password__label {
+  position: absolute;
+  margin-top: -32px;
+  margin-left: calc(100% - 30px);
+}
+
+.form_radio_btn {
+  display: inline-block;
+  margin: 20px 0;
+}
+
+.form_radio_btn input[type=radio] {
+  display: none;
+}
+
+.form_radio_btn label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 9.5px;
+  border: 2px solid #868686;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  user-select: none;
+  flex-shrink: 0;
+  color: #9CB9F2;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
+}
+
+/* Checked */
+.form_radio_btn input[type=radio]:checked + label {
+  background: #efefef;
+}
+
+/* Hover */
+.form_radio_btn label:hover {
+  color: #666;
+}
+
+/* Disabled */
+.form_radio_btn input[type=radio]:disabled + label {
+  background: #efefef;
+  color: #666;
+}
+
+.button__sumbit {
+  border: none;
+  background-color: #F1C2C2;
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 100% */
+  padding: 5px 40px;
+}
+
+.button__cancel {
+  border: none;
+  background: #665BE5;
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 100% */
+  padding: 5px 20px;
+}
+
+.form_container {
+  width: 100%;
+  display: block;
+  justify-content: center;
+}
+
+.form__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+  border: 2px solid #868686;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 30px 30px;
+  max-width: 600px;
+}
+
+.button__sumbit-1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button__line {
+  width: 70%;
+  height: 0.1px;
+  border: 0.5px solid #868686;
+  margin: 10px auto;
+}
+
+.button__cancel-1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button__button {
+  margin: 20px 0;
+}
+
+.error {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: red;
+  padding: 15px 15px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=uk_kit_form.css.map */
