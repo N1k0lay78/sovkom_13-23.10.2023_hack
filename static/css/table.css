@@ -213,6 +213,16 @@ background: #FFFFFF;
 border: 1px solid #828282;
 }
 
+.table_presence_rating_professor {
+width: 30px;
+height: 40px;
+left: 0px;
+top: 0px;
+
+background: #FFFFFF;
+border: 1px solid #828282;
+}
+
 .table_date {
 width: 60px;
 height: 40px;

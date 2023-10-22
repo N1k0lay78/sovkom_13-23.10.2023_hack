@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block main %}
+<form action="/test/tabel/" method="post">
 <table class="table">
   <tbody>
     <tr>
@@ -22,13 +23,22 @@
     <tr>
       <th class="table_data_student_name">{{data['name']}}</th>
       {%for date in data['data']%}
-      {%if date[0] == -1%}
-      <th class="table_presence_rating">⠀</th>
+      {%if date[0] == -1 and date[1] == -1%}
+      <th class="table_presence_rating" colspan="2">⠀</th>
+        {%elif date[0] == -1%}
+        <th class="table_presence_rating">⠀</th>
       {% else %}
+        {%if user == 'Преподаватель'%}
+      <th class="table_presence_rating">
+           <input type="number" placeholder="{{date[0]}}" class="table_presence_rating" name="{{date[0]}} {{date[1]}} {{data['name']}}">
+          </th>
+        {%elif user == 'Студент'%}
       <th class="table_presence_rating">{{date[0]}}</th>
+        {%endif%}
       {% endif %}
           {%if date[1] == 0%}
           <th class="table_presence_false"></th>
+          {%elif date[1] == -1%}
           {% else %}
           <th class="table_presence_true"></th>
           {% endif %}
@@ -38,4 +48,6 @@
     {% endfor %}
   </tbody>
 </table>
+    <input type="submit" value="Отправить">
+    </form>
 {% endblock %}
