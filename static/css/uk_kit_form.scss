@@ -118,7 +118,6 @@ $width-password: 100%;
 
   &::placeholder {
     font-size: 14px;
-    padding: 10px 15px;
     font-weight: bold;
     color: #5F5F5F;
   }
@@ -127,7 +126,7 @@ $width-password: 100%;
 .password__label {
   position: absolute;
   margin-top: -32px;
-  margin-left: calc($width-password - 30px);
+  margin-left: calc(#{$width-password} - 30px);
 }
 
 

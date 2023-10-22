@@ -9,7 +9,6 @@
 
                 {{ form.hidden_tag() }}
 
-                {{ form.text_input.label(class="") }}<br>
                 {{ form.text_input(class="text__input") }}<br>
                 {% for error in form.text_input.errors %}
                     <div class="error" role="alert">
@@ -17,7 +16,6 @@
                     </div>
                 {% endfor %}
 
-                {{ form.text_area.label(class="") }}<br>
                 {{ form.text_area(class="text__area") }}<br>
                 {% for error in form.text_area.errors %}
                     <div class="error" role="alert">
@@ -25,7 +23,6 @@
                     </div>
                 {% endfor %}
 
-                {{ form.select_field.label(class="") }}<br>
                 {{ form.select_field(class="selection") }}<br>
                 {% for error in form.select_field.errors %}
                     <div class="error" role="alert">
@@ -101,7 +98,7 @@
                     </div>
                 {% endfor %}
                 <div class="password__container">
-                    {{ form.password.label(class="") }}<br>
+
                     {{ form.password(class="password") }}<br>
                     <label for="password" class="password__label"><span><img src="/static/img/Vector.svg"
                                                                              alt=""></span></label>
