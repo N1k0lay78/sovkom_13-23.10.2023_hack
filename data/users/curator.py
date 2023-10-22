@@ -8,5 +8,9 @@ class Curator(User):
 
     position = sqlalchemy.Column(sqlalchemy.String, nullable=False)
 
+    __mapper_args__ = {
+        "polymorphic_identity": "curator",
+    }
+
     def __repr__(self):
         return f'<Curator> Проф ком {self.id} {self.email} {self.name}'
