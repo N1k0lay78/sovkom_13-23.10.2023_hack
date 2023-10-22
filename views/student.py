@@ -1,8 +1,10 @@
-from flask import Blueprint
+from flask import Blueprint, request
 from flask_login import login_required, current_user
 
+from controller.message import send, recv_messages
 from controller.student import get_lesson_of_user
-from views.tools import my_render
+from data.forms import FormSendMessage
+from views.tools import my_render, goto_profile
 
 student_pages = Blueprint('student', __name__)
 
@@ -11,7 +13,6 @@ student_pages = Blueprint('student', __name__)
 @login_required
 def lessons_page():
     lessons = get_lesson_of_user(current_user.id)
-    print(lessons)
     message = lessons["message"]
     lessons = lessons["data"]
     day = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
@@ -46,3 +47,29 @@ def assessments_page():
 @login_required
 def assessment_page():
     return "Успеваемость по предмету"
+
+
+@student_pages.route("/send", methods=["GET", "POST"])
+@login_required
+def send_page():
+    form = FormSendMessage()
+    error, status = "", "ok"
+    if request.method == "POST":
+        resp = send(current_user.id, form.email.data, form.message.data)
+        error, status = resp["message"], resp["status"]
+        if status == "ok":
+            return goto_profile(current_user)
+    return my_render("/student/send.html", form=form, error=error, status=status)
+
+
+@student_pages.route("/read")
+@login_required
+def read_page():
+    recv = recv_messages(current_user.id)
+    if recv["status"] == "ok":
+        data = recv["data"]
+    else:
+        data = []
+    print(data)
+    return my_render("/student/read.html", error=recv["message"], status=recv["status"], data=data)
+

@@ -37,9 +37,15 @@ class FormCompanyRegistration(FlaskForm):
 """
 
 
+class FormSendMessage(FlaskForm):
+    email = StringField("Почта", validators=[DataRequired()], render_kw={"placeholder": "Введите почту"})
+    message = StringField("text area", widget=TextArea(), render_kw={"placeholder": "Введите сообщение", "rows": "3"})
+    submit = SubmitField("Отправить")
+
+
 class FormLogin(FlaskForm):
-    email = StringField("Почта", validators=[DataRequired()])
-    password = PasswordField("Пароль", validators=[Length(8, 16, "Пароль от 8 до 16 символов"), DataRequired()])
+    email = StringField("Почта", validators=[DataRequired()], render_kw={"placeholder": "Введите почту"})
+    password = PasswordField("Пароль", validators=[Length(8, 16, "Пароль от 8 до 16 символов"), DataRequired()], render_kw={"placeholder": "Введите пароль"})
     submit = SubmitField("Войти")
 
 

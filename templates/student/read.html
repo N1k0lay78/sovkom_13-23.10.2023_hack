@@ -1,0 +1,38 @@
+{% extends "/student/index.html" %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/css/style.min.css">
+<link rel="stylesheet" href="/static/css/message.min.css">
+{% endblock %}
+
+{% block main %}
+<section>
+    <div class="container">
+        <p class="title">Входящие сообщения</p>
+
+        {% if data != [] %}
+        <div class="message__wrapper">
+            {% for message in data %}
+            <a href="/student/read/{{message.id}}" class="message__link">
+                <div class="message">
+                    <p>{{message.send_name}}</p>
+                    <p>{{message.time}}</p>
+                    {% if message.read %}
+                    <p>Прочитано</p>
+                    {% else %}
+                    <p>Не прочитано</p>
+                    {% endif %}
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="no-data">{{error}}</p>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}
