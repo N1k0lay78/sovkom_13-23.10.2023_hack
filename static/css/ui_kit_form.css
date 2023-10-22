@@ -51,7 +51,8 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 142.857% */
+  line-height: 20px;
+  /* 142.857% */
   padding: 10px 15px;
   margin: 20px 0;
 }
@@ -67,7 +68,8 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 100% */
+  line-height: 20px;
+  /* 100% */
   padding-right: 20px;
 }
 
@@ -88,7 +90,8 @@
   font-family: Montserrat;
   font-size: 14px;
   font-style: normal;
-  line-height: 20px; /* 100% */
+  line-height: 20px;
+  /* 100% */
   padding: 10px 15px;
   display: flex;
   align-items: center;
@@ -146,7 +149,8 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 142.857% */
+  line-height: 20px;
+  /* 142.857% */
 }
 
 /* Checked */
@@ -173,7 +177,8 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 100% */
+  line-height: 20px;
+  /* 100% */
   padding: 5px 40px;
 }
 
@@ -185,7 +190,8 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 100% */
+  line-height: 20px;
+  /* 100% */
   padding: 5px 20px;
 }
 
@@ -239,4 +245,4 @@
   font-weight: 600;
 }
 
-/*# sourceMappingURL=uk_kit_form.css.map */
+/*# sourceMappingURL=ui_kit_form.css.map */
