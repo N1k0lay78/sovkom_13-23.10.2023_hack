@@ -39,8 +39,19 @@ class FormCompanyRegistration(FlaskForm):
 
 class FormSendMessage(FlaskForm):
     email = StringField("Почта", validators=[DataRequired()], render_kw={"placeholder": "Введите почту"})
-    message = StringField("text area", widget=TextArea(), render_kw={"placeholder": "Введите сообщение", "rows": "3"})
+    message = StringField("text area", widget=TextArea(), validators=[DataRequired()], render_kw={"placeholder": "Введите сообщение", "rows": "3"})
     submit = SubmitField("Отправить")
+
+
+class FormFile(FlaskForm):
+    name = StringField("Название файла", validators=[DataRequired()], render_kw={"placeholder": "Введите название файла"})
+    submit = SubmitField("Сохранить")
+
+
+class FormFileEdit(FlaskForm):
+    name = StringField("Название файла", validators=[DataRequired()], render_kw={"placeholder": "Введите название файла"})
+    href = StringField("Ссылка", render_kw={"placeholder": "Введите ссылку"})
+    submit = SubmitField("Сохранить")
 
 
 class FormLogin(FlaskForm):

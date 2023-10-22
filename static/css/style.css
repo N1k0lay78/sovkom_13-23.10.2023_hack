@@ -23,6 +23,11 @@
   box-sizing: border-box;
 }
 
+section {
+  width: 100%;
+  padding: 30px 0;
+}
+
 body {
   width: 100vw;
   overflow-x: hidden;
@@ -511,4 +516,4 @@ a {
   justify-content: space-around;
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style1.css.map */

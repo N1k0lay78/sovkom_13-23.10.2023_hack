@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect
@@ -18,6 +20,14 @@ application.config.from_object(config)
 
 # init DB
 db_session.global_init("db/study.sqlite")
+
+# uploads dir
+uploads_dir = os.path.join(application.instance_path, 'uploads')
+# print(uploads_dir)
+try:
+    os.makedirs(uploads_dir)
+except Exception:
+    pass
 
 # login manager
 login_manager = LoginManager()

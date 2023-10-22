@@ -1,5 +1,85 @@
 {% extends "base.html" %}
 
-{% block main %}
+{% block nav %}
+<li class="nav__wrapper__menu__ul__li_1">
+    <div class="nav__wrapper__menu__ul__li__wrapper_1">
+        <img src="/static/img/newspaper-outline 1.svg" alt="">
+        <a href="#" class="nav__wrapper__menu__ul__li__a">Сообщения</a>
+    </div>
+    <div class="nav__wrapper__menu__ul__li__inside">
+        <ul class="nav__wrapper__menu__ul__li__inside__ul_1">
+            <li class="nav__wrapper__menu__ul__li__inside__ul__li">
+                <a href="/curator/send" class="nav__wrapper__menu__ul__li__inside__ul__li__a">Написать</a>
+            </li>
+            <li class="nav__wrapper__menu__ul__li__inside__ul__li">
+                <a href="/curator/send_group" class="nav__wrapper__menu__ul__li__inside__ul__li__a">Написать группе</a>
+            </li>
+            <li class="nav__wrapper__menu__ul__li__inside__ul__li">
+                <a href="/curator/read" class="nav__wrapper__menu__ul__li__inside__ul__li__a">Входящие</a>
+            </li>
+            <li class="nav__wrapper__menu__ul__li__inside__ul__li">
+                <a href="/curator/sent" class="nav__wrapper__menu__ul__li__inside__ul__li__a">Отправленные</a>
+            </li>
+        </ul>
+    </div>
+</li>
+<li class="nav__wrapper__menu__ul__li_1">
+    <div class="nav__wrapper__menu__ul__li__wrapper_1">
+        <img src="/static/img/newspaper-outline 1.svg" alt="">
+        <a href="#" class="nav__wrapper__menu__ul__li__a">Обработка заявок</a>
+    </div>
+    <div class="nav__wrapper__menu__ul__li__inside">
+        <ul class="nav__wrapper__menu__ul__li__inside__ul_1">
+            <li class="nav__wrapper__menu__ul__li__inside__ul__li">
+                <a href="/curator" class="nav__wrapper__menu__ul__li__inside__ul__li__a">Заявки</a>
+            </li>
+        </ul>
+    </div>
+</li>
+<li class="nav__wrapper__menu__ul__li_1">
+    <div class="nav__wrapper__menu__ul__li__wrapper_1">
+        <img src="/static/img/newspaper-outline 1.svg" alt="">
+        <a href="#" class="nav__wrapper__menu__ul__li__a">Пользователи</a>
+    </div>
+    <div class="nav__wrapper__menu__ul__li__inside">
+        <ul class="nav__wrapper__menu__ul__li__inside__ul_1">
+            <li class="nav__wrapper__menu__ul__li__inside__ul__li">
+                <a href="/curator/academic" class="nav__wrapper__menu__ul__li__inside__ul__li__a">Преподаватели</a>
+            </li>
+        </ul>
+    </div>
+    <div class="nav__wrapper__menu__ul__li__inside">
+        <ul class="nav__wrapper__menu__ul__li__inside__ul_1">
+            <li class="nav__wrapper__menu__ul__li__inside__ul__li">
+                <a href="/curator/group" class="nav__wrapper__menu__ul__li__inside__ul__li__a">Группы</a>
+            </li>
+        </ul>
+    </div>
+</li>
 
+<li class="nav__wrapper__menu__ul__li_1">
+    <div class="nav__wrapper__menu__ul__li__wrapper_1">
+        <img src="/static/img/newspaper-outline 1.svg" alt="">
+        <a href="#" class="nav__wrapper__menu__ul__li__a">Материалы</a>
+    </div>
+    <div class="nav__wrapper__menu__ul__li__inside">
+        <ul class="nav__wrapper__menu__ul__li__inside__ul_1">
+            <li class="nav__wrapper__menu__ul__li__inside__ul__li">
+                <a href="/curator/presentation" class="nav__wrapper__menu__ul__li__inside__ul__li__a">Презентация</a>
+            </li>
+            <li class="nav__wrapper__menu__ul__li__inside__ul__li">
+                <a href="/curator/abstract" class="nav__wrapper__menu__ul__li__inside__ul__li__a">Конспект</a>
+            </li>
+            <li class="nav__wrapper__menu__ul__li__inside__ul__li">
+                <a href="/curator/video" class="nav__wrapper__menu__ul__li__inside__ul__li__a">Видео</a>
+            </li>
+            <li class="nav__wrapper__menu__ul__li__inside__ul__li">
+                <a href="/curator/file" class="nav__wrapper__menu__ul__li__inside__ul__li__a">Файл</a>
+            </li>
+        </ul>
+    </div>
+</li>
+{% endblock %}
+
+{% block main %}
 {% endblock %}
