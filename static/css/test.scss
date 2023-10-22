@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 $nav_width: 250px;
-::-webkit-scrollbar {
-  width: 0;
-}
+
 
 * {
   padding: 0;
@@ -162,7 +160,7 @@ section {
 .timetable {
 
   min-width: 1046px;
-  width: 90vw;
+  width: 1200px;
   border: 1px solid black;
   list-style: none;
   border-radius: 5px;
@@ -228,17 +226,17 @@ section {
     text-align: center;
     height: 60px;
     color: #9CB9F2;
-
+    width: 65%;
     padding-top: 20px;
     border-bottom: 0.5px solid black;
-
+    width: 600px;
 
   }
 
   &__time {
     list-style: none;
     align-items: center;
-
+    width: 200px;
     text-align: center;
     height: 60px;
 
@@ -252,7 +250,7 @@ section {
     align-items: center;
     text-align: center;
     height: 60px;
-
+    width: 200px;
     padding: 10px 25px ;
     border-bottom: 0.5px solid black;
     color: #9CB9F2;
@@ -262,7 +260,7 @@ section {
   &__cabinet {
     list-style: none;
     align-items: center;
-
+    width: 200px;
     text-align: center;
     height: 60px;
     padding-top: 20px;
