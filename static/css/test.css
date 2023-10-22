@@ -531,26 +531,28 @@ a {
 
 section {
   width: 100%;
-  padding: 20px 0;
+  padding: 30px 0;
 }
 
-.schedule {
-  margin-left: 5vw;
-}
 .schedule__title {
-  width: 90vw;
+  width: 100%;
   text-align: center;
   padding-bottom: 15px;
   font-family: Montserrat;
-  font-size: 14px;
+  font-size: 21px;
   font-style: normal;
   font-weight: 600;
   line-height: 28.5px;
 }
-
 .schedule__wrapper {
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
   overflow-x: auto;
+}
+@media (max-width: 700px) {
+  .schedule__wrapper {
+    display: block;
+  }
 }
 
 .timetable {
@@ -561,6 +563,7 @@ section {
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
+  min-width: 700px;
 }
 .timetable__header {
   background: #E5E5E5;
