@@ -1,10 +1,10 @@
 from flask import Blueprint, request, redirect
-from flask_login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user, current_user
 
 from data import db_session
 from data.forms import FormLogin
 from data.users.user import User
-from views.tools import my_render
+from views.tools import my_render, goto_profile
 
 index_pages = Blueprint('index', __name__)
 
@@ -19,7 +19,7 @@ def login_page():
         print(user)
         if user and user.check_password(form.password.data):
             login_user(user, remember=True)
-            return redirect("/")
+            return goto_profile(user)
         else:
             error = "Неверная почта или пароль"
     print(error)
@@ -35,4 +35,4 @@ def logout():
 
 @index_pages.route("/")
 def main_page():
-    return redirect("/test")
+    return goto_profile(current_user)

@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, redirect
 from flask_login import current_user
 
 from data import db_session
@@ -27,3 +27,16 @@ def my_render(filename, **kwargs):
     for key, val in kwargs.items():
         my_kwargs[key] = val
     return render_template(filename, **my_kwargs)
+
+
+def goto_profile(user):
+    if not user.is_authenticated:
+        return redirect("/login")
+    if user.type == "abiturient":
+        return redirect("/abiturient/")
+    elif user.type == "student":
+        return redirect("/student/")
+    elif user.type == "academic":
+        return redirect("/academic/")
+    elif user.type == "curator":
+        return redirect("/curator/")
