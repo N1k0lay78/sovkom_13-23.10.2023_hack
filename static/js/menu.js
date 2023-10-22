@@ -9,8 +9,10 @@ $('.nav__wrapper__menu__ul__li').on('click', function (j) {
     $('.nav__wrapper__menu__ul__li__inside__ul').toggleClass('nav__wrapper__menu__ul__li__inside__ul__active');
 
 })
-$('.nav__wrapper__menu__ul__li_1').on('click', function (k) {
-    $('.nav__wrapper__menu__ul__li__inside__ul_1').toggleClass('nav__wrapper__menu__ul__li__inside__ul_1__active_1');
+$('.nav__wrapper__menu__ul__li_1').on('click', function (event) {
+    const clickedElement = $(event.target);
+    const targetElement = clickedElement.closest('.nav__wrapper__menu__ul__li_1');
+    $(targetElement).children()[1].children[0].classList.toggle('nav__wrapper__menu__ul__li__inside__ul_1__active_1')
 })
 $('.nav__wrapper__menu__ul__li_2').on('click', function (j) {
     $('.nav__wrapper__menu__ul__li__inside__ul_2').toggleClass('nav__wrapper__menu__ul__li__inside__ul_2__active_2');

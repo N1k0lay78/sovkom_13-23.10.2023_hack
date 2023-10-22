@@ -1,5 +1,40 @@
 {% extends "base.html" %}
 
+{% block nav %}
+<li class="nav__wrapper__menu__ul__li_1">
+    <div class="nav__wrapper__menu__ul__li__wrapper_1">
+        <img src="/static/img/newspaper-outline 1.svg" alt="">
+        <a href="#" class="nav__wrapper__menu__ul__li__a">Обучение</a>
+    </div>
+    <div class="nav__wrapper__menu__ul__li__inside">
+        <ul class="nav__wrapper__menu__ul__li__inside__ul_1">
+            <li class="nav__wrapper__menu__ul__li__inside__ul__li">
+                <a href="/student" class="nav__wrapper__menu__ul__li__inside__ul__li__a">Расписание</a>
+            </li>
+            <li class="nav__wrapper__menu__ul__li__inside__ul__li">
+                <a href="/student/tasks" class="nav__wrapper__menu__ul__li__inside__ul__li__a">Задания</a>
+            </li>
+        </ul>
+    </div>
+</li>
+<li class="nav__wrapper__menu__ul__li_1">
+    <div class="nav__wrapper__menu__ul__li__wrapper_1">
+        <img src="/static/img/newspaper-outline 1.svg" alt="">
+        <a href="#" class="nav__wrapper__menu__ul__li__a">Профиль</a>
+    </div>
+    <div class="nav__wrapper__menu__ul__li__inside">
+        <ul class="nav__wrapper__menu__ul__li__inside__ul_1">
+            <li class="nav__wrapper__menu__ul__li__inside__ul__li">
+                <a href="/student/info" class="nav__wrapper__menu__ul__li__inside__ul__li__a">Профиль</a>
+            </li>
+            <li class="nav__wrapper__menu__ul__li__inside__ul__li">
+                <a href="/student/assessments" class="nav__wrapper__menu__ul__li__inside__ul__li__a">Успеваемость</a>
+            </li>
+        </ul>
+    </div>
+</li>
+{% endblock %}
+
 {% block main %}
 
 {% endblock %}
