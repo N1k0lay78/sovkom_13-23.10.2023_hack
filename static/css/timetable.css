@@ -85,7 +85,8 @@ body {
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 100% */
+  line-height: 20px;
+  /* 100% */
   width: 90px;
   height: 20px;
   margin-right: 50px;
@@ -102,7 +103,8 @@ body {
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 100% */
+  line-height: 20px;
+  /* 100% */
   width: 94px;
   height: 20px;
   border-radius: 2px;
@@ -473,7 +475,8 @@ a {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28.5px; /* 178.125% */
+  line-height: 28.5px;
+  /* 178.125% */
 }
 .footer__wrapper__dlyrussia {
   color: #000;
@@ -481,7 +484,8 @@ a {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28.5px; /* 178.125% */
+  line-height: 28.5px;
+  /* 178.125% */
 }
 .footer__wrapper__mobver {
   color: #000;
@@ -489,7 +493,8 @@ a {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-
+  line-height: 28.5px;
+  /* 178.125% */
 }
 
 .footer__wrapper__dlyrubezja__text {
@@ -629,4 +634,4 @@ section {
   overflow: hidden;
 }
 
-/*# sourceMappingURL=test.css.map */
+/*# sourceMappingURL=timetable.css.map */

@@ -4,6 +4,20 @@ from data.users.student import Student
 from data.users.user import User
 
 
+def get_lesson_of_user(user_id):
+    session = db_session.create_session()
+    stud = session.query(Student).get(user_id)
+    if not stud:
+        session.close()
+        return {"status": "error", "message": "студент не существует"}
+    if not stud.groups:
+        session.close()
+        return {"status": "error", "message": "студент не состоит в группе"}
+    group_id = stud.groups[0].id
+    session.close()
+    return get_lessons(group_id)
+
+
 def get_lessons(group_id):
     session = db_session.create_session()
     group = session.query(Group).get(group_id)
