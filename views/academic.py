@@ -9,9 +9,14 @@ academic_pages = Blueprint('academic', __name__)
 def lessons_page():
     return my_render("/academic/index.html", title="Расписание")
 
-@academic_pages.route("/edit_info")
+@academic_pages.route("/edit_info", methods=["GET", "POST"])
 def edit_info_page():
-    form = FormTest()
+    form = FormEditInfo()
+    error, status = "", ""
+    if request.method == "POST":
+        resp = edit_abiturient(form)
+        if resp["status"] == "error":
+            error, status = resp["message"], resp["status"]
     return my_render("/academic/edit_info.html", title="", form=form)
 
 
