@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 
 from controller.message import send, recv_messages
 from controller.student import get_lesson_of_user
-from data.forms import FormSendMessage
+from data.forms import FormSendMessage, FormEditPassword, FormEditInfo
 from views.tools import my_render, goto_profile
 from flask import Blueprint
 from views.tools import my_render
@@ -78,13 +78,25 @@ def read_page():
     return my_render("/student/read.html", error=recv["message"], status=recv["status"], data=data)
 
 
-@student_pages.route("/edit_info")
+@student_pages.route("/edit_info", methods=["GET", "POST"])
 def edit_info_page():
-    form = FormTest()
+    form = FormEditInfo()
+    error, status = "", ""
+    if request.method == "POST":
+        # resp = edit_abiturient(form)
+        # if resp["status"] == "error":
+        #     error, status = resp["message"], resp["status"]
+        pass
     return my_render("/student/edit_info.html", title="", form=form)
 
 
-@student_pages.route("/edit_password")
+@student_pages.route("/edit_password", methods=["GET", "POST"])
 def edit_password_page():
-    form = FormTest()
+    form = FormEditPassword()
+    error, status = "", ""
+    if request.method == "POST":
+        # resp = edit_password(form)
+        # if resp["status"] == "error":
+        #     error, status = resp["message"], resp["status"]
+        pass
     return my_render("/student/edit_password.html", title="", form=form)

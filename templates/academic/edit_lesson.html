@@ -1,0 +1,52 @@
+{% extends "/academic/index.html" %}
+{% block style %}
+    <link rel="stylesheet" href="/static/css/ui_kit_form.min.css">
+    <link rel="stylesheet" href="/static/css/style.min.css">
+    <link rel="stylesheet" href="/static/css/abiturient.min.css">
+
+{% endblock %}
+{% block main %}
+    <div class="form_container">
+        <div class="form__wrapper">
+            <form class="log__form" action="" method="post" enctype=multipart/form-data>
+
+                <div class="wrapper__title">
+                    <h1>РЕДАКТИРОВАНИЕ УРОКА</h1>
+                </div>
+                {{ form.hidden_tag() }}
+                <div class="wrapper_dateofborn">
+                    <div class="date__label">
+                        <p class="date__p">Дата</p>
+                        {{ form.birthday(class="date") }}
+                    </div>
+                    <br>
+                    {% for error in form.birthday.errors %}
+
+                        <div class="error" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="form_radio_btn">
+                    <input id="radio-1" type="radio" name="radio" value="1" checked>
+                    <label for="radio-1">Нижняя неделя</label>
+                </div>
+
+                <div class="form_radio_btn">
+                    <input id="radio-2" type="radio" name="radio" value="2">
+                    <label for="radio-2">Верхняя неделя</label>
+                </div>
+
+                <div class="form_radio_btn">
+                    <input id="radio-3" type="radio" name="radio" value="3">
+                    <label for="radio-3">Каждую неделю</label>
+                </div>
+                <div class="button__line"></div>
+                <div class="button__sumbit-1">
+                    {{ form.submit(type="submit", class="button__sumbit") }}
+                </div>
+        </div>
+        </form>
+    </div>
+    </div>
+{% endblock %}

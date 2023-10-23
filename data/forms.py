@@ -152,3 +152,36 @@ class FormCreateClasses(FlaskForm):
 class FormClassesSetGroup(FlaskForm):
     group = StringField("Название группы", validators=[DataRequired()], render_kw={"placeholder": "Введите название группы"})
     submit = SubmitField("Создать")
+
+
+class FormCreateAcademic(FlaskForm):
+    surname = StringField("Отчество", validators=[DataRequired()], render_kw={"placeholder": "Введите отчество"})
+    name = StringField("Имя", validators=[DataRequired()], render_kw={"placeholder": "Введите имя"})
+    family = StringField("Фамилия", validators=[DataRequired()], render_kw={"placeholder": "Введите фамилию"})
+    email = StringField("Почта", validators=[DataRequired()], render_kw={"placeholder": "Введите почту"})
+    password = PasswordField("Пароль", validators=[Length(8, 16, "Пароль от 8 до 16 символов"), DataRequired()],render_kw={"placeholder": "Введите пароль"})
+    repeat_password = PasswordField("Пароль", validators=[Length(8, 16, "Пароль от 8 до 16 символов"), DataRequired()],render_kw={"placeholder": "Повторите пароль"})
+    submit = SubmitField("Изменить пароль")
+
+
+class FormCreateGroup(FlaskForm):
+    group = StringField("Группа", validators=[DataRequired()], render_kw={"placeholder": "Введите название"})
+    academic = StringField("Преподаватель", validators=[DataRequired()],render_kw={"placeholder": "Введите преподавателя"})
+    direction = SelectField("Направление",choices=((1, "Программирование"), (2, "Математика"), (3, "Экономика"), (4, "Физика")))
+    submit = SubmitField("Создать группу")
+
+class FormExamination(FlaskForm):
+    select_field = SelectField("Оценка", choices=((1, "1"), (2, "2"), (3, "3"), (4, "4"), (5,"5")))
+    submit = SubmitField("Отправить")
+
+class FormTreatment(FlaskForm):
+    submit = SubmitField("Принять")
+
+class FormEditLesson(FlaskForm):
+    data_field = DateTimeLocalField("date", format='%m/%d/%y')
+    radio_field = RadioField("radio input", choices=[(1, "Верхняя неделя"), (2, "Нижняя неделя"), (3, "Каждую неделю")])
+    submit = SubmitField("Отправить")
+
+class FormEditLessonForCurator(FlaskForm):
+    about = StringField("Домашнее задание", widget=TextArea(), render_kw={"placeholder": "Введите текст", "rows": "3"})
+    submit = SubmitField("Отправить")

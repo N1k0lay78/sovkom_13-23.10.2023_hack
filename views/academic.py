@@ -3,7 +3,7 @@ from flask_login import current_user, login_required
 
 from controller.academic import get_lessons
 from views.tools import my_render
-from data.forms import FormTest, FormEditPassword, FormEditInfo
+from data.forms import FormTest, FormEditPassword, FormEditInfo, FormExamination, FormEditLesson
 
 academic_pages = Blueprint('academic', __name__)
 
@@ -37,3 +37,26 @@ def edit_password_page():
         #     error, status = resp["message"], resp["status"]
         pass
     return my_render("/academic/edit_password.html", title="", form=form)
+
+@academic_pages.route("/examination", methods=["GET", "POST"])
+def examination_page():
+    form = FormExamination()
+    error, status = "", ""
+    if request.method == "POST":
+        # resp = edit_password(form)
+        # if resp["status"] == "error":
+        #     error, status = resp["message"], resp["status"]
+        pass
+    return my_render("/academic/treatment", title="", form=form)
+
+
+@academic_pages.route("/edit_lesson", methods=["GET", "POST"])
+def edit_lesson_page():
+    form = FormEditLesson()
+    error, status = "", ""
+    if request.method == "POST":
+        # resp = edit_password(form)
+        # if resp["status"] == "error":
+        #     error, status = resp["message"], resp["status"]
+        pass
+    return my_render("/academic/edit_lesson.html", title="", form=form)

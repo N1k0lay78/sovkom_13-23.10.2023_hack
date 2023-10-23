@@ -5,6 +5,8 @@ from controller.abiturient import get_abits
 from controller.file import create_file, get_files, get_file_info, delete_file, edit_file
 from controller.lessons import create_classes, get_all_classes, classes_add_group
 from data.forms import FormFile, FormDelete, FormFileEdit, FormCreateClasses, FormClassesSetGroup
+from data.forms import FormFile, FormDelete, FormFileEdit, FormCreateAcademic, FormEditInfo, FormCreateGroup, \
+    FormEditPassword, FormTreatment, FormEditLessonForCurator
 from views.tools import my_render, goto_profile
 from flask import Blueprint
 from views.tools import my_render
@@ -156,19 +158,35 @@ def upload_file_page():
 
 @curator_pages.route("/create_academic", methods=["GET", "POST"])
 def create_academic_page():
-    form = FormTest()
-    return my_render("/curator/create_academic.html", title="", form=form)
+    form = FormCreateAcademic()
+    error, status = "", ""
+    if request.method == "POST":
+        resp = create_academic(form)
+         if resp["status"] == "error":
+            error, status = resp["message"], resp["status"]
+                return my_render("/curator/create_academic.html", title="", form=form)
 
 
 @curator_pages.route("/create_group", methods=["GET", "POST"])
 def create_group_page():
-    form = FormTest()
-    return my_render("/curator/create_group.html", title="", form=form)
+    form = FormCreateGroup()
+    error, status = "", ""
+    if request.method == "POST":
+        resp = create_group(form)
+         if resp["status"] == "error":
+            error, status = resp["message"], resp["status"]
+                return my_render("/curator/create_group.html", title="", form=form)
 
 
 @curator_pages.route("/edit_info", methods=["GET", "POST"])
 def edit_info_page():
-    form = FormTest()
+    form = FormEditInfo()
+    error, status = "", ""
+    if request.method == "POST":
+        # resp = edit_abiturient(form)
+        # if resp["status"] == "error":
+        #     error, status = resp["message"], resp["status"]
+        pass
     return my_render("/curator/edit_info.html", title="", form=form)
 
 
@@ -223,3 +241,37 @@ def abit_accept_page():
     # resp = get_abits()
     # форма
     return my_render("/curator/abit_list.html", title="Принять абитуриента")
+
+
+@curator_pages.route("/edit_password", methods=["GET", "POST"])
+def edit_password_page():
+    form = FormEditPassword()
+    error, status = "", ""
+    if request.method == "POST":
+        # resp = edit_password(form)
+        # if resp["status"] == "error":
+        #     error, status = resp["message"], resp["status"]
+        pass
+    return my_render("/curator/edit_password.html", title="", form=form)
+
+@curator_pages.route("/treatment", methods=["GET", "POST"])
+def treatment_page():
+    form = FormTreatment()
+    error, status = "", ""
+    if request.method == "POST":
+        # resp = edit_password(form)
+        # if resp["status"] == "error":
+        #     error, status = resp["message"], resp["status"]
+        pass
+    return my_render("/curator/tratment.html", title="", form=form)
+
+@curator_pages.route("/edit_lesson_for_curator", methods=["GET", "POST"])
+def edit_lesson_page():
+    form = FormEditLessonForCurator()
+    error, status = "", ""
+    if request.method == "POST":
+        # resp = edit_password(form)
+        # if resp["status"] == "error":
+        #     error, status = resp["message"], resp["status"]
+        pass
+    return my_render("/curator/edit_lesson.html", title="", form=form)
