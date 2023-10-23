@@ -4,7 +4,7 @@
 # from data.questionnaires import join, help
 
 
-from data.users import user, student, academic, curator, group
+from data.users import user, student, academic, curator, group, abiturient
 from data.education import lesson, event, assessments
 from data.material import edu_material
 from data.message import message

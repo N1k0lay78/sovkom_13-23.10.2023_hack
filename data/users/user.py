@@ -15,6 +15,8 @@ class User(SqlAlchemyBase, UserMixin, SerializerMixin):
     time_created = sqlalchemy.Column(sqlalchemy.DateTime(timezone=True), server_default=func.now())
 
     name = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+    surname = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+    family = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     ava = sqlalchemy.Column(sqlalchemy.String)
 
     type = sqlalchemy.Column(sqlalchemy.String, nullable=True)
