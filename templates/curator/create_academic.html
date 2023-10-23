@@ -13,6 +13,7 @@
                 <div class="wrapper__title">
                     <h1>РЕГИСТРАЦИЯ НОВОГО ПОЛЬЗОВАТЕЛЯ</h1>
                 </div>
+            {{ form.hidden_tag() }}
                         <div class="family__title">
                     <p>Фамилия</p>
                 </div>
@@ -71,7 +72,7 @@
                 </div>
                 <div class="password__container">
 
-                    {{ form.password(class="password") }}<br>
+                    {{ form.repeat_password(class="password") }}<br>
                     <label for="password" class="password__label"><span><img src="/static/img/Vector.svg"
                         {% for error in form.password.errors %}
                             <div class="error" role="alert">
