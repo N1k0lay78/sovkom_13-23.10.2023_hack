@@ -23,7 +23,7 @@ def create_abiturient(form):
     new_abit.surname = form.surname.data
     new_abit.family = form.family.data
 
-    print(form.birthday, form.birthday.data)
+    # print(form.birthday, form.birthday.data)
     new_abit.birthday = form.birthday.data
     new_abit.phone = form.phone.data
     new_abit.social = form.social.data
@@ -60,9 +60,9 @@ def get_abits():
             "fullname": f"{abit.surname} {abit.name} {abit.family}",
             "contacts": [abit.phone, abit.social],
             "birthday": abit.birthday,
-            "job": [abit.job, abit.job_time],
+            "job": [abit.job, abit.time_job],
             "direction": abit.direction,
-            "other_email": abit.other_email,
+            # "other_email": abit.other_email,
             "about": abit.about,
             "achievements": abit.achievements,
             "motivation_message": abit.motivation_message,

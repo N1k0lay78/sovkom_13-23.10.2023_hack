@@ -1,0 +1,35 @@
+{% extends "/curator/index.html" %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/css/style.min.css">
+<link rel="stylesheet" href="/static/css/message.min.css">
+{% endblock %}
+
+{% block main %}
+
+<section>
+    <div class="container">
+        <p class="title">Список абитуриентов</p>
+
+        <div class="file__wrapper">
+            {% for abit in data %}
+            <div class="file__container">
+                <p>{{abit.fullname}}</p>
+                <p>Телефон: <a href="tel:{{abit.contacts[0]}}">{{abit.contacts[0]}}</a> Соцсеть: {{abit.contacts[1]}}</p>
+                <p>{{abit.birthday}}</p>
+                <p>{{abit.job[0]}} {{abit.job[1]}}</p>
+                <p>{{abit.direction}}</p>
+                <br>
+                <p>О себе: {{abit.about}}</p>
+                <p>Достижения: {{abit.achievements}}</p>
+                <p>Мотивация: {{abit.achievements}}</p>
+                {% if not abit.accept %}
+                <a href="/abit/accept/{{abit.id}}">Принять</a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,6 +1,7 @@
 from flask import Blueprint, request, redirect
 from flask_login import login_required, current_user
 
+from controller.abiturient import get_abits
 from controller.file import create_file, get_files, get_file_info, delete_file, edit_file
 from controller.lessons import create_classes, get_all_classes, classes_add_group
 from data.forms import FormFile, FormDelete, FormFileEdit, FormCreateClasses, FormClassesSetGroup
@@ -209,3 +210,16 @@ def classes_add_group_page(id):
 def classes_page():
     resp = get_all_classes()
     return my_render("/curator/classes.html", title="Список уроков", data=resp["data"])
+
+
+@curator_pages.route("/abit")
+def abit_page():
+    resp = get_abits()
+    return my_render("/curator/abit_list.html", title="Список абитуриентов", data=resp["data"])
+
+
+@curator_pages.route("/abit/accept/<int:id>", methods=["GET", "POST"])
+def abit_accept_page():
+    # resp = get_abits()
+    # форма
+    return my_render("/curator/abit_list.html", title="Принять абитуриента")

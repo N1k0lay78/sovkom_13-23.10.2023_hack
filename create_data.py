@@ -5,6 +5,7 @@ from data import db_session
 from data.education.assessments import Assessment
 from data.education.event import Event
 from data.education.lesson import Сlasses, LessonDay
+from data.users.abiturient import Abiturient
 from data.users.academic import Academic
 from data.users.curator import Curator
 from data.users.group import Group
@@ -62,6 +63,39 @@ for mail, passw, name, position in curators:
     new_curator.position = position
 
     session.add(new_curator)
+    session.commit()
+
+abits = [
+    ["abit1@gmail.com", "admin123", ["toropov", "Коля", "vladimirovich"]],
+    ["abit2@gmail.com", "admin123", ["toropov", "Коля", "vladimirovich"]],
+]
+
+
+for mail, passw, name in abits:
+    new_abit = Abiturient()
+    new_abit.email = mail
+    new_abit.set_password(passw)
+
+    new_abit.surname = name[0]
+    new_abit.name = name[1]
+    new_abit.family = name[2]
+
+    # print(form.birthday, form.birthday.data)
+    new_abit.birthday = datetime.datetime.strptime("16.12.2003", "%d.%m.%Y")
+    new_abit.phone = "+7800000000"
+    new_abit.social = "@rjkzavr"
+    new_abit.direction = "программирование"
+    new_abit.about = "Текст обо мне, как о программисте"
+    # new_abit.other_email = form.other_email.data
+    new_abit.job = "хакатонщик"
+    new_abit.time_job = "долго"
+
+    new_abit.achievements = "Призёр хакатона по разработке промышленного дизайна аэробеспилотника Архипелаг 2023"
+    new_abit.motivation_message = "Хочу"
+
+    session.add(new_abit)
+
+    session.add(new_abit)
     session.commit()
 
 groups = [
