@@ -66,7 +66,7 @@ class FormAbit(FlaskForm):
     surname = StringField("Отчество", validators=[DataRequired()], render_kw={"placeholder": "Введите отчество"})
     name = StringField("Имя", validators=[DataRequired()], render_kw={"placeholder": "Введите имя"})
     family = StringField("Фамилия", validators=[DataRequired()], render_kw={"placeholder": "Введите фамилию"})
-    birthday = DateTimeLocalField("Дата рождения", format='%m/%d/%y')
+    birthday = DateTimeLocalField("Дата рождения", format='%Y-%m-%dT%H:%M')
 
     phone = StringField("Телефон", validators=[DataRequired()], render_kw={"placeholder": "+7 (9**) *** ** **"})
     social = StringField("Ссылка на профиль в соц. сеть", validators=[DataRequired()], render_kw={"placeholder": "t.me/@rjkzavr"})

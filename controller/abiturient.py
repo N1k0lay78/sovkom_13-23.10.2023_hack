@@ -10,7 +10,8 @@ def create_abiturient(form):
         session.close()
         return {"status": "error", "message": "пользователь с такой почтой уже существует"}
 
-    if form.password.data == form.repeat_password.data:
+    if form.password.data != form.repeat_password.data:
+        print(form.password.data, form.repeat_password.data)
         session.close()
         return {"status": "error", "message": "пароли не совпадают"}
 
@@ -22,12 +23,13 @@ def create_abiturient(form):
     new_abit.surname = form.surname.data
     new_abit.family = form.family.data
 
+    print(form.birthday, form.birthday.data)
     new_abit.birthday = form.birthday.data
     new_abit.phone = form.phone.data
     new_abit.social = form.social.data
-    new_abit.direction = form.direction.data
+    new_abit.direction = ["Программирование", "Математика", "Экономика", "Физика"][int(form.direction.data) - 1]
     new_abit.about = form.about.data
-    new_abit.other_email = form.other_email.data
+    # new_abit.other_email = form.other_email.data
     new_abit.job = form.job.data
     new_abit.time_job = form.time_job.data
 
