@@ -26,3 +26,8 @@ def edit_info_page():
     form = FormTest()
     return my_render("/curator/edit_info.html", title="", form=form)
 
+@curator_pages.route("/edit_password")
+def edit_password_page():
+    form = FormTest()
+    return my_render("/curator/edit_password.html", title="", form=form)
+

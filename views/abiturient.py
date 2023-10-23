@@ -22,3 +22,8 @@ def application_page():
 def edit_info_page():
     form = FormTest()
     return my_render("/abiturient/edit_info.html", title="", form=form)
+
+@abiturient_pages.route("/edit_password")
+def edit_password_page():
+    form = FormTest()
+    return my_render("/abiturient/edit_password.html", title="", form=form)

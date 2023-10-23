@@ -13,3 +13,9 @@ def lessons_page():
 def edit_info_page():
     form = FormTest()
     return my_render("/academic/edit_info.html", title="", form=form)
+
+
+@academic_pages.route("/edit_password")
+def edit_password_page():
+    form = FormTest()
+    return my_render("/academic/edit_password.html", title="", form=form)
