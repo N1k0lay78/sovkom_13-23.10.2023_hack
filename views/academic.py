@@ -7,3 +7,4 @@ academic_pages = Blueprint('academic', __name__)
 @academic_pages.route("/")
 def lessons_page():
     return my_render("/academic/index.html", title="Расписание")
+
