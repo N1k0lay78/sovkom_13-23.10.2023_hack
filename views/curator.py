@@ -4,6 +4,9 @@ from flask_login import login_required, current_user
 from controller.file import create_file, get_files, get_file_info, delete_file, edit_file
 from data.forms import FormFile, FormDelete, FormFileEdit
 from views.tools import my_render, goto_profile
+from flask import Blueprint
+from views.tools import my_render
+from data.forms import FormTest
 
 curator_pages = Blueprint('curator', __name__)
 
@@ -147,3 +150,25 @@ def upload_file_page():
             return redirect("/curator/file")
     return my_render("/curator/upload_file.html", title="Загрузка файла", type="файл", error=error,
                      status=status, form=form)
+
+
+@curator_pages.route("/create_academic")
+def create_academic_page():
+    form = FormTest()
+    return my_render("/curator/create_academic.html", title="", form=form)
+
+
+@curator_pages.route("/create_group")
+def create_group_page():
+    form = FormTest()
+    return my_render("/curator/create_group.html", title="", form=form)
+
+@curator_pages.route("/edit_info")
+def edit_info_page():
+    form = FormTest()
+    return my_render("/curator/edit_info.html", title="", form=form)
+
+@curator_pages.route("/edit_password")
+def edit_password_page():
+    form = FormTest()
+    return my_render("/curator/edit_password.html", title="", form=form)

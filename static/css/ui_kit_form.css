@@ -51,8 +51,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px;
-  /* 142.857% */
+  line-height: 20px; /* 142.857% */
   padding: 10px 15px;
   margin: 20px 0;
 }
@@ -68,8 +67,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px;
-  /* 100% */
+  line-height: 20px; /* 100% */
   padding-right: 20px;
 }
 
@@ -90,8 +88,7 @@
   font-family: Montserrat;
   font-size: 14px;
   font-style: normal;
-  line-height: 20px;
-  /* 100% */
+  line-height: 20px; /* 100% */
   padding: 10px 15px;
   display: flex;
   align-items: center;
@@ -114,6 +111,7 @@
   font-weight: bold;
   color: #5F5F5F;
   margin: 0;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .password::placeholder {
   font-size: 14px;
@@ -149,8 +147,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px;
-  /* 142.857% */
+  line-height: 20px; /* 142.857% */
 }
 
 /* Checked */
@@ -177,8 +174,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px;
-  /* 100% */
+  line-height: 20px; /* 100% */
   padding: 5px 40px;
 }
 
@@ -190,15 +186,16 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px;
-  /* 100% */
+  line-height: 20px; /* 100% */
   padding: 5px 20px;
 }
 
 .form_container {
   width: 100%;
-  display: block;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 93px);
 }
 
 .form__wrapper {
@@ -209,7 +206,6 @@
   border: 2px solid #868686;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 30px 30px;
-  max-width: 600px;
 }
 
 .button__sumbit-1 {

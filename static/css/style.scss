@@ -31,6 +31,10 @@ body {
   }
 }
 
+.main{
+  min-height: calc(100vh - 93px);
+}
+
 .main a {
   color: blue;
   text-decoration: underline;

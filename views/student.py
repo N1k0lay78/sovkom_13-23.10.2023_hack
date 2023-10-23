@@ -5,6 +5,9 @@ from controller.message import send, recv_messages
 from controller.student import get_lesson_of_user
 from data.forms import FormSendMessage
 from views.tools import my_render, goto_profile
+from flask import Blueprint
+from views.tools import my_render
+from data.forms import FormTest
 
 student_pages = Blueprint('student', __name__)
 
@@ -74,3 +77,13 @@ def read_page():
     print(data)
     return my_render("/student/read.html", error=recv["message"], status=recv["status"], data=data)
 
+
+@student_pages.route("/edit_info")
+def edit_info_page():
+    form = FormTest()
+    return my_render("/student/edit_info.html", title="", form=form)
+
+@student_pages.route("/edit_password")
+def edit_password_page():
+    form = FormTest()
+    return my_render("/student/edit_password.html", title="", form=form)
