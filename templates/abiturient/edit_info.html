@@ -1,0 +1,66 @@
+{% extends "/abiturient/index.html" %}
+{% block style %}
+    <link rel="stylesheet" href="/static/css/ui_kit_form.min.css">
+    <link rel="stylesheet" href="/static/css/style.min.css">
+    <link rel="stylesheet" href="/static/css/abiturient.min.css">
+
+{% endblock %}
+{% block main %}
+    <div class="form_container">
+        <div class="form__wrapper">
+            <form class="log__form" action="" method="post" enctype=multipart/form-data>
+
+                <div class="wrapper__title">
+                    <h1>Редактирование информации</h1>
+                </div>
+                <div class="email__title">
+                    <p>Почта</p>
+                </div>
+                <div class="wrapper__email">
+                    {{ form.text_input(class="text__input") }}<br>
+                    {% for error in form.text_input.errors %}
+                        <div class="error" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                  <div class="family__title">
+                    <p>Фамилия</p>
+                </div>
+                <div class="wrapper__family">
+                    {{ form.text_input(class="text__input") }}<br>
+                    {% for error in form.text_input.errors %}
+                        <div class="error" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="name__title">
+                    <p>Имя</p>
+                </div>
+                <div class="wrapper__name">
+                    {{ form.text_input(class="text__input") }}<br>
+                    {% for error in form.text_input.errors %}
+                        <div class="error" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="surname__title">
+                    <p>Отчество</p>
+                </div>
+                <div class="wrapper__surname">
+                    {{ form.text_input(class="text__input") }}<br>
+                    {% for error in form.text_input.errors %}
+                        <div class="error" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="button__line"></div>
+                <div class="button__sumbit-1">
+                    {{ form.submit(type="submit", class="button__sumbit") }}
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

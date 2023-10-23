@@ -16,3 +16,9 @@ def main_page():
 def application_page():
     form = FormTest()
     return my_render("/abiturient/application.html", title="", form=form)
+
+
+@abiturient_pages.route("/edit_info")
+def edit_info_page():
+    form = FormTest()
+    return my_render("/abiturient/edit_info.html", title="", form=form)
