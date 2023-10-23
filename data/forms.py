@@ -140,3 +140,15 @@ class FormEditPassword(FlaskForm):
     password = PasswordField("Пароль", validators=[Length(8, 16, "Пароль от 8 до 16 символов"), DataRequired()], render_kw={"placeholder": "Введите пароль"})
     repeat_password = PasswordField("Пароль", validators=[Length(8, 16, "Пароль от 8 до 16 символов"), DataRequired()], render_kw={"placeholder": "Повторите пароль"})
     submit = SubmitField("Изменить пароль")
+
+
+class FormCreateClasses(FlaskForm):
+    name = StringField("Название урока", validators=[DataRequired()], render_kw={"placeholder": "Введите название"})
+    academic = StringField("Преподаватель", validators=[DataRequired()], render_kw={"placeholder": "Введите почту"})
+    count = StringField("Количество занятий", validators=[DataRequired()], render_kw={"placeholder": "Введите количество занятий"})
+    submit = SubmitField("Создать")
+
+
+class FormClassesSetGroup(FlaskForm):
+    group = StringField("Название группы", validators=[DataRequired()], render_kw={"placeholder": "Введите название группы"})
+    submit = SubmitField("Создать")

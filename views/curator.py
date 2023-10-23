@@ -2,7 +2,8 @@ from flask import Blueprint, request, redirect
 from flask_login import login_required, current_user
 
 from controller.file import create_file, get_files, get_file_info, delete_file, edit_file
-from data.forms import FormFile, FormDelete, FormFileEdit
+from controller.lessons import create_classes, get_all_classes, classes_add_group
+from data.forms import FormFile, FormDelete, FormFileEdit, FormCreateClasses, FormClassesSetGroup
 from views.tools import my_render, goto_profile
 from flask import Blueprint
 from views.tools import my_render
@@ -152,23 +153,59 @@ def upload_file_page():
                      status=status, form=form)
 
 
-@curator_pages.route("/create_academic")
+@curator_pages.route("/create_academic", methods=["GET", "POST"])
 def create_academic_page():
     form = FormTest()
     return my_render("/curator/create_academic.html", title="", form=form)
 
 
-@curator_pages.route("/create_group")
+@curator_pages.route("/create_group", methods=["GET", "POST"])
 def create_group_page():
     form = FormTest()
     return my_render("/curator/create_group.html", title="", form=form)
 
-@curator_pages.route("/edit_info")
+
+@curator_pages.route("/edit_info", methods=["GET", "POST"])
 def edit_info_page():
     form = FormTest()
     return my_render("/curator/edit_info.html", title="", form=form)
 
-@curator_pages.route("/edit_password")
+
+@curator_pages.route("/edit_password", methods=["GET", "POST"])
 def edit_password_page():
     form = FormTest()
     return my_render("/curator/edit_password.html", title="", form=form)
+
+
+@curator_pages.route("/create_classes", methods=["GET", "POST"])
+def create_classes_page():
+    form = FormCreateClasses()
+    error, status = "", "ok"
+    if request.method == "POST":
+        resp = create_classes(form.name.data, form.academic.data, form.count.data)
+        if resp["status"] != "ok":
+            error, status = resp["message"], resp["status"]
+        else:
+            return redirect("/curator/classes")
+    return my_render("/curator/create_classes.html", title="Создание урока", error=error,
+                     status=status, form=form)
+
+
+@curator_pages.route("/classes_group/<int:id>", methods=["GET", "POST"])
+def classes_add_group_page(id):
+    form = FormClassesSetGroup()
+    error, status = "", "ok"
+    if request.method == "POST":
+        resp = classes_add_group(id, form.group.data)
+        if resp["status"] != "ok":
+            error, status = resp["message"], resp["status"]
+        else:
+            return redirect("/curator/classes")
+    return my_render("/curator/classes_add_group.html", title="Задать группу", error=error,
+                     status=status, form=form)
+
+
+@curator_pages.route("/classes")
+def classes_page():
+    resp = get_all_classes()
+    return my_render("/curator/classes.html", title="Список уроков", data=resp["data"])

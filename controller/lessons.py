@@ -49,6 +49,20 @@ def create_classes(name, academ_email, count_lessons, desc=""):
     return {"status": "ok", "message": "занятие создано"}
 
 
+def get_all_classes():
+    session = db_session.create_session()
+
+    classes = session.query(Сlasses).all()
+
+    data = []
+    week = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
+    for classe in classes:
+        data.append([classe.name, [[week[int(lesson.day_week) - 1], lesson.auditory, "Будет" if lesson.public else "План", lesson.text_hw] for lesson in classe.lessons]])
+
+    session.close()
+    return {"status": "ok", "message": "", "data": data}
+
+
 def classes_add_group(classes_id, group_id):
     session = db_session.create_session()
 
@@ -58,7 +72,7 @@ def classes_add_group(classes_id, group_id):
         session.close()
         return {"status": "error", "message": "занятие не существует"}
 
-    group = session.query(Group).get(group_id)
+    group = session.query(Group).filter(Group.name == group_id).first()
 
     if not group:
         session.close()

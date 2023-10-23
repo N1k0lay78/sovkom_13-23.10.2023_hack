@@ -1,0 +1,62 @@
+{% extends "/curator/index.html" %}
+{% block style %}
+<link rel="stylesheet" href="/static/css/ui_kit_form.min.css">
+<link rel="stylesheet" href="/static/css/style.min.css">
+<link rel="stylesheet" href="/static/css/curator.min.css">
+
+{% endblock %}
+{% block main %}
+<div class="form_container">
+    <div class="form__wrapper">
+        <form class="log__form" action="" method="post" enctype=multipart/form-data>
+
+            <div class="wrapper__title">
+                <h1>Создание урока</h1>
+            </div>
+
+            {{ form.hidden_tag() }}
+
+            <div class="family__title">
+                <p>{{ form.name.label.text }}</p>
+            </div>
+            <div class="wrapper__family">
+                {{ form.name(class="text__input") }}<br>
+                {% for error in form.name.errors %}
+                <div class="error" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="family__title">
+                <p>{{ form.academic.label.text }}</p>
+            </div>
+            <div class="wrapper__family">
+                {{ form.academic(class="text__input") }}<br>
+                {% for error in form.academic.errors %}
+                <div class="error" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="family__title">
+                <p>{{ form.group.count.text }}</p>
+            </div>
+            <div class="wrapper__family">
+                {{ form.count(class="text__input") }}<br>
+                {% for error in form.count.errors %}
+                <div class="error" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="button__line"></div>
+            <div class="button__sumbit-1">
+                {{ form.submit(type="submit", class="button__sumbit") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "/curator/index.html" %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/css/style.min.css">
+<link rel="stylesheet" href="/static/css/message.min.css">
+{% endblock %}
+
+{% block main %}
+
+<section>
+    <div class="container">
+        <p class="title">Занятия</p>
+        <a class="create" href="/curator/create_classes">Создать урок</a>
+
+        <div class="file__wrapper">
+            {% for classe_name, lessons in data %}
+            <div class="file__container">
+                <p>{{classe_name}}</p>
+                <br>
+                <br>
+                {% for lesson in lessons %}
+                <p>{{lesson[0]}} {{lesson[1]}} {{lesson[2]}}</p>
+                <p>{{lesson[3]}}</p>
+                <br>
+                {%
+                endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
