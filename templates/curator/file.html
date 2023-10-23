@@ -12,6 +12,12 @@
         <p class="title">Файлы {{type}}</p>
         {% if t == "presentation" %}
         <a class="create" href="/curator/presentation/create">Создать презентацию</a>
+        {% elif t == "abstract" %}
+        <a class="create" href="/curator/abstract/create">Создать конспект</a>
+        {% elif t == "video" %}
+        <a class="create" href="/curator/video/create">Создать видео</a>
+        {% elif t == "file" %}
+        <a class="create" href="/curator/file/create">Создать файл</a>
         {% endif %}
         <div class="file__wrapper">
             {% for file in files %}

@@ -14,17 +14,6 @@ def main_page():
     return my_render("/curator/index.html", title="")
 
 
-@curator_pages.route("/presentation/create/", methods=["GET", "POST"])
-@login_required
-def upload_presentation_page():
-    form = FormFile()
-    error, status = "", "ok"
-    if request.method == "POST":
-        create_file(form.name.data, request.files["file"], "presentation")
-    return my_render("/curator/upload_file.html", title="Загрузка презентации", type="презентацию", error=error,
-                     status=status, form=form)
-
-
 @curator_pages.route("/file/delete/<int:id>", methods=["GET", "POST"])
 @login_required
 def delete_file_page(id):
@@ -39,8 +28,8 @@ def delete_file_page(id):
         delete_file(id)
         return goto_profile(current_user)
 
-    type = {"presentation": "презентацию", "": ""}[info["data"]["type"]]
-    title = {"presentation": "Удаление презентации", "": ""}[info["data"]["type"]]
+    type = {"presentation": "презентацию", "abstract": "конспект", "video": "видео", "file": "файла", "": ""}[info["data"]["type"]]
+    title = {"presentation": "Удаление презентации", "abstract": "Удаление конспекта", "video": "Удалить видео", "file": "Удалить файл",  "": ""}[info["data"]["type"]]
     return my_render("/curator/delete_file.html", title=title, type=type, error=error,
                      status=status, form=form, asd=name)
 
@@ -66,8 +55,8 @@ def edit_file_page(id):
         else:
             error, status = resp["message"], resp["status"]
 
-    type = {"presentation": "презентацию", "": ""}[info["data"]["type"]]
-    title = {"presentation": "Редактирование презентации", "": ""}[info["data"]["type"]]
+    type = {"presentation": "презентацию", "abstract": "конспект", "video": "видео", "file": "файл", "": ""}[info["data"]["type"]]
+    title = {"presentation": "Редактирование презентации", "abstract": "Редактирование конспекта", "video": "Редактирование видео", "file": "Редактирование файла", "": ""}[info["data"]["type"]]
     return my_render("/curator/edit_file.html", title=title, type=type, error=error,
                      status=status, form=form, asd=name)
 
@@ -77,3 +66,84 @@ def edit_file_page(id):
 def presentation_page():
     files = get_files("presentation")["data"]
     return my_render("/curator/file.html", title="Презентации", type="презентаций", files=files, t="presentation")
+
+
+@curator_pages.route("/presentation/create/", methods=["GET", "POST"])
+@login_required
+def upload_presentation_page():
+    form = FormFile()
+    error, status = "", "ok"
+    if request.method == "POST":
+        resp = create_file(form.name.data, request.files["file"], "presentation")
+        if resp["status"] != "ok":
+            error, status = resp["message"], resp["status"]
+        else:
+            return redirect("/curator/presentation")
+    return my_render("/curator/upload_file.html", title="Загрузка презентации", type="презентацию", error=error,
+                     status=status, form=form)
+
+
+@curator_pages.route("/abstract/")
+@login_required
+def abstract_page():
+    files = get_files("abstract")["data"]
+    return my_render("/curator/file.html", title="Конспекты", type="конспектов", files=files, t="abstract")
+
+
+@curator_pages.route("/abstract/create/", methods=["GET", "POST"])
+@login_required
+def upload_abstract_page():
+    form = FormFile()
+    error, status = "", "ok"
+    if request.method == "POST":
+        resp = create_file(form.name.data, request.files["file"], "abstract")
+        if resp["status"] != "ok":
+            error, status = resp["message"], resp["status"]
+        else:
+            return redirect("/curator/abstract")
+    return my_render("/curator/upload_file.html", title="Загрузка конспекта", type="конспект", error=error,
+                     status=status, form=form)
+
+
+@curator_pages.route("/video/")
+@login_required
+def video_page():
+    files = get_files("video")["data"]
+    return my_render("/curator/file.html", title="Видео", type="видео", files=files, t="video")
+
+
+@curator_pages.route("/video/create/", methods=["GET", "POST"])
+@login_required
+def upload_video_page():
+    form = FormFile()
+    error, status = "", "ok"
+    if request.method == "POST":
+        resp = create_file(form.name.data, request.files["file"], "video")
+        if resp["status"] != "ok":
+            error, status = resp["message"], resp["status"]
+        else:
+            return redirect("/curator/video")
+    return my_render("/curator/upload_file.html", title="Загрузка видео", type="видео", error=error,
+                     status=status, form=form)
+
+
+@curator_pages.route("/file/")
+@login_required
+def file_page():
+    files = get_files("file")["data"]
+    return my_render("/curator/file.html", title="Файлы", type="", files=files, t="file")
+
+
+@curator_pages.route("/file/create/", methods=["GET", "POST"])
+@login_required
+def upload_file_page():
+    form = FormFile()
+    error, status = "", "ok"
+    if request.method == "POST":
+        resp = create_file(form.name.data, request.files["file"], "file")
+        if resp["status"] != "ok":
+            error, status = resp["message"], resp["status"]
+        else:
+            return redirect("/curator/file")
+    return my_render("/curator/upload_file.html", title="Загрузка файла", type="файл", error=error,
+                     status=status, form=form)
