@@ -12,9 +12,9 @@
                 <div class="wrapper__title">
                     <h1>РЕГИСТРАЦИЯ НОВОГО ПОЛЬЗОВАТЕЛЯ</h1>
                 </div>
-            <div class="email__title">
-                <p>Введите почту</p>
-            </div>
+                <div class="email__title">
+                    <p>Введите почту</p>
+                </div>
                 <div class="wrapper__email">
                     {{ form.text_input(class="text__input") }}<br>
                     {% for error in form.text_input.errors %}
@@ -23,9 +23,31 @@
                         </div>
                     {% endfor %}
                 </div>
-            <div class="family__title">
-                <p>Фамилия</p>
-            </div>
+                <div class="password__title">
+                    <p>Придумайте пароль</p>
+                </div>
+                <div class="password__container">
+
+                    {{ form.password(class="password") }}<br>
+                    <label for="password" class="password__label"><span><img src="/static/img/Vector.svg"
+                                                                             alt=""></span></label>
+                </div>
+                <div class="password__title">
+                    <p>Повторите пароль</p>
+                </div>
+                <div class="password__container">
+
+                    {{ form.password(class="password") }}<br>
+                    <label for="password" class="password__label"><span><img src="/static/img/Vector.svg"
+                        {% for error in form.password.errors %}
+                            <div class="error" role="alert">
+                                {{ error }}
+                            </div>
+                        {% endfor %}                                            alt=""></span></label>
+                </div>
+                <div class="family__title">
+                    <p>Фамилия</p>
+                </div>
                 <div class="wrapper__family">
                     {{ form.text_input(class="text__input") }}<br>
                     {% for error in form.text_input.errors %}
@@ -34,9 +56,9 @@
                         </div>
                     {% endfor %}
                 </div>
-            <div class="name__title">
-                <p>Имя</p>
-            </div>
+                <div class="name__title">
+                    <p>Имя</p>
+                </div>
                 <div class="wrapper__name">
                     {{ form.text_input(class="text__input") }}<br>
                     {% for error in form.text_input.errors %}
@@ -102,17 +124,21 @@
                         </div>
                     {% endfor %}
                 </div>
-            <div class="wrapper__about">
-                <div class="about">
-                    <p>О себе</p>
-                </div>
-                {{ form.text_area(class="text__area") }}<br>
-                {% for error in form.text_area.errors %}
-                    <div class="error" role="alert">
-                        {{ error }}
+                <div class="wrapper__about">
+                    <div class="about">
+                        <p>О себе</p>
                     </div>
-                {% endfor %}
-            </div>
+                    {{ form.text_area(class="text__area") }}<br>
+                    {% for error in form.text_area.errors %}
+                        <div class="error" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="button__line"></div>
+                <div class="button__sumbit-1">
+                    {{ form.submit(type="submit", class="button__sumbit") }}
+                </div>
             </form>
         </div>
     </div>
