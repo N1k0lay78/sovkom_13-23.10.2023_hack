@@ -35,8 +35,10 @@ def delete_file_page(id):
         delete_file(id)
         return goto_profile(current_user)
 
-    type = {"presentation": "презентацию", "abstract": "конспект", "video": "видео", "file": "файла", "": ""}[info["data"]["type"]]
-    title = {"presentation": "Удаление презентации", "abstract": "Удаление конспекта", "video": "Удалить видео", "file": "Удалить файл",  "": ""}[info["data"]["type"]]
+    type = {"presentation": "презентацию", "abstract": "конспект", "video": "видео", "file": "файла", "": ""}[
+        info["data"]["type"]]
+    title = {"presentation": "Удаление презентации", "abstract": "Удаление конспекта", "video": "Удалить видео",
+             "file": "Удалить файл", "": ""}[info["data"]["type"]]
     return my_render("/curator/delete_file.html", title=title, type=type, error=error,
                      status=status, form=form, asd=name)
 
@@ -62,8 +64,10 @@ def edit_file_page(id):
         else:
             error, status = resp["message"], resp["status"]
 
-    type = {"presentation": "презентацию", "abstract": "конспект", "video": "видео", "file": "файл", "": ""}[info["data"]["type"]]
-    title = {"presentation": "Редактирование презентации", "abstract": "Редактирование конспекта", "video": "Редактирование видео", "file": "Редактирование файла", "": ""}[info["data"]["type"]]
+    type = {"presentation": "презентацию", "abstract": "конспект", "video": "видео", "file": "файл", "": ""}[
+        info["data"]["type"]]
+    title = {"presentation": "Редактирование презентации", "abstract": "Редактирование конспекта",
+             "video": "Редактирование видео", "file": "Редактирование файла", "": ""}[info["data"]["type"]]
     return my_render("/curator/edit_file.html", title=title, type=type, error=error,
                      status=status, form=form, asd=name)
 
@@ -161,10 +165,11 @@ def create_academic_page():
     form = FormCreateAcademic()
     error, status = "", ""
     if request.method == "POST":
-        resp = create_academic(form)
-         if resp["status"] == "error":
-            error, status = resp["message"], resp["status"]
-                return my_render("/curator/create_academic.html", title="", form=form)
+        # resp = create_academic(form)
+        # if resp["status"] == "error":
+        #     error, status = resp["message"], resp["status"]
+        pass
+    return my_render("/curator/create_academic.html", title="", form=form)
 
 
 @curator_pages.route("/create_group", methods=["GET", "POST"])
@@ -172,10 +177,11 @@ def create_group_page():
     form = FormCreateGroup()
     error, status = "", ""
     if request.method == "POST":
-        resp = create_group(form)
-         if resp["status"] == "error":
-            error, status = resp["message"], resp["status"]
-                return my_render("/curator/create_group.html", title="", form=form)
+        # resp = create_group(form)
+        # if resp["status"] == "error":
+        #     error, status = resp["message"], resp["status"]
+        pass
+    return my_render("/curator/create_group.html", title="", form=form)
 
 
 @curator_pages.route("/edit_info", methods=["GET", "POST"])
@@ -188,12 +194,6 @@ def edit_info_page():
         #     error, status = resp["message"], resp["status"]
         pass
     return my_render("/curator/edit_info.html", title="", form=form)
-
-
-@curator_pages.route("/edit_password", methods=["GET", "POST"])
-def edit_password_page():
-    form = FormTest()
-    return my_render("/curator/edit_password.html", title="", form=form)
 
 
 @curator_pages.route("/create_classes", methods=["GET", "POST"])
@@ -254,6 +254,7 @@ def edit_password_page():
         pass
     return my_render("/curator/edit_password.html", title="", form=form)
 
+
 @curator_pages.route("/treatment", methods=["GET", "POST"])
 def treatment_page():
     form = FormTreatment()
@@ -264,6 +265,7 @@ def treatment_page():
         #     error, status = resp["message"], resp["status"]
         pass
     return my_render("/curator/tratment.html", title="", form=form)
+
 
 @curator_pages.route("/edit_lesson_for_curator", methods=["GET", "POST"])
 def edit_lesson_page():
