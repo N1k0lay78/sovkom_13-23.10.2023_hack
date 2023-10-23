@@ -1,7 +1,7 @@
 from flask import Blueprint, request, redirect
 
 from controller.abiturient import create_abiturient
-from data.forms import FormTest, FormSendMessage, FormAbit
+from data.forms import FormTest, FormSendMessage, FormAbit, FormEditInfo, FormEditPassword
 from views.tools import my_render
 
 abiturient_pages = Blueprint('abiturient', __name__)
@@ -25,13 +25,22 @@ def application_page():
             return redirect("/")
     return my_render("/abiturient/application.html", title="", form=form, error=error, status=status)
 
-
-@abiturient_pages.route("/edit_info")
+@abiturient_pages.route("/edit_info", methods=["GET", "POST"])
 def edit_info_page():
-    form = FormTest()
+    form = FormEditInfo()
+    error, status = "", ""
+    if request.method == "POST":
+        resp = edit_abiturient(form)
+        if resp["status"] == "error":
+            error, status = resp["message"], resp["status"]
     return my_render("/abiturient/edit_info.html", title="", form=form)
 
-@abiturient_pages.route("/edit_password")
+@abiturient_pages.route("/edit_password", methods=["GET", "POST"])
 def edit_password_page():
-    form = FormTest()
+    form = FormEditPassword()
+    error, status = "", ""
+    if request.method == "POST":
+        resp = edit_password(form)
+        if resp["status"] == "error":
+            error, status = resp["message"], resp["status"]
     return my_render("/abiturient/edit_password.html", title="", form=form)
