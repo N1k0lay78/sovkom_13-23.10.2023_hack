@@ -51,7 +51,40 @@ class FormSendMessage(FlaskForm):
     family = StringField("Фамилия", validators=[DataRequired()], render_kw={"placeholder": "Введите фамилию"})
     email = StringField("Почта", validators=[DataRequired()], render_kw={"placeholder": "Введите почту"})
     message = StringField("text area", widget=TextArea(), validators=[DataRequired()], render_kw={"placeholder": "Введите сообщение", "rows": "3"})
+    password = PasswordField("Пароль", validators=[Length(8, 16, "Пароль от 8 до 16 символов"), DataRequired()], render_kw={"placeholder": "Введите пароль"})
+    data_field = DateTimeLocalField("date", format='%m/%d/%y')
+    favoritedirection = SelectField("selection", choices=((1, "Программирование"), (2, "Математика"), (3, "Экономика"), (4, "Физика")))
+    text_area = StringField("text area", widget=TextArea(), render_kw={"placeholder": "Введите текст", "rows": "3"})
     submit = SubmitField("Отправить")
+
+
+class FormAbit(FlaskForm):
+    email = StringField("Почта", validators=[DataRequired()], render_kw={"placeholder": "Введите почту"})
+    password = PasswordField("Пароль", validators=[Length(8, 16, "Пароль от 8 до 16 символов"), DataRequired()], render_kw={"placeholder": "Введите пароль"})
+    repeat_password = PasswordField("Пароль", validators=[Length(8, 16, "Пароль от 8 до 16 символов"), DataRequired()], render_kw={"placeholder": "Повторите пароль"})
+
+    surname = StringField("Отчество", validators=[DataRequired()], render_kw={"placeholder": "Введите отчество"})
+    name = StringField("Имя", validators=[DataRequired()], render_kw={"placeholder": "Введите имя"})
+    family = StringField("Фамилия", validators=[DataRequired()], render_kw={"placeholder": "Введите фамилию"})
+    birthday = DateTimeLocalField("Дата рождения", format='%m/%d/%y')
+
+    phone = StringField("Телефон", validators=[DataRequired()], render_kw={"placeholder": "+7 (9**) *** ** **"})
+    social = StringField("Ссылка на профиль в соц. сеть", validators=[DataRequired()], render_kw={"placeholder": "t.me/@rjkzavr"})
+
+    direction = SelectField("Направление", choices=((1, "Программирование"), (2, "Математика"), (3, "Экономика"), (4, "Физика")))
+    about = StringField("О себе", widget=TextArea(), render_kw={"placeholder": "Введите текст", "rows": "3"})
+
+    job = StringField("Место работы", validators=[DataRequired()], render_kw={"placeholder": "Введите место работы"})
+    time_job = StringField("Время работы", validators=[DataRequired()], render_kw={"placeholder": "Введите период работы"})
+
+    achievements = StringField("Достижения", widget=TextArea(), render_kw={"placeholder": "Введите текст", "rows": "3"})
+    motivation_message = StringField("Мотивационное письмо", widget=TextArea(), render_kw={"placeholder": "Введите текст", "rows": "3"})
+
+    submit = SubmitField("Отправить")
+
+
+
+
 
 
 class FormFile(FlaskForm):

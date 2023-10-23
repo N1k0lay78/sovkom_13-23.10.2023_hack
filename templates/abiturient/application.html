@@ -10,14 +10,14 @@
         <div class="form__wrapper">
             <form class="log__form" action="" method="post" enctype=multipart/form-data>
                 <div class="wrapper__title">
-                    <h1>РЕГИСТРАЦИЯ НОВОГО ПОЛЬЗОВАТЕЛЯ</h1>
+                    <h1>РЕГИСТРАЦИЯ АБИТУРИЕНТА</h1>
                 </div>
                 <div class="email__title">
-                    <p>Введите почту</p>
+                    <p>{{form.email.label.text}}</p>
                 </div>
                 <div class="wrapper__email">
                     {{ form.email(class="text__input") }}<br>
-                    {% for error in form.text_input.errors %}
+                    {% for error in form.email.errors %}
                         <div class="error" role="alert">
                             {{ error }}
                         </div>
@@ -37,20 +37,16 @@
                 </div>
                 <div class="password__container">
 
-                    {{ form.password(class="password") }}<br>
-                    <label for="password" class="password__label"><span><img src="/static/img/Vector.svg"
-                        {% for error in form.password.errors %}
-                            <div class="error" role="alert">
-                                {{ error }}
-                            </div>
-                        {% endfor %}                                            alt=""></span></label>
+                    {{ form.repeat_password(class="password") }}<br>
+                    <label for="repeat_password" class="password__label"><span><img src="/static/img/Vector.svg"
+                                                                             alt=""></span></label>
                 </div>
                 <div class="family__title">
                     <p>Фамилия</p>
                 </div>
                 <div class="wrapper__family">
-                    {{ form.family(class="text__input") }}<br>
-                    {% for error in form.family.errors %}
+                    {{ form.surname(class="text__input") }}<br>
+                    {% for error in form.surname.errors %}
                         <div class="error" role="alert">
                             {{ error }}
                         </div>
@@ -61,7 +57,7 @@
                 </div>
                 <div class="wrapper__name">
                     {{ form.name(class="text__input") }}<br>
-                    {% for error in form.text_input.errors %}
+                    {% for error in form.name.errors %}
                         <div class="error" role="alert">
                             {{ error }}
                         </div>
@@ -71,8 +67,8 @@
                     <p>Отчество</p>
                 </div>
                 <div class="wrapper__surname">
-                    {{ form.surname(class="text__input") }}<br>
-                    {% for error in form.text_input.errors %}
+                    {{ form.family(class="text__input") }}<br>
+                    {% for error in form.family.errors %}
                         <div class="error" role="alert">
                             {{ error }}
                         </div>
@@ -81,10 +77,10 @@
                 <div class="wrapper_dateofborn">
                     <div class="date__label">
                         <p class="date__p">Дата</p>
-                        {{ form.data_field(class="date") }}
+                        {{ form.birthday(class="date") }}
                     </div>
                     <br>
-                    {% for error in form.data_field.errors %}
+                    {% for error in form.birthday.errors %}
 
                         <div class="error" role="alert">
                             {{ error }}
@@ -95,8 +91,8 @@
                     <div class="number__title">
                         <p>Номер телефона</p>
                     </div>
-                    {{ form.number(class="text__input") }}<br>
-                    {% for error in form.text_input.errors %}
+                    {{ form.phone(class="text__input") }}<br>
+                    {% for error in form.phone.errors %}
                         <div class="error" role="alert">
                             {{ error }}
                         </div>
@@ -106,8 +102,8 @@
                     <div class="link__title">
                         <p>Ссылка на профиль в соц. сеть</p>
                     </div>
-                    {{ form.link(class="text__input") }}<br>
-                    {% for error in form.text_input.errors %}
+                    {{ form.social(class="text__input") }}<br>
+                    {% for error in form.social.errors %}
                         <div class="error" role="alert">
                             {{ error }}
                         </div>
@@ -117,8 +113,8 @@
                     <div class="direction__title">
                         <p>Желаемое направление</p>
                     </div>
-                    {{ form.favoritedirection(class="selection") }}<br>
-                    {% for error in form.select_field.errors %}
+                    {{ form.direction(class="selection") }}<br>
+                    {% for error in form.direction.errors %}
                         <div class="error" role="alert">
                             {{ error }}
                         </div>
@@ -128,11 +124,59 @@
                     <div class="about">
                         <p>О себе</p>
                     </div>
-                    {{ form.text_area(class="text__area") }}<br>
-                    {% for error in form.text_area.errors %}
+                    {{ form.about(class="text__area") }}<br>
+                    {% for error in form.about.errors %}
                         <div class="error" role="alert">
                             {{ error }}
                         </div>
+                    {% endfor %}
+                </div>
+
+                <div class="wrapper__about">
+                    <div class="about">
+                        <p>{{ form.job.label.text}}</p>
+                    </div>
+                    {{ form.job(class="text__area") }}<br>
+                    {% for error in form.job.errors %}
+                    <div class="error" role="alert">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="wrapper__about">
+                    <div class="about">
+                        <p>{{ form.time_job.label.text}}</p>
+                    </div>
+                    {{ form.time_job(class="text__area") }}<br>
+                    {% for error in form.time_job.errors %}
+                    <div class="error" role="alert">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="wrapper__about">
+                    <div class="about">
+                        <p>{{ form.achievements.label.text}}</p>
+                    </div>
+                    {{ form.achievements(class="text__area") }}<br>
+                    {% for error in form.achievements.errors %}
+                    <div class="error" role="alert">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="wrapper__about">
+                    <div class="about">
+                        <p>{{ form.motivation_message.label.text}}</p>
+                    </div>
+                    {{ form.motivation_message(class="text__area") }}<br>
+                    {% for error in form.motivation_message.errors %}
+                    <div class="error" role="alert">
+                        {{ error }}
+                    </div>
                     {% endfor %}
                 </div>
                 <div class="button__line"></div>

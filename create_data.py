@@ -15,28 +15,32 @@ db_session.global_init("db/study.sqlite")
 session = db_session.create_session()
 
 students = [
-    ["student@gmail.com", "admin123", "Студент Коля"],
-    ["klimov200000@gmail.com", "admin123", "Студент Аня"],
+    ["student@gmail.com", "admin123", ["toropov", "Коля", "vladimirovich"]],
+    ["klimov200000@gmail.com", "admin123", ["toropov", "Коля", "vladimirovich"]],
 ]
 
 for mail, passw, name in students:
     new_student = Student()
     new_student.email = mail
     new_student.set_password(passw)
-    new_student.name = name
+    new_student.surname = name[0]
+    new_student.name = name[1]
+    new_student.family = name[2]
 
     session.add(new_student)
     session.commit()
 
 academics = [
-    ["academic@gmail.com", "admin123", "Академик Николай", "Профессор"],
+    ["academic@gmail.com", "admin123", ["toropov", "Коля", "vladimirovich"], "Профессор"],
 ]
 
 for mail, passw, name, position in academics:
     new_academic = Academic()
     new_academic.email = mail
     new_academic.set_password(passw)
-    new_academic.name = name
+    new_academic.surname = name[0]
+    new_academic.name = name[1]
+    new_academic.family = name[2]
     new_academic.position = position
 
     session.add(new_academic)
@@ -45,14 +49,16 @@ for mail, passw, name, position in academics:
 session.close()
 
 curators = [
-    ["curator@gmail.com", "admin123", "Куратор Николай Владимирович", "Курирует всё"],
+    ["curator@gmail.com", "admin123", ["toropov", "Коля", "vladimirovich"], "Курирует всё"],
 ]
 
 for mail, passw, name, position in curators:
     new_curator = Curator()
     new_curator.email = mail
     new_curator.set_password(passw)
-    new_curator.name = name
+    new_curator.surname = name[0]
+    new_curator.name = name[1]
+    new_curator.family = name[2]
     new_curator.position = position
 
     session.add(new_curator)

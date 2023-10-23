@@ -11,11 +11,13 @@ class Abiturient(User):
     social = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     direction = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     about = sqlalchemy.Column(sqlalchemy.String, nullable=False)
-    other_email = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+    # other_email = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     job = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     time_job = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     achievements = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     motivation_message = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+
+    accept = sqlalchemy.Column(sqlalchemy.Boolean, nullable=False, server_default='f', default=False)
 
     __mapper_args__ = {
         "polymorphic_identity": "abiturient",

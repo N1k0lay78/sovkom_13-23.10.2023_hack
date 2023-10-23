@@ -1,6 +1,6 @@
 from flask import Blueprint
 
-from data.forms import FormTest
+from data.forms import FormTest, FormSendMessage, FormAbit
 from views.tools import my_render
 
 abiturient_pages = Blueprint('abiturient', __name__)
@@ -14,7 +14,7 @@ def main_page():
 
 @abiturient_pages.route("/application")
 def application_page():
-    form = FormTest()
+    form = FormAbit()
     return my_render("/abiturient/application.html", title="", form=form)
 
 
