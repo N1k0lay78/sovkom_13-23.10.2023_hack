@@ -25,6 +25,7 @@ def application_page():
             return redirect("/")
     return my_render("/abiturient/application.html", title="", form=form, error=error, status=status)
 
+
 @abiturient_pages.route("/edit_info", methods=["GET", "POST"])
 def edit_info_page():
     form = FormEditInfo()

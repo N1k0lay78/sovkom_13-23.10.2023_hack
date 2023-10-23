@@ -1,6 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 
+from controller.lessons import get_all_classes, get_stud_classes
 from controller.message import send, recv_messages
 from controller.student import get_lesson_of_user
 from data.forms import FormSendMessage, FormEditPassword, FormEditInfo, FormLogin
@@ -26,7 +27,8 @@ def lessons_page():
 @student_pages.route("/tasks")
 @login_required
 def tasks_page():
-    return "Задачи"
+    resp = get_all_classes()
+    return my_render("/student/works.html", title="Задачи", data=resp["data"])
 
 
 @student_pages.route("/info")

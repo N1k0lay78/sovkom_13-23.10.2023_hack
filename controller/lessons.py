@@ -7,6 +7,7 @@ from data import db_session
 from data.material.edu_material import EduMaterial
 from data.users.academic import Academic
 from data.users.group import Group
+from data.users.student import Student
 
 
 def create_classes(name, academ_email, count_lessons, desc=""):
@@ -27,7 +28,8 @@ def create_classes(name, academ_email, count_lessons, desc=""):
     session.add(new_classes)
     session.commit()
 
-    for _ in range(count_lessons):
+    print(count_lessons)
+    for _ in range(int(count_lessons)):
         new_lesson = LessonDay()
         new_lesson.type_week = 2
 
@@ -54,6 +56,21 @@ def get_all_classes():
 
     classes = session.query(Сlasses).all()
 
+    data = []
+    week = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
+    for classe in classes:
+        data.append([classe.name, [[week[int(lesson.day_week) - 1], lesson.auditory, "Будет" if lesson.public else "План", lesson.text_hw, lesson.id] for lesson in classe.lessons]])
+
+    session.close()
+    return {"status": "ok", "message": "", "data": data}
+
+
+def get_stud_classes(stud_id):
+    session = db_session.create_session()
+
+    classes = session.query(Student).get(stud_id).groups[0].classes
+    print(session.query(Student).get(stud_id).groups[0])
+    print(classes)
     data = []
     week = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
     for classe in classes:

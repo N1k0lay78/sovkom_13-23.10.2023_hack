@@ -12,7 +12,7 @@ class LessonDay(SqlAlchemyBase):
     day_week = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)  # day from 1 to 7
     date = sqlalchemy.Column(sqlalchemy.DateTime(timezone=True))
     auditory = sqlalchemy.Column(sqlalchemy.String)
-    public = sqlalchemy.Column(sqlalchemy.Boolean, nullable=False, server_default='f', default=False)
+    public = sqlalchemy.Column(sqlalchemy.Boolean, nullable=False, server_default='t', default=True)
     # homework = sqlalchemy.Column(sqlalchemy.String)
 
     text_hw = sqlalchemy.Column(sqlalchemy.String)

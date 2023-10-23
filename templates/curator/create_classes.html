@@ -41,7 +41,7 @@
             </div>
 
             <div class="family__title">
-                <p>{{ form.group.count.text }}</p>
+                <p>{{ form.count.label.text }}</p>
             </div>
             <div class="wrapper__family">
                 {{ form.count(class="text__input") }}<br>
@@ -51,6 +51,10 @@
                 </div>
                 {% endfor %}
             </div>
+
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% endif %}
 
             <div class="button__line"></div>
             <div class="button__sumbit-1">
