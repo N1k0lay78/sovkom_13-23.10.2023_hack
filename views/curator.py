@@ -21,3 +21,8 @@ def create_group_page():
     form = FormTest()
     return my_render("/curator/create_group.html", title="", form=form)
 
+@curator_pages.route("/edit_info")
+def edit_info_page():
+    form = FormTest()
+    return my_render("/curator/edit_info.html", title="", form=form)
+
