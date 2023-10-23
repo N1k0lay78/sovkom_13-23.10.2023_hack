@@ -254,4 +254,12 @@
   font-weight: 600;
 }
 
+.log__title {
+  padding: 15px 15px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+}
+
 /*# sourceMappingURL=ui_kit_form.css.map */
