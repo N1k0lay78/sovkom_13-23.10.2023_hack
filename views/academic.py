@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, request
 from views.tools import my_render
 from data.forms import FormTest, FormEditPassword, FormEditInfo
 
@@ -14,9 +14,10 @@ def edit_info_page():
     form = FormEditInfo()
     error, status = "", ""
     if request.method == "POST":
-        resp = edit_abiturient(form)
-        if resp["status"] == "error":
-            error, status = resp["message"], resp["status"]
+        #resp = edit_abiturient(form)
+        # if resp["status"] == "error":
+        #     error, status = resp["message"], resp["status"]
+        pass
     return my_render("/academic/edit_info.html", title="", form=form)
 
 
@@ -25,7 +26,8 @@ def edit_password_page():
     form = FormEditPassword()
     error, status = "", ""
     if request.method == "POST":
-        resp = edit_password(form)
-        if resp["status"] == "error":
-            error, status = resp["message"], resp["status"]
+        # resp = edit_password(form)
+        # if resp["status"] == "error":
+        #     error, status = resp["message"], resp["status"]
+        pass
     return my_render("/academic/edit_password.html", title="", form=form)

@@ -126,12 +126,14 @@ class FormTest(FlaskForm):
 class FormDelete(FlaskForm):
     submit = SubmitField("Удалить")
 
+
 class FormEditInfo(FlaskForm):
     email = StringField("Почта", validators=[DataRequired()], render_kw={"placeholder": "Введите почту"})
     surname = StringField("Отчество", validators=[DataRequired()], render_kw={"placeholder": "Введите отчество"})
     name = StringField("Имя", validators=[DataRequired()], render_kw={"placeholder": "Введите имя"})
     family = StringField("Фамилия", validators=[DataRequired()], render_kw={"placeholder": "Введите фамилию"})
     submit = SubmitField("Отправить")
+
 
 class FormEditPassword(FlaskForm):
     current_password = PasswordField("Текущий пароль", validators=[Length(8, 16, "Пароль от 8 до 16 символов"), DataRequired()], render_kw={"placeholder": "Введите пароль"})
