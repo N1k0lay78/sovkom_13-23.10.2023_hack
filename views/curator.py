@@ -14,3 +14,10 @@ def main_page():
 def create_academic_page():
     form = FormTest()
     return my_render("/curator/create_academic.html", title="", form=form)
+
+
+@curator_pages.route("/create_group")
+def create_group_page():
+    form = FormTest()
+    return my_render("/curator/create_group.html", title="", form=form)
+
