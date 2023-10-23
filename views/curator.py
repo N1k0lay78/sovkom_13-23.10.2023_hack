@@ -3,7 +3,8 @@ from flask_login import login_required, current_user
 
 from controller.abiturient import get_abits, accept_abit
 from controller.file import create_file, get_files, get_file_info, delete_file, edit_file
-from controller.lessons import create_classes, get_all_classes, classes_add_group
+from controller.lessons import create_classes, get_all_classes, classes_add_group, edit_lesson_curator, \
+    get_lesson_curator
 from data.forms import FormFile, FormDelete, FormFileEdit, FormCreateClasses, FormClassesSetGroup
 from data.forms import FormFile, FormDelete, FormFileEdit, FormCreateAcademic, FormEditInfo, FormCreateGroup, \
     FormEditPassword, FormTreatment, FormEditLessonForCurator
@@ -230,6 +231,17 @@ def classes_page():
     return my_render("/curator/classes.html", title="Список уроков", data=resp["data"])
 
 
+@curator_pages.route("/lesson/<int:id>", methods=["GET", "POST"])
+def lesson_edit(id):
+    form = FormEditLessonForCurator()
+    if not form.about.data:
+        form.about.data = get_lesson_curator(id)
+    if request.method == "POST":
+        edit_lesson_curator(id, form.about.data)
+        return redirect("/curator/classes")
+    return my_render("/curator/edit_lesson.html", title="Задать домашнее задание", form=form)
+
+
 @curator_pages.route("/abit")
 def abit_page():
     resp = get_abits()
@@ -257,15 +269,3 @@ def edit_password_page():
         #     error, status = resp["message"], resp["status"]
         pass
     return my_render("/curator/edit_password.html", title="", form=form)
-
-
-@curator_pages.route("/edit_lesson_for_curator", methods=["GET", "POST"])
-def edit_lesson_page():
-    form = FormEditLessonForCurator()
-    error, status = "", ""
-    if request.method == "POST":
-        # resp = edit_password(form)
-        # if resp["status"] == "error":
-        #     error, status = resp["message"], resp["status"]
-        pass
-    return my_render("/curator/edit_lesson.html", title="", form=form)

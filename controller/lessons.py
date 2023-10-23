@@ -57,7 +57,7 @@ def get_all_classes():
     data = []
     week = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
     for classe in classes:
-        data.append([classe.name, [[week[int(lesson.day_week) - 1], lesson.auditory, "Будет" if lesson.public else "План", lesson.text_hw] for lesson in classe.lessons]])
+        data.append([classe.name, [[week[int(lesson.day_week) - 1], lesson.auditory, "Будет" if lesson.public else "План", lesson.text_hw, lesson.id] for lesson in classe.lessons]])
 
     session.close()
     return {"status": "ok", "message": "", "data": data}
@@ -123,7 +123,31 @@ def update_assessments(classes_id):
     return {"status": "ok", "message": "оценки обновлены"}
 
 
-def edit_lesson(id, type_week, date, auditory, text_hw, public):
+def edit_lesson_curator(id, text_hw):
+    session = db_session.create_session()
+
+    lesson = session.query(LessonDay).get(id)
+
+    lesson.text_hw = text_hw
+
+    session.add(lesson)
+    session.commit()
+
+    session.close()
+
+
+def get_lesson_curator(id):
+    session = db_session.create_session()
+
+    lesson = session.query(LessonDay).get(id)
+
+    text_hw = lesson.text_hw
+
+    session.close()
+    return text_hw
+
+
+def edit_lesson_academic(id, type_week, date, auditory, public):
     session = db_session.create_session()
 
     lesson = session.query(LessonDay).get(id)
@@ -136,7 +160,6 @@ def edit_lesson(id, type_week, date, auditory, text_hw, public):
     lesson.day_week = date_obj.weekday()+1
 
     lesson.auditory = auditory
-    lesson.text_hw = text_hw
     lesson.public = public
 
     session.add(lesson)
