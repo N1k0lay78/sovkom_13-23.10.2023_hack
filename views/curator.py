@@ -1,7 +1,7 @@
 from flask import Blueprint, request, redirect
 from flask_login import login_required, current_user
 
-from controller.abiturient import get_abits
+from controller.abiturient import get_abits, accept_abit
 from controller.file import create_file, get_files, get_file_info, delete_file, edit_file
 from controller.lessons import create_classes, get_all_classes, classes_add_group
 from data.forms import FormFile, FormDelete, FormFileEdit, FormCreateClasses, FormClassesSetGroup
@@ -18,7 +18,7 @@ curator_pages = Blueprint('curator', __name__)
 @curator_pages.route("/")
 @login_required
 def main_page():
-    return my_render("/curator/index.html", title="")
+    return redirect("/curator/abit")
 
 
 @curator_pages.route("/file/delete/<int:id>", methods=["GET", "POST"])
@@ -237,10 +237,14 @@ def abit_page():
 
 
 @curator_pages.route("/abit/accept/<int:id>", methods=["GET", "POST"])
-def abit_accept_page():
-    # resp = get_abits()
-    # форма
-    return my_render("/curator/abit_list.html", title="Принять абитуриента")
+def abit_accept_page(id):
+    form = FormTreatment()
+    error, status = "", ""
+    if request.method == "POST":
+        resp = accept_abit(id)
+        if resp["status"] == "error":
+            error, status = resp["message"], resp["status"]
+    return my_render("/curator/treatment.html", title="", form=form)
 
 
 @curator_pages.route("/edit_password", methods=["GET", "POST"])
@@ -253,18 +257,6 @@ def edit_password_page():
         #     error, status = resp["message"], resp["status"]
         pass
     return my_render("/curator/edit_password.html", title="", form=form)
-
-
-@curator_pages.route("/treatment", methods=["GET", "POST"])
-def treatment_page():
-    form = FormTreatment()
-    error, status = "", ""
-    if request.method == "POST":
-        # resp = edit_password(form)
-        # if resp["status"] == "error":
-        #     error, status = resp["message"], resp["status"]
-        pass
-    return my_render("/curator/tratment.html", title="", form=form)
 
 
 @curator_pages.route("/edit_lesson_for_curator", methods=["GET", "POST"])
