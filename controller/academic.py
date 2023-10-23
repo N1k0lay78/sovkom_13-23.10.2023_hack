@@ -52,18 +52,49 @@ def get_academic_info(academic_id):
     return resp
 
 
-def create_file(academic_id, data, file):
+def get_lessons(academic_id):
     session = db_session.create_session()
     academic = session.query(Academic).get(academic_id)
     if not academic:
         session.close()
-        return {"status": "error", "message": "преподаватель не существует"}
+        return {"status": "error", "message": "Преподаватель не существует"}
 
-    # TODO: сохранение файла
 
+    data = [[] for _ in range(7)]
+
+    for classe in academic.classes:
+        for lesson in classe.lessons:
+            data[int(lesson.day_week - 1)].append({
+                "time": ":".join(str(lesson.date.time()).split(":")[:-1]),
+                "type_week": lesson.type_week,
+                "name": lesson.classes.name,
+                "description": lesson.classes.description,
+                "academic_name": lesson.classes.academics[0].name,
+                "auditory": lesson.auditory,
+            })
     session.close()
-    return {"status": "ok",
-            "message": "файл создан",
-            "data": {
-                "href": ""  # ссылка на файл
-            }}
+
+    for i in range(7):
+        data[i].sort(key=lambda x: x["time"])
+
+    return {"status": "ok", "message": "", "data": data}
+
+
+# def create_file(academic_id, data, file):
+#     session = db_session.create_session()
+#     academic = session.query(Academic).get(academic_id)
+#     if not academic:
+#         session.close()
+#         return {"status": "error", "message": "преподаватель не существует"}
+#
+#     # TODO: сохранение файла
+#
+#     session.close()
+#     return {"status": "ok",
+#             "message": "файл создан",
+#             "data": {
+#                 "href": ""  # ссылка на файл
+#             }}
+
+
+

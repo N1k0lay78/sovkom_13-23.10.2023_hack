@@ -1,4 +1,7 @@
 from flask import Blueprint, request
+from flask_login import current_user, login_required
+
+from controller.academic import get_lessons
 from views.tools import my_render
 from data.forms import FormTest, FormEditPassword, FormEditInfo
 
@@ -6,8 +9,11 @@ academic_pages = Blueprint('academic', __name__)
 
 
 @academic_pages.route("/")
+@login_required
 def lessons_page():
-    return my_render("/academic/index.html", title="Расписание")
+    table = get_lessons(current_user.id)["data"]
+    day = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
+    return my_render("/academic/lessons.html", title="Расписание", table=table, day=day)
 
 @academic_pages.route("/edit_info", methods=["GET", "POST"])
 def edit_info_page():

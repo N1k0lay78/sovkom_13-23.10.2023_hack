@@ -1,0 +1,73 @@
+{% extends "/academic/index.html" %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/css/style.min.css">
+<link rel="stylesheet" href="/static/css/timetable.min.css">
+{% endblock %}
+
+{% block main %}
+<section>
+    <div class="container">
+        <p class="schedule__title">Расписание</p>
+        <div class="schedule__wrapper">
+            <table class="timetable">
+                <thead class="timetable__header">
+                <tr>
+                    <th>Время</th>
+                    <th>Предмет</th>
+                    <th>Преподаватель</th>
+                    <th>Аудитория</th>
+                </tr>
+                </thead>
+                {% for lessons in table %}
+                {% if lessons != [] %}
+                <thead class="timetable__day">
+                <tr>
+                    <td colspan="4">{{day[loop.index - 1]}}</td>
+                </tr>
+                </thead>
+                <tbody class="timetable__lesson">
+                {% for lesson in lessons %}
+                <tr>
+                    <td>
+                        <div class="timetable__time">
+                            <p>{{lesson.time}}</p>
+                            {% if lesson.type_week == 0 %}
+                            <p>Нижняя неделя</p>
+                            {% elif lesson.type_week == 1 %}
+                            <p>Верхняя неделя</p>
+                            {% elif lesson.type_week == 2 %}
+                            <p>Каждую неделю</p>
+                            {% endif %}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="timetable__lesson-name">
+                            <p>{{lesson.name}}</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="timetable__academic">
+                            <p>{{lesson.academic_name}}</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="timetable__auditory">
+                            <p>{{lesson.auditory}}</p>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block js %}
+<script src="/static/js/timetable.js"></script>
+{% endblock %}
