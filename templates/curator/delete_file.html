@@ -10,24 +10,9 @@
     <div class="form__wrapper">
         <form class="log__form" action="" method="post" enctype=multipart/form-data>
 
-            <p class="log__title">Загрузить {{type}}</p>
+            <p class="log__title">Удалить {{type}} {{asd}}</p>
 
             {{ form.hidden_tag() }}
-
-            {{ form.name(class="text__input") }}<br>
-            {% for error in form.name.errors %}
-            <div class="error" role="alert">
-                {{ error }}
-            </div>
-            {% endfor %}
-
-            <input type="file" name="file" class="input__file" id="file">
-            <label for="file">
-                <span>Выбрать файл</span>
-                <img src="/static/img/images-outline%201.png" alt="" style="margin-left: 10px">
-                <img src="/static/img/Untitled.png" alt="">
-                <img src="/static/img/folder-outline%201.png" alt="">
-            </label>
 
             {% if error %}
             {% if status == "error" %}

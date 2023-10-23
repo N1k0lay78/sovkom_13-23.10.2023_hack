@@ -37,6 +37,10 @@ class FormCompanyRegistration(FlaskForm):
 """
 
 
+class FormDelete(FlaskForm):
+    submit = SubmitField("Удалить")
+
+
 class FormSendMessage(FlaskForm):
     email = StringField("Почта", validators=[DataRequired()], render_kw={"placeholder": "Введите почту"})
     message = StringField("text area", widget=TextArea(), validators=[DataRequired()], render_kw={"placeholder": "Введите сообщение", "rows": "3"})
@@ -44,12 +48,13 @@ class FormSendMessage(FlaskForm):
 
 
 class FormFile(FlaskForm):
-    name = StringField("Название файла", validators=[DataRequired()], render_kw={"placeholder": "Введите название файла"})
+    name = StringField("Название файла", validators=[DataRequired()], render_kw={"placeholder": "Введите название"})
+    file = FileField("")
     submit = SubmitField("Сохранить")
 
 
 class FormFileEdit(FlaskForm):
-    name = StringField("Название файла", validators=[DataRequired()], render_kw={"placeholder": "Введите название файла"})
+    name = StringField("Название файла", validators=[DataRequired()], render_kw={"placeholder": "Введите название"})
     href = StringField("Ссылка", render_kw={"placeholder": "Введите ссылку"})
     submit = SubmitField("Сохранить")
 

@@ -1,0 +1,29 @@
+{% extends "/curator/index.html" %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/css/style.min.css">
+<link rel="stylesheet" href="/static/css/message.min.css">
+{% endblock %}
+
+{% block main %}
+
+<section>
+    <div class="container">
+        <p class="title">Файлы {{type}}</p>
+        {% if t == "presentation" %}
+        <a class="create" href="/curator/presentation/create">Создать презентацию</a>
+        {% endif %}
+        <div class="file__wrapper">
+            {% for file in files %}
+            <div class="file__container">
+                <p>{{file[1]}}</p>
+                <a href="/file/{{file[0]}}">Скачать</a>
+                <a href="/curator/file/{{file[2]}}">Редактировать</a>
+                <a href="/curator/file/delete/{{file[2]}}">Удалить</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

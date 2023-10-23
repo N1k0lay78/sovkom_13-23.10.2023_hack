@@ -22,7 +22,7 @@ application.config.from_object(config)
 db_session.global_init("db/study.sqlite")
 
 # uploads dir
-uploads_dir = os.path.join(application.instance_path, 'uploads')
+uploads_dir = config.uploads_dir
 # print(uploads_dir)
 try:
     os.makedirs(uploads_dir)

@@ -1,6 +1,10 @@
-from flask import Blueprint, request, redirect
+import os
+
+from flask import Blueprint, request, redirect, send_file
 from flask_login import login_user, login_required, logout_user, current_user
 
+from config import uploads_dir
+from controller.file import get_file_path
 from data import db_session
 from data.forms import FormLogin
 from data.users.user import User
@@ -31,6 +35,15 @@ def login_page():
 def logout():
     logout_user()
     return redirect("/")
+
+
+@index_pages.route("/file/<string:href>")
+@login_required
+def load_file(href):
+    resp = get_file_path(href)
+    if resp["status"] == "error":
+        return goto_profile(current_user)
+    return send_file(os.path.join(uploads_dir, resp["filename"]))
 
 
 @index_pages.route("/")

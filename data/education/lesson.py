@@ -17,33 +17,55 @@ academic_lesson = sqlalchemy.Table(
 )
 
 
-class LessonDay(SqlAlchemyBase):
-    __tablename__ = 'lesson-day'
-    id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
-    type_week = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)  # day from 1 to 3
-    day_week = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)  # day from 1 to 7
-    auditory = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+# class LessonDay(SqlAlchemyBase):
+#     __tablename__ = 'lesson-day'
+#     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
+#     type_week = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)  # day from 1 to 3
+#     day_week = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)  # day from 1 to 7
+#     auditory = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+#
+#     text_hw = sqlalchemy.Column(sqlalchemy.String)
+#     assessments = orm.relationship("Assessment")
+#
+#
+# class LessonName(SqlAlchemyBase, UserMixin, SerializerMixin):
+#     __tablename__ = 'lesson-name'
+#     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
+#
+#     ava = sqlalchemy.Column(sqlalchemy.String)
+#     name = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+#     description = sqlalchemy.Column(sqlalchemy.String)
+#
+#     # day_week = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)  # day from 1 to 21 (2 week up and down and all weeks)
+#     # time = sqlalchemy.Column(sqlalchemy.String, nullable=False)  # HH:MM
+#     # auditory = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+#     count = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)
+#     # constant duration
+#
+#     academics = orm.relationship("Academic", secondary=academic_lesson)
+#     groups = orm.relationship("Group", secondary=group_lesson)
+#
+#     def __repr__(self):
+#         return f'<Lesson-name> Название-занятия {self.id} {self.name} {self.academics}:{self.groups}'
 
-    text_hw = sqlalchemy.Column(sqlalchemy.String)
-    assessments = orm.relationship("Assessment")
 
-
-class LessonName(SqlAlchemyBase, UserMixin, SerializerMixin):
-    __tablename__ = 'lesson-name'
+class Lesson(SqlAlchemyBase, UserMixin, SerializerMixin):
+    __tablename__ = 'lesson'
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
 
     ava = sqlalchemy.Column(sqlalchemy.String)
     name = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     description = sqlalchemy.Column(sqlalchemy.String)
 
-    # day_week = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)  # day from 1 to 21 (2 week up and down and all weeks)
-    # time = sqlalchemy.Column(sqlalchemy.String, nullable=False)  # HH:MM
-    # auditory = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+    day_week = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)  # day from 1 to 21 (2 week up and down and all weeks)
+    time = sqlalchemy.Column(sqlalchemy.String, nullable=False)  # HH:MM
+    auditory = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     count = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)
     # constant duration
 
     academics = orm.relationship("Academic", secondary=academic_lesson)
     groups = orm.relationship("Group", secondary=group_lesson)
+    assessments = orm.relationship("Assessment")
 
     def __repr__(self):
-        return f'<Lesson-name> Название-занятия {self.id} {self.name} {self.academics}:{self.groups}'
+        return f'<Lesson> Занятие {self.id} {self.name} {self.academics}:{self.groups}:{self.assessments}'
