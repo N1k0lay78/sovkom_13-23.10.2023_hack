@@ -21,6 +21,8 @@
                 {% for lesson in lessons %}
                 <p>{{lesson[0]}} {{lesson[1]}} {{lesson[2]}}</p>
                 <p>{{lesson[3]}}</p>
+                <a href="/curator/lesson/{{lesson[4]}}">Изменить задание</a>
+                <br>
                 <br>
                 {%
                 endfor %}
