@@ -1,5 +1,69 @@
 {% extends "base.html" %}
 
+{% block head %}
+    <link rel="stylesheet" href="/static/css/table.css">
+    <link rel="stylesheet" href="/static/css/test.css">
+{% endblock %}
+
 {% block main %}
-<p>сюда таблицу</p>
+<form action="/test/tabel/" method="post">
+    {{ form.csrf_token }}
+<table class="table">
+  <tbody>
+    <tr>
+      <th colspan="1" rowspan="2" class="table_header_STUDENT">Студент</th>
+      <th colspan="{{(table_len - 2) * 2}}" class="table_header_DATA">Дата</th>
+      <th colspan="1" rowspan="2" class="table_header_ITOG">Итоговый балл</th>
+    </tr>
+    <tr>
+      {%for data in header_table%}
+      <th colspan="2" class="table_date">{{data}}</th>
+      {% endfor %}
+    </tr>
+    {%for data in stud_data%}
+    <tr>
+      <th class="table_data_student_name">{{data['name']}}</th>
+      {%for date in data['data']%}
+      {%if date[0] == -1 and date[1] == -1%}
+        {%if user == 'Преподаватель'%}
+      <th class="table_presence_rating" colspan="2">
+           <input type="number" placeholder=" " class="table_presence_rating_professor" name="{{data['name']}} {{loop.index}}">
+           <input type="hidden" placeholder=" " class="table_presence_rating" name="{{data['name']}} {{loop.index}}" value="{{date[0]}}">
+          </th>
+        {%elif user == 'Студент'%}
+      <th class="table_presence_rating" colspan="2">⠀</th>
+        {%endif%}
+        {%elif date[0] == -1%}
+        {%if user == 'Преподаватель'%}
+      <th class="table_presence_rating" >
+          <input type="number" placeholder=" " class="table_presence_rating" name="{{data['name']}} {{loop.index}}">
+           <input type="hidden" placeholder=" " class="table_presence_rating" name="{{data['name']}} {{loop.index}}" value="{{date[0]}}">
+
+          </th>
+        {%elif user == 'Студент'%}
+        <th class="table_presence_rating">⠀</th>
+        {%endif%}
+      {% else %}
+        {%if user == 'Преподаватель'%}
+      <th class="table_presence_rating">
+           <input type="number" placeholder="{{date[0]}}" class="table_presence_rating" name="{{data['name']}} {{loop.index}}" value="{{date[0]}}">
+          </th>
+        {%elif user == 'Студент'%}
+      <th class="table_presence_rating">{{date[0]}}</th>
+        {%endif%}
+      {% endif %}
+          {%if date[1] == 0%}
+          <th class="table_presence_false"></th>
+          {%elif date[1] == -1%}
+          {% else %}
+          <th class="table_presence_true"></th>
+          {% endif %}
+      {% endfor %}
+      <th class="table_data_student_itog">{{data['result']}}</th>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+    <input type="submit" value="СОХРАНИТЬ" class="table_button">
+    </form>
 {% endblock %}
