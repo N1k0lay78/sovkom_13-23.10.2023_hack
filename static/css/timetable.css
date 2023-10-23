@@ -41,6 +41,11 @@
   box-sizing: border-box;
 }
 
+section {
+  width: 100%;
+  padding: 30px 0;
+}
+
 body {
   width: 100vw;
   overflow-x: hidden;
@@ -89,7 +94,8 @@ body {
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 100% */
+  line-height: 20px;
+  /* 100% */
   width: 90px;
   height: 20px;
   margin-right: 50px;
@@ -106,7 +112,8 @@ body {
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 100% */
+  line-height: 20px;
+  /* 100% */
   width: 94px;
   height: 20px;
   border-radius: 2px;
@@ -147,7 +154,8 @@ body {
   font-size: 10.607px;
   font-style: normal;
   font-weight: 600;
-  line-height: 27.286px; /* 257.241% */
+  line-height: 27.286px;
+  /* 257.241% */
   border-bottom: 0.5px solid transparent;
   border-top: 0.5px solid transparent;
 }
@@ -176,7 +184,8 @@ body {
   font-size: 10.607px;
   font-style: normal;
   font-weight: 600;
-  line-height: 27.286px; /* 257.241% */
+  line-height: 27.286px;
+  /* 257.241% */
 }
 .nav__wrapper__menu__ul__li__inside__ul__li:hover {
   background: #D9D9D9;
@@ -475,7 +484,8 @@ a {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28.5px; /* 178.125% */
+  line-height: 28.5px;
+  /* 178.125% */
 }
 .footer__wrapper__dlyrussia {
   color: #000;
@@ -483,7 +493,8 @@ a {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28.5px; /* 178.125% */
+  line-height: 28.5px;
+  /* 178.125% */
 }
 .footer__wrapper__mobver {
   color: #000;
@@ -491,7 +502,8 @@ a {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28.5px; /* 178.125% */
+  line-height: 28.5px;
+  /* 178.125% */
 }
 
 .footer__wrapper__dlyrubezja__text {
@@ -524,11 +536,6 @@ a {
 .footer__wrapper__social {
   display: flex;
   justify-content: space-around;
-}
-
-section {
-  width: 100%;
-  padding: 30px 0;
 }
 
 .schedule__title {
@@ -631,4 +638,4 @@ section {
   overflow: hidden;
 }
 
-/*# sourceMappingURL=test.css.map */
+/*# sourceMappingURL=timetable.css.map */
