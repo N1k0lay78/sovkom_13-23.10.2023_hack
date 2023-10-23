@@ -42,6 +42,13 @@ class FormDelete(FlaskForm):
 
 
 class FormSendMessage(FlaskForm):
+    academic = StringField("Преподаватель", validators=[DataRequired()], render_kw={"placeholder": "Введите преподавателя"})
+    link = StringField("Ссылка", validators=[DataRequired()], render_kw={"placeholder": "Введите ссылку"})
+    number = StringField("Телефон", validators=[DataRequired()], render_kw={"placeholder": "+7 (9**) *** ** **"})
+    group = StringField("Группа", validators=[DataRequired()], render_kw={"placeholder": "Введите название"})
+    surname = StringField("Отчество", validators=[DataRequired()], render_kw={"placeholder": "Введите отчество"})
+    name = StringField("Имя", validators=[DataRequired()], render_kw={"placeholder": "Введите имя"})
+    family = StringField("Фамилия", validators=[DataRequired()], render_kw={"placeholder": "Введите фамилию"})
     email = StringField("Почта", validators=[DataRequired()], render_kw={"placeholder": "Введите почту"})
     message = StringField("text area", widget=TextArea(), validators=[DataRequired()], render_kw={"placeholder": "Введите сообщение", "rows": "3"})
     submit = SubmitField("Отправить")
@@ -70,8 +77,9 @@ class FormTest(FlaskForm):
     text_area = StringField("text area", widget=TextArea(), render_kw={"placeholder": "Введите текст", "rows": "3"})
     select_field = SelectField("selection", choices=((1, "один"), (2, "два"), (3, "три"), (4, "четыре")))
     data_field = DateTimeLocalField("date", format='%m/%d/%y')
-
+    favoritedirection = SelectField("selection", choices=((1, "Программирование"), (2, "Математика"), (3, "Экономика"), (4, "Физика")))
     radio_field = RadioField("radio input", choices=[(1, "Верхняя неделя"), (2, "Нижняя неделя"), (3, "Каждую неделю")])
+    direction = SelectField("selection", choices=((1, "Программирование"), (2, "Математика"), (3, "Экономика"), (4, "Физика")))
 
     file_field = FileField("file input")
     image_field = FileField("image input")

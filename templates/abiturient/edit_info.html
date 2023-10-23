@@ -17,7 +17,7 @@
                     <p>Почта</p>
                 </div>
                 <div class="wrapper__email">
-                    {{ form.text_input(class="text__input") }}<br>
+                    {{ form.email(class="text__input") }}<br>
                     {% for error in form.text_input.errors %}
                         <div class="error" role="alert">
                             {{ error }}
@@ -27,7 +27,7 @@
                     <p>Фамилия</p>
                 </div>
                 <div class="wrapper__family">
-                    {{ form.text_input(class="text__input") }}<br>
+                    {{ form.family(class="text__input") }}<br>
                     {% for error in form.text_input.errors %}
                         <div class="error" role="alert">
                             {{ error }}
@@ -38,7 +38,7 @@
                     <p>Имя</p>
                 </div>
                 <div class="wrapper__name">
-                    {{ form.text_input(class="text__input") }}<br>
+                    {{ form.name(class="text__input") }}<br>
                     {% for error in form.text_input.errors %}
                         <div class="error" role="alert">
                             {{ error }}
@@ -49,7 +49,7 @@
                     <p>Отчество</p>
                 </div>
                 <div class="wrapper__surname">
-                    {{ form.text_input(class="text__input") }}<br>
+                    {{ form.surname(class="text__input") }}<br>
                     {% for error in form.text_input.errors %}
                         <div class="error" role="alert">
                             {{ error }}

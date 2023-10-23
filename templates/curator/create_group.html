@@ -17,7 +17,7 @@
                     <p>Название группы</p>
                 </div>
                 <div class="wrapper__name">
-                    {{ form.text_input(class="text__input") }}<br>
+                    {{ form.group(class="text__input") }}<br>
                     {% for error in form.text_input.errors %}
                         <div class="error" role="alert">
                             {{ error }}
@@ -28,7 +28,7 @@
                     <p>Преподаватель</p>
                 </div>
                 <div class="wrapper__academic">
-                    {{ form.text_input(class="text__input") }}<br>
+                    {{ form.academic(class="text__input") }}<br>
                     {% for error in form.text_input.errors %}
                         <div class="error" role="alert">
                             {{ error }}
@@ -39,7 +39,7 @@
                     <div class="direction__title">
                         <p>Направление</p>
                     </div>
-                    {{ form.select_field(class="selection") }}<br>
+                    {{ form.direction(class="selection") }}<br>
                     {% for error in form.select_field.errors %}
                         <div class="error" role="alert">
                             {{ error }}
