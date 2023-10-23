@@ -1,6 +1,6 @@
 from flask import Blueprint
 from views.tools import my_render
-from data.forms import FormTest
+from data.forms import FormTest, FormEditPassword, FormEditInfo
 
 academic_pages = Blueprint('academic', __name__)
 
@@ -20,7 +20,12 @@ def edit_info_page():
     return my_render("/academic/edit_info.html", title="", form=form)
 
 
-@academic_pages.route("/edit_password")
+@academic_pages.route("/edit_password", methods=["GET", "POST"])
 def edit_password_page():
-    form = FormTest()
+    form = FormEditPassword()
+    error, status = "", ""
+    if request.method == "POST":
+        resp = edit_password(form)
+        if resp["status"] == "error":
+            error, status = resp["message"], resp["status"]
     return my_render("/academic/edit_password.html", title="", form=form)

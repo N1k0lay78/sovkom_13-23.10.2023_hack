@@ -38,7 +38,7 @@ def edit_password_page():
     form = FormEditPassword()
     error, status = "", ""
     if request.method == "POST":
-        resp = edit_abiturient(form)
+        resp = edit_password(form)
         if resp["status"] == "error":
             error, status = resp["message"], resp["status"]
     return my_render("/abiturient/edit_password.html", title="", form=form)
