@@ -120,7 +120,7 @@ def create_file(name, file, type):
     filename = ''.join(random.choice(letters) for i in range(16))
     while filename + "." + file.filename.split(".")[-1] in os.listdir(uploads_dir):
         filename = ''.join(random.choice(letters) for i in range(16))
-    print(filename)
+    # print(filename)
     new_material.href = filename
     filename = filename + "." + file.filename.split(".")[-1]
     new_material.filename = filename
@@ -132,3 +132,25 @@ def create_file(name, file, type):
 
     session.close()
     return {"status": "ok", "message": ""}
+
+
+def create_empty_file(session):
+
+    new_material = EduMaterial()
+    new_material.name = "homework"
+    new_material.type = "homework"
+
+    letters = string.ascii_lowercase + "0123456789"
+    href = ''.join(random.choice(letters) for i in range(16))
+    # print(1)
+    while session.query(EduMaterial).filter(EduMaterial.href == href).first():
+        # print(2)
+        href = ''.join(random.choice(letters) for i in range(16))
+    new_material.href = href
+    # print(3)
+
+    session.add(new_material)
+    session.commit()
+
+    id = new_material.id
+    return {"status": "ok", "message": "", "id": id}

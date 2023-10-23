@@ -19,7 +19,7 @@ class Group(SqlAlchemyBase):
     about = sqlalchemy.Column(sqlalchemy.String)
     time_created = sqlalchemy.Column(sqlalchemy.DateTime(timezone=True), server_default=func.now())
 
-    lessons = orm.relationship("Lesson", secondary=group_lesson)
+    classes = orm.relationship("Сlasses", secondary=group_lesson)
     students = orm.relationship("Student", secondary=student_group)
 
     curator_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("curator.id"))

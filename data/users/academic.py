@@ -13,7 +13,7 @@ class Academic(User):
     position = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     self_promotion = sqlalchemy.Column(sqlalchemy.String)
 
-    lessons = orm.relationship("Lesson", secondary=academic_lesson)
+    classes = orm.relationship("Сlasses", secondary=academic_lesson)
     events = orm.relationship("Event", secondary=academic_event)
 
     __mapper_args__ = {

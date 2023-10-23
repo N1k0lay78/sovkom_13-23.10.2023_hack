@@ -13,7 +13,9 @@ class EduMaterial(SqlAlchemyBase, UserMixin, SerializerMixin):
     href = sqlalchemy.Column(sqlalchemy.String, unique=True, nullable=False)
     name = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     type = sqlalchemy.Column(sqlalchemy.String, nullable=False)
-    filename = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+    filename = sqlalchemy.Column(sqlalchemy.String)
+
+    Assessments = orm.relationship('Assessment')
 
     time_created = sqlalchemy.Column(sqlalchemy.DateTime(timezone=True), server_default=func.now())
     time_edited = sqlalchemy.Column(sqlalchemy.DateTime(timezone=True), onupdate=func.now())

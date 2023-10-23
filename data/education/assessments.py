@@ -12,12 +12,14 @@ class Assessment(SqlAlchemyBase, UserMixin, SerializerMixin):
     student_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("student.id"))
     student = orm.relationship('Student')
 
-    lesson_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("lesson.id"))
-    lesson = orm.relationship('Lesson')
+    lesson_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("lesson-day.id"))
+    lesson = orm.relationship('LessonDay')
+
+    material_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("edu-material.id"))
+    material = orm.relationship('EduMaterial')
 
     visit = sqlalchemy.Column(sqlalchemy.Boolean, server_default='f', default=False)
     mark = sqlalchemy.Column(sqlalchemy.Integer)
-    num = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)
 
     def __repr__(self):
-        return f'<Assessments> {self.id}:{self.lesson.name}:{self.student.name}'
+        return f'<Assessments> {self.id}:{self.lesson.classes.name}:{self.student.name}'

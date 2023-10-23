@@ -1,9 +1,10 @@
 import datetime
 
+from controller.lessons import create_classes, classes_add_group
 from data import db_session
 from data.education.assessments import Assessment
 from data.education.event import Event
-from data.education.lesson import Lesson
+from data.education.lesson import Сlasses, LessonDay
 from data.users.academic import Academic
 from data.users.curator import Curator
 from data.users.group import Group
@@ -77,41 +78,53 @@ for name, desc, curator_id, start, end, stud_ids in groups:
     session.add(new_group)
     session.commit()
 
-lessons = [
-    # name, description, academics, time [day 1-21, time HH:MM, count], groups
-    ["инжиниринг", "группа инженеров", [3], [1, "17:10", 10], [1], "У 115"],
-    ["программирование", "группа программистов", [3], [1, "14:00", 10], [1], "У 115"],
-    ["моделирование", "группа инженеров", [3], [1, "15:40", 10], [1], "У 115"],
+classes = [
+    # name, description, academic_email, count_lessons
+    ["инжиниринг", "занятие для инженеров", "academic@gmail.com", 4],
+    ["программирование", "занятие для программистов", "academic@gmail.com", 3],
+    ["моделирование", "занятие для инженеров", "academic@gmail.com", 2],
 ]
 
-for name, desc, academics_ids, time, group_ids, auditory in lessons:
-    new_lesson = Lesson()
-    new_lesson.name = name
-    new_lesson.about = desc
-    new_lesson.day_week = time[0]
-    new_lesson.time = time[1]
-    new_lesson.count = time[2]
-    new_lesson.auditory = auditory
+for name, desc, academics_email, count_lessons in classes:
+    create_classes(name, academics_email, count_lessons, desc=desc)
 
-    for ind in academics_ids:
-        new_lesson.academics.append(session.query(Academic).get(ind))
+classes_add_groups = [
+    [1, 1],
+    [2, 1],
+    [3, 1],
+]
 
-    for ind in group_ids:
-        new_lesson.groups.append(session.query(Group).get(ind))
+for classes_id, group_id in classes_add_groups:
+    classes_add_group(classes_id, group_id)
 
-    session.add(new_lesson)
-
-    for group in new_lesson.groups:
-        for stud in group.students:
-            for i in range(time[2]):
-                new_assessment = Assessment()
-                new_assessment.student_id = stud.id
-                new_assessment.lesson_id = new_lesson.id
-                new_assessment.num = i + 1
-                session.add(new_assessment)
-
-    session.commit()
-    # print(session.query(Assessment).filter(Assessment.student_id == 1).filter(Assessment.lesson_id == 1).all())
+# for name, desc, academics_ids, time, group_ids, auditory in lessons:
+#     new_lesson = Lesson()
+#     new_lesson.name = name
+#     new_lesson.about = desc
+#     new_lesson.day_week = time[0]
+#     new_lesson.time = time[1]
+#     new_lesson.count = time[2]
+#     new_lesson.auditory = auditory
+#
+#     for ind in academics_ids:
+#         new_lesson.academics.append(session.query(Academic).get(ind))
+#
+#     for ind in group_ids:
+#         new_lesson.groups.append(session.query(Group).get(ind))
+#
+#     session.add(new_lesson)
+#
+#     for group in new_lesson.groups:
+#         for stud in group.students:
+#             for i in range(time[2]):
+#                 new_assessment = Assessment()
+#                 new_assessment.student_id = stud.id
+#                 new_assessment.lesson_id = new_lesson.id
+#                 new_assessment.num = i + 1
+#                 session.add(new_assessment)
+#
+#     session.commit()
+#     # print(session.query(Assessment).filter(Assessment.student_id == 1).filter(Assessment.lesson_id == 1).all())
 
 events = [
     # name, description, academics, time [start_time, duration], students

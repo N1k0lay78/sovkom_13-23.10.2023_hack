@@ -6,4 +6,5 @@
 
 from data.users import user, student, academic, curator, group
 from data.education import lesson, event, assessments
+from data.material import edu_material
 from data.message import message

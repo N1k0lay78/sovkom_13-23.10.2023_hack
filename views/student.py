@@ -16,6 +16,7 @@ def lessons_page():
     message = lessons["message"]
     lessons = lessons["data"]
     day = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
+    print(lessons)
     return my_render("/student/lessons.html", title="Расписание", message=message, table=lessons, day=day)
 
 
