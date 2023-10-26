@@ -2,10 +2,29 @@
 
 ## Оглавление
 
+- [Как запустить](#start)
 - [Правила работы в команде](#git)
 - [Архитектура сайта](#architecture)
 - [Страницы сайта](#pages)
 - [Команда](#team)
+
+<a name='start'></a>
+## Start
+
+создать venv c питоном (версия на которой разрабатывали - https://www.python.org/downloads/windows/#:~:text=Note%20that%20Python%203.9.13%20cannot%20be%20used%20on%20Windows%207%20or%20earlier) <br> 
+скачать `requirements.txt` (возможно понадобиться скачать 2 раза) <br>
+запустить файл `main.py`
+
+### Аккаунты
+
+Логин: student@gmail.com Пароль: admin123 - студент<br>
+Логин: academic@gmail.com Пароль: admin123 - учитель<br>
+Логин: curator@gmail.com Пароль: admin123 - куратора<br>
+
+### Ссылки
+
+- https://youtu.be/mMVPZ_14oL8
+- https://github.com/N1k0lay78/sovkom_13-23.10.2023_hack
 
 <a name='git'></a>
 ## GIT
